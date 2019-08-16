@@ -1,0 +1,236 @@
+:root {
+    --font-generic: arial, helvetica, sans-serif;
+    --c-primary: #7cb342;
+    --c-text: #3c4946;
+    --c-shadow: var(--c-text);
+    --c-hover: #558b2f;
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+     src: url('fonts/SourceSansPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+     src: url('fonts/SourceSansPro-Semibold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+     src: url('fonts/SourceSansPro-SemiboldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+     src: url('fonts/SourceSansPro-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Droid Sans Mono";
+     src: url('fonts/DroidSansMono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* { box-sizing: border-box; }
+
+/*
+    * 1: Computes to 10px by the browsers so we can use rem the nice way
+    * 2: Specifies a size adjustment for displaying text content on smartphones.
+*/
+
+html {
+    height: 100%;
+    font-size: 62.5%; // * 1 *
+    color: var(--c-text);
+    text-size-adjust: 100%; // * 2 *
+    font-feature-settings: "liga", "kern";
+    background-color: #fff;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans Pro", var(--font-generic);
+    font-size: 1.8rem;
+}
+
+.scroll-disabled { overflow: hidden; }
+
+/* -------------- */
+/* HEADER  + MENU */
+/* -------------- */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6rem;
+    padding-right: 2rem;
+    font-size: 1.6rem;
+    background-color: var(--c-primary);
+}
+
+/* Hamburger */
+.hamburger-wrapper {
+    display: flex;
+    align-items: center;;
+    position: relative;
+    margin-left: auto;
+    width: 8.5rem;
+    height: 6rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-left: 1.5rem;
+}
+
+.hamburger {
+    flex: 0 0 21px;
+    transform: translateZ(0);
+    transition: transform 0.5s, background-color 0.3s;
+    position: relative;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+
+}
+    .hamburger::after,
+    .hamburger::before {
+        transition: transform 0.5s, background-color 0.3s;
+        position: absolute;
+        display: block;
+        width: 21px;
+        height: 2px;
+        content: "";
+        background-color: #fff;
+    }
+
+    .hamburger::after { top: 6px; }
+    .hamburger::before { top: -6px; }
+
+
+/* menu */
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: visibility 400ms ease-in-out, opacity 400ms ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(23, 47, 14, 0.95);
+}
+
+/* [role="navigation"] {
+    opacity: 0;
+    transition: opacity 500ms 500ms ease-in;
+} */
+
+[role="menuitem"] {
+    position: relative;
+    display: block;
+    width: 25vw;
+    min-width: 25rem;
+    margin-bottom: 3rem;
+    font-size: 3.5rem;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 350ms ease-out;
+}
+
+    [role="menuitem"]::after {
+        display: block;
+        margin-top: 0.75rem;
+        height: 1px;
+        content: "";
+        background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0,
+            #fff 25%,
+            #fff 75%,
+            rgba(255, 255, 255, 0) 100%);
+    }
+
+    [role="menuitem"] span::before,
+    [role="menuitem"] span::after {
+        display: inline-block;
+        opacity: 0;
+        transition: all 0.5s;
+    }
+
+    [role="menuitem"] span::before {
+        content: "{";
+        padding-right: 0.75rem;
+        transform: translateX(2rem);
+    }
+
+    [role="menuitem"] span::after {
+        content: "}";
+        padding-left: 0.75rem;
+        transform: translateX(-2rem);
+    }
+
+    [role="menuitem"].selected span::before,
+    [role="menuitem"].selected span::after,
+    [role="menuitem"]:hover span::before,
+    [role="menuitem"]:hover span::after {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+/* Toggle menu */
+.toggle-menu {
+    position: absolute;
+    top: -30px;
+    opacity: 0;
+}
+
+    .toggle-menu:checked + header .hamburger { background-color: transparent; }
+
+    .toggle-menu:checked + header  .hamburger::before {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .toggle-menu:checked + header  .hamburger::after {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .toggle-menu:checked + header nav {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* animate menu items */
+    .toggle-menu:checked + header [role="menuitem"] {
+        --no: 1;
+        --delay: calc(220ms * var(--no));
+        transition-delay: var(--delay);
+        opacity: 1;
+    }
+
+    .toggle-menu:checked + header [role="menuitem"]:nth-of-type(2) { --no: 2; }
+    .toggle-menu:checked + header [role="menuitem"]:nth-of-type(3) { --no: 3; }
+    .toggle-menu:checked + header [role="menuitem"]:nth-of-type(4) { --no: 4; }
+    /* @end menu item animation */
