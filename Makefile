@@ -1,6 +1,7 @@
 OBJ = www/static
 HTML_SOURCES = $(wildcard content/*.html)
-HTML_OBJS = $(patsubst content/%, www/%, $(HTML_SOURCES))
+HTML_SOURCES += $(wildcard content/*/*.html)
+HTML_OBJS = $(patsubst content/%.html, www/%.html, $(HTML_SOURCES))
 CSS_SRCS = $(wildcard layout/*.src.css)
 CSS_OBJS =  $(patsubst layout/%.src.css, $(OBJ)/%.min.css, $(CSS_SRCS))
 

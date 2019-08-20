@@ -8,6 +8,7 @@
         encoding="utf-8"
         indent="yes" />
 
+<xsl:variable  name="html_title" select="/html/head/title" />
 <xsl:variable name="meta_descr" select="/html/head/meta[@name='description']/@content" />
 
 <xsl:variable name="section" select="/html/head/meta[@name='section']/@content" />
@@ -17,8 +18,16 @@
         <head>
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta name="description" content="{$meta_descr}" />
+            <xsl:choose>
+                <xsl:when test="$meta_descr">
+                    <meta name="description" content="{$meta_descr}" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <meta name="description" content="Mirella van Teulingen is a Dutch front end developer and this is her professional blog." />
+                </xsl:otherwise>
+            </xsl:choose>
             <link rel="stylesheet" href="static/base.min.css" />
+            <title><xsl:value-of select="$html_title" /></title>
         </head>
         <body>
             <main class="page-{$section}">
@@ -74,10 +83,45 @@
     </html>
 </xsl:template>
 
-<xsl:template match="icon">
-    <svg viewBox="0 0 512 512" width="10" height="10" class="icon-{@symbol}">
-        <use xlink:href="#{@symbol}" />
+<xsl:template match="icon" name="icon">
+    <xsl:param name="symbol" select="symbol" />
+    <svg viewBox="0 0 512 512" width="10" height="10" class="icon-{$symbol}">
+        <use xlink:href="#{$symbol}" />
     </svg>
+    <xsl:choose>
+        <xsl:when test="$symbol">
+            <svg viewBox="0 0 512 512" width="10" height="10" class="icon-{$symbol}">
+                <use xlink:href="#{$symbol}" />
+            </svg>
+        </xsl:when>
+        <xsl:otherwise>
+            <svg viewBox="0 0 512 512" width="10" height="10" class="icon-{@symbol}">
+                <use xlink:href="#{@symbol}" />
+            </svg>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
+<xsl:template match="blog_list">
+    <ul>
+    <xsl:for-each select="blog_item">
+        <li role="listitem">
+            <h3><a href="{@url}"><xsl:value-of select="blog_title" /></a></h3>
+            <div class="blog-date"><xsl:value-of select="@date" /></div>
+            <xsl:apply-templates select="blog_descr/node()" />
+            <a href="{@url}" class="read-more">
+                <span>Read more</span>
+                <xsl:call-template name="icon">
+                    <xsl:with-param name="symbol">readmore</xsl:with-param>
+                </xsl:call-template>
+            </a>
+        </li>
+    </xsl:for-each>
+    </ul>
+</xsl:template>
+
+<xsl:template match="code_esc">
+    <xsl:value-of select="." disable-output-escaping="yes" />
 </xsl:template>
 
 <!--identity template, copy everything-->
