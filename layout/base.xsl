@@ -61,7 +61,7 @@
                 </label>
             </header>
 
-            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="no-display">
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="no-display">
                 <symbol id="readmore">
                     <path d="M32 0h447.8c17.7 0 32.1 14.4 32.1 32.1v447.8c0 17.7-14.4 32.1-32.1 32.1H32C14.3 512-.1 497.6-.1 479.9V32.1C-.1 14.3 14.3 0 32 0z"/>
                     <path fill-rule="evenodd" clip-rule="evenodd" class="fill-color" d="M170.6 350.8l94.8-94.8-94.8-94.8 47.4-47.4L360.2 256 218 398.2z"/>
@@ -75,7 +75,7 @@
 </xsl:template>
 
 <xsl:template match="icon">
-    <svg viewBox="0 0 48 48" width="10" height="10" class="icon-{@symbol}">
+    <svg viewBox="0 0 512 512" width="10" height="10" class="icon-{@symbol}">
         <use xlink:href="#{@symbol}" />
     </svg>
 </xsl:template>
