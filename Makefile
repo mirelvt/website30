@@ -5,7 +5,10 @@ HTML_OBJS = $(patsubst content/%.html, www/%.html, $(HTML_SOURCES))
 CSS_SRCS = $(wildcard layout/*.src.css)
 CSS_OBJS =  $(patsubst layout/%.src.css, $(OBJ)/%.min.css, $(CSS_SRCS))
 
-ALL_OBJS = $(HTML_OBJS) $(CSS_OBJS)
+JS_SRCS = $(wildcard layout/*.src.js)
+JS_OBJS = $(patsubst layout/%.src.js, $(OBJ)/%.min.js, $(JS_SRCS))
+
+ALL_OBJS = $(HTML_OBJS) $(CSS_OBJS) $(JS_OBJS)
 
 all: $(ALL_OBJS)
 
@@ -15,7 +18,10 @@ www/%.html: content/%.html
 $(OBJ)/%.min.css: layout/%.src.css
 	uglifycss --ugly-comments $< --output $@
 
+$(OBJ)/%.min.js: layout/%.src.js
+	terser --comments -c hoist_vars=true,join_vars=true -m -o $@ $<
+
 clean:
-	rm -f $(HTML_OBJS) $(CSS_OBJS)
+	rm -f $(HTML_OBJS) $(CSS_OBJS) $(JS_OBJS)
 
 .PHONY: all

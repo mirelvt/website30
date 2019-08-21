@@ -1,3 +1,5 @@
+@import url(atom-one-light.min.css);
+
 :root {
     --font-generic: arial, helvetica, sans-serif;
     --c-primary: #7cb342;
@@ -75,6 +77,8 @@ main {
     margin: 0 auto;
     padding: 12vw 6vw 6vw;
 }
+
+main h1:first-of-type { margin-top: 0; }
 
 a {
     transition: color 0.25s;
@@ -443,3 +447,53 @@ nav {
         transform: scale(1) translate3d(0, 0, 0);
     }
 }
+
+/* **** @END HOMEPAGE **** */
+/* ----------------------- */
+
+
+/* **** BLOG PAGE *** */
+
+
+/* Code styling */
+pre {
+    position: relative;
+    margin: 0.5rem 1rem 2rem;
+    padding: 0;
+    overflow: auto;
+    /* background: rgba(#c8d1cf, 0.15); */
+    white-space: normal;
+    font-size: 1.5rem;
+    border: 1px solid var(--c-primary);
+}
+
+pre[rel] { padding-top: 33px; }
+
+pre::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0.8rem 0;
+    text-indent: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 133%;
+    content: attr(rel);
+    background-color: var(--c-primary);
+}
+
+code {
+    display: block;
+    overflow: auto;
+    margin: 0;
+    padding: 1.5rem;
+    white-space: pre;
+    font-family: "Droid Sans Mono";
+}
+
+/* @End code styling */
+
+
+/* **** @END BLOG PAGE **** */
+/* ----------------------- */
