@@ -1,14 +1,12 @@
 <html lang="en">
 <head>
-    <title>Minify javascript with GNU Make - Mirella van Teulingen</title>
+    <title>Minify javascript with GNU Make - MvT</title>
     <meta name="section" content="blog" />
-    <link rel="prev" href="/blog/index.html" />
+    <link rel="prev" href="/blog/sublime_part2.html" />
     <link rel="next" href="iets.html" />
     <meta name="description" content="In my former blog post I wrote an introduction how to set up Makefile to generate CSS and minify CSS from Sass files. In this blog post I will extend the Makefile with a rule for generating minified javascript files." />
-    <extra_js>/static/highlight.pack.v9.12.0.js</extra_js>
 </head>
 <body>
-
     <h1>Minify javascript with GNU Make</h1>
     <p>In my former blog post I wrote an <a href="/blog/make-taskrunner">introduction how to set up Makefile</a> to generate CSS and minify CSS from Sass files. In this blog post I will extend the Makefile with a rule for generating minified javascript files.</p>
     <p>My folder structure and Makefile looks like this:</p>
@@ -57,13 +55,12 @@ clean:
 </pre>
 
 <h2>UglifyJS</h2>
-You need a package which minifies the javascript files.
-I use <a href="https://github.com/mishoo/UglifyJS">UglifyJS</a> for this task,
-it is a javascript parser, compressor and beautifier. You can install it via npm:
+<p>You need a package which minifies the javascript files.
+I use <a href="https://github.com/mishoo/UglifyJS">UglifyJS</a> for this task, it is a javascript parser, compressor and beautifier. You can install it via npm:</p>
 
 <pre rel="Terminal"> <code class="hljs ruby">$ npm install -g uglify-js</code> </pre>
 
-I create a variable called JS_MIN_OBJS, which replaces the .src.js file name with .min.js file name from the source files 'static/js/*.src.js'. I put this line below the variable CSS_MIN_OBJS in the Makefile:
+<p>I create a variable called JS_MIN_OBJS, which replaces the .src.js file name with .min.js file name from the source files 'static/js/*.src.js'. I put this line below the variable CSS_MIN_OBJS in the Makefile:</p>
 
 <pre rel="makefile">
 <code class="makefile">CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
@@ -72,7 +69,7 @@ JS_MIN_OBJS= $(patsubst %.src.js, %.min.js, $(wildcard $(JS_SRCS)/*.src.js))
 </code>
 </pre>
 
-Now I add the UglifyJS rule in the Makefile with the UglifyJS options for generating the wanted minified output. I put this line of code below the rule for minifying css:
+<p>Now I add the UglifyJS rule in the Makefile with the UglifyJS options for generating the wanted minified output. I put this line of code below the rule for minifying css:</p>
 
 <pre rel="makefile">
 <code class="makefile">$(CSS_OBJ)/%.min.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
@@ -83,18 +80,19 @@ Now I add the UglifyJS rule in the Makefile with the UglifyJS options for genera
 </code>
 </pre>
 
-The UglifyJS options are documented on their <a href="https://github.com/mishoo/UglifyJS#usage">github page</a>, another resource is a blog post from <a href="https://davidwalsh.name/compress-uglify">David Walsh</a>. You can also find the list of options in your terminal with the command: *uglifyjs -h*.
+<p>The UglifyJS options are documented on their <a href="https://github.com/mishoo/UglifyJS#usage">github page</a>, another resource is a blog post from <a href="https://davidwalsh.name/compress-uglify">David Walsh</a>. You can also find the list of options in your terminal with the command: *uglifyjs -h*.</p>
 
-In my example I ask uglify to preserve the copyright comments in the output *(- -comments)* and compress *(-c)* the file with the following options:
+<p>In my example I ask uglify to preserve the copyright comments in the output *(- -comments)* and compress *(-c)* the file with the following options:</p>
 
-- *hoist_vars=true*: Move all variable declarations to the top of the file.
-- *join_vars=true*: Join the var declarations.
-- *-m*: Mangle names, this reduces the names to single-letter.
-- *-r '$$'*: Exclude $ from the mangler.
-- *-o $@ $<code_esc>&lt;</code_esc>*: Output to min.js ($@) from .src.js ($<code_esc>&lt;</code_esc>).
+<ul>
+    <li>*hoist_vars=true*: Move all variable declarations to the top of the file.</li>
+    <li>*join_vars=true*: Join the var declarations.</li>
+    <li>*-m*: Mangle names, this reduces the names to single-letter.</li>
+    <li>*-r '$$'*: Exclude $ from the mangler.</li>
+    <li>*-o $@ $<code_esc>&lt;</code_esc>*: Output to min.js ($@) from .src.js ($<code_esc>&lt;</code_esc>).</li>
+</ul>
 
-To let Make also run the uglify task, I need to add $(JS_MIN_OBJS) to the all target.
-I also want that the minified files are deleted when running make:
+<p>To let Make also run the uglify task, I need to add $(JS_MIN_OBJS) to the all target. I also want that the minified files are deleted when running make:</p>
 
 <pre rel="makefile">
 <code class="makefile">CSS_OBJ = static/css
@@ -130,14 +128,12 @@ clean:
 </code>
 </pre>
 
-Run make in the terminal and the minified files are generated.
-In the terminal you'll get the following output:
+<p>Run make in the terminal and the minified files are generated. In the terminal you'll get the following output:</p>
 
 <pre rel="Terminal"> <code class="hljs ruby">$ make
 uglifyjs --comments -c hoist_vars=true,join_vars=true -m -r '$' -o static/js/base.min.js static/js/base.src.js
 </code> </pre>
 
-That's it. You only need 4 lines of code to minify your javascript files. Together
-with compiling CSS and minifying CSS it is only 30 lines of code. That's pretty clean.
+<p>That's it. You only need 4 lines of code to minify your javascript files. Together with compiling CSS and minifying CSS it is only 30 lines of code. That's pretty clean.</p>
 </body>
 </html>

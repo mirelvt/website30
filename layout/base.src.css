@@ -107,7 +107,7 @@ h6 {
 
 h1 { font-size: 5rem; }
 h2 { font-size: 3.6rem; }
-h3 { font-size: 3.2rem; }
+h3 { font-size: 3rem; }
 h4 { font-size: 2.8rem; }
 h5 { font-size: 2.4rem; }
 h6 { font-size: 2rem; }
@@ -124,6 +124,8 @@ p {
     margin-top: 1.8rem;
     margin-bottom: 1.8rem;
 }
+
+h3 + p { margin-top: 0.4rem; }
 
 cite {
     display: block;
@@ -454,6 +456,49 @@ nav {
 
 /* **** BLOG PAGE *** */
 
+.page-blog { max-width: 96rem; }
+
+.page-blog ul {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style-type: none;
+}
+
+.page-blog ul li {
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.page-blog ul li::before {
+    position: absolute;
+    left: 0;
+    top: 7px;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background-color: var(--c-primary);
+}
+
+/* next + prev arrows */
+.nav-arrows {
+    width: 12rem;
+    margin: 0 auto 30px;
+}
+
+.nav-arrows a { display: inline-block; }
+
+.nav-arrows svg {
+    width: 3.2rem;
+    height: 3.2rem;
+    fill: var(--c-primary);
+    color: #fff;
+    transition: fill 0.15s;
+}
+
+.nav-arrows svg:hover { fill: var(--c-hover); }
+.nav-arrows svg:first-child { margin-right: 2.5rem; }
+/* @End next + prev arrows */
 
 /* Code styling */
 pre {
@@ -494,6 +539,56 @@ code {
 
 /* @End code styling */
 
+/* pie chart example */
+.svg-piechart-example {
+    width: 60vw;
+    height: 40vh;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.svg-piechart-example svg {
+    width: 100%;
+    height: 100%;
+}
+/* @End pie chart example */
+
+/* bar chart example */
+.svg-bar-example {
+    max-width: 45vw;
+    height: auto;
+    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.svg-bar-example svg {
+    width: 100%;
+    height: 100%;
+}
+
+.bar-legend { font-size: 6px; }
+/*.barchart_line { stroke: rgba($c-shadow, 0.5); }*/
+.barchart_line { stroke: #ddd; }
+
+.bar-6,
+.bar-7 { stroke: var(--c-primary); }
+
+button {
+    padding: 0.5rem 1rem;
+    font-family: "Source Sans Pro", var(--font-generic);
+    font-size: 1.8rem;
+    color: #fff;
+    background-color: var(--c-primary);
+    border: none;
+    border-radius: 0.4rem;
+    transition: background-color 0.3s;
+
+}
+
+button:hover { background-color: var(--c-hover); }
+
+/* @End bar chart example */
 
 /* **** @END BLOG PAGE **** */
 /* ----------------------- */
