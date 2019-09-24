@@ -1,0 +1,208 @@
+<!DOCTYPE html><html xmlns:xlink="https://www.w3.org/1999/xlink" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Creating a custom tooltip using vanilla JS and CSS.">
+<title>A vanilla JS and CSS tooltip - MvT</title>
+<link rel="stylesheet" href="/static/base.min.css">
+</head>
+<body>
+<main class="page-blog"><div class="nav-arrows">
+<a href="/blog/svg-icons-django-template.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="iets.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div>
+    <h1>A vanilla JS and CSS tooltip</h1>
+    <p>September 28, 2016</p>
+    <p>In february 2016 I was looking for a tooltip plugin which must fix 2 design
+    issues: overflow:hidden and the window corners. I also don't want to need jQuery.
+    During searching and testing a couple plugins, I thought, why not build one myself?
+    It is a fun way to learn more about javascript and CSS animations.</p>
+     <p>In february 2016 I was looking for a tooltip plugin which must fix 2 design
+    issues: overflow:hidden and the window corners. I also don't want to need jQuery.
+    During searching and testing a couple plugins, I thought, why not build one myself?
+    It is a fun way to learn more about javascript and css animations.</p>
+
+    <p>In the same month I was also reading the book: <em>this &amp; Object prototypes</em>, from
+    the series <em>You don't know javascript</em>. With this book I learned how to create
+    objects and used this technique for the tooltip.</p>
+
+    <p><h2>tooltip.create:</h2>
+    The javascript searches for the <em>tooltip-container</em> element.
+    This container is an empty element where the tooltip text will be injected.</p>
+
+    <p>Based on the position of the tooltip item in the viewport, the class names:
+    <em>tooltip-left, tooltip-right</em> or <em>tooltip-center</em> are set on the tooltip-container.</p>
+
+    <p><h2>tooltip.position:</h2>
+    The tooltip container gets positioned on the left, right or center bottom side
+    of the tooltip item. I calculate its position using <em>getBoundingClientRect()</em> function.</p>
+
+    <p>If the tooltip item is positioned near the edges of the left or right side of the viewport,
+    the tooltip will appear on the right or left side of the tooltip item. In
+    other cases the tooltip appears right below the tooltip item.</p>
+
+    <pre rel="Javascript">
+    <code class="javascript">
+    var Tooltip =  {
+        create: function(tooltip, elm) {
+            elm_edges = elm.getBoundingClientRect(); // relative to the viewport
+            tooltip_text = document.createTextNode(elm.getAttribute('data-tooltip'));
+            tooltip.appendChild(tooltip_text);
+
+            // Remove no-display + set the correct classname based on the position
+            // of the elm.
+            if (elm_edges.left &gt; (window.innerWidth - 100)) {
+                tooltip.className ='tooltip-container tooltip-left';
+            } else if ((elm_edges.left + (elm_edges.width / 2)) < 100) {
+                tooltip.className = 'tooltip-container tooltip-right';
+            } else {
+                tooltip.className = 'tooltip-container tooltip-center';
+            }
+        },
+        position: function(tooltip, elm) {
+            var elm_top = elm_edges.top + elm_edges.height + 10; // 10 = arrow height
+
+            // position tooltip on the left side of the elm.
+            // 220 = the max width + arrow width of the tooltip.
+            if (elm_edges.left &gt; (window.innerWidth - 100)) {
+                tooltip.style.left = (elm_edges.left - 220) + 'px';
+                tooltip.style.top = elm.offsetTop + 'px';
+            } else if ((elm_edges.left + (elm_edges.width / 2)) > 100) {
+                // position tooltip on the right side of the elm.
+                tooltip.style.left = (elm_edges.left + elm_edges.width + 20) + 'px';
+                tooltip.style.top = elm.offsetTop + 'px';
+            } else {
+                // Position the toolbox in the center of the elm.
+                var centered = (elm_edges.left + (elm_edges.width / 2)) - (tooltip.offsetWidth / 2);
+                tooltip.style.left = centered + 'px';
+                tooltip.style.top = elm_top + 'px';
+            }
+        },
+    };
+    </code>
+    </pre>
+
+    <p>With the functions <em>showTooltip</em> and <em>hideTooltip</em> the tooltip is visible or
+    hidden, using the EventListeners <em>mouseover</em> and <em>mouseout</em>.</p>
+
+    <pre rel="Javascript">
+    <code class="Javascript">
+    function showTooltip(evt) {
+        var item = Object.create(Tooltip);
+        item.create(tooltip, evt.currentTarget);
+        item.position(tooltip, evt.currentTarget);
+    }
+
+    function hideTooltip() {
+        tooltip.className = 'tooltip-container no-display';
+        tooltip.removeChild(tooltip.firstChild);
+        tooltip.removeAttribute('style');
+    }
+
+    function onReady() {
+        tooltip = document.documentElement.querySelector('.tooltip-container');
+        var tooltip_elms = document.documentElement.querySelectorAll('[data-tooltip]');
+
+        Array.prototype.forEach.call(tooltip_elms, function(elm) {
+            elm.addEventListener('mouseover',  showTooltip , false);
+            elm.addEventListener('mouseout', hideTooltip, false);
+        });
+    }
+    </code>
+    </pre>
+
+    <p>The CSS handles the tooltip animation using animation keyframes.
+    The class names <em>tooltip-left, tooltip-right</em> and <em>tooltip-center</em> positions the
+    tooltip arrow.</p>
+
+    <pre rel="SCSS">
+    <code class="scss">
+    .tooltip-container {
+        @include transform(translateZ(0)); // GPU
+        position: absolute;
+        max-width: 200px;
+        padding: 8px 10px 10px;
+        font-size: 1.6rem;
+        background-color: #2d2d2d;
+        color: #fff;
+        border-radius: 4px;
+        opacity: 1; // scale animation setting
+
+        &[class*=" tooltip-"] {
+            @include animation(tooltip-anim 0.8s);
+        }
+
+        &::after {
+            position: absolute;
+            display: block;
+            content: "";
+        }
+
+        // position arrow on the right of the tooltip
+        &.tooltip-left::after {
+            @include transform(translateY(-50%));
+            right: -8px;
+            top: 50%;
+            border: {
+                style: solid;
+                width: 6px 0 6px 8px;
+                color: transparent transparent transparent #2d2d2d;
+            }
+        }
+
+        // position arrow on the left of the tooltip
+        &.tooltip-right::after {
+            @include transform(translateY(-50%));
+            left: -8px;
+            top: 50%;
+            border: {
+                style: solid;
+                width: 6px 8px 6px 0;
+                color: transparent #2d2d2d transparent transparent;
+            }
+        }
+
+        // position arrow in the top center of the tooltip
+        &.tooltip-center::after {
+            @include transform(translateX(-50%));
+            top: -8px;
+            left: 50%;
+            border: {
+                style: solid;
+                width: 0 6px 8px 6px;
+                color: transparent transparent #2d2d2d transparent;
+            }
+        }
+    }
+
+    [data-tooltip] {
+        cursor: pointer;
+        color: #7cb342;
+        display: inline-block;
+    }
+
+    @include keyframes(tooltip-anim) {
+        0% {
+            @include transform(matrix(0.5, 0, 0, 0.8, 0, 0));
+            opacity: 0;
+        }
+
+        20% { @include transform(matrix(1.1, 0, 0, 1.1, 0, 0)); }
+        40% { opacity: 1; }
+        70% { @include transform(matrix(1, 0, 0, 1, 0, 0)); }
+        100% { @include transform(matrix(1, 0, 0, 1, 0, 0)); }
+    }
+    </code>
+    </pre>
+
+    <p>As you can see, not much code is written to get the tooltip to work. The complete
+    code can be found on my <a href="https://github.com/mirelvt/js-css-tooltip">github page</a>
+    and I also created a simple <a href="http://www.mirellavanteulingen.nl/demos/tooltip/">demo page</a>.</p>
+<div class="nav-arrows">
+<a href="/blog/svg-icons-django-template.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="iets.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div></main><input type="checkbox" name="menu" id="toggle-menu" class="toggle-menu" aria-hidden="true"><header><nav><div role="navigation">
+<a href="/" role="menuitem"><span>home</span></a><a href="/blog/" role="menuitem" class="selected"><span>blog</span></a><a href="#" role="menuitem"><span>fronteers</span></a><a href="#" role="menuitem"><span>about</span></a>
+</div></nav><label class="hamburger-wrapper" for="toggle-menu"><div class="hamburger"></div>
+<div class="menu-text">Menu</div></label></header><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="no-display"><symbol id="readmore"><path d="M32 0h447.8c17.7 0 32.1 14.4 32.1 32.1v447.8c0 17.7-14.4 32.1-32.1 32.1H32C14.3 512-.1 497.6-.1 479.9V32.1C-.1 14.3 14.3 0 32 0z"></path><path fill-rule="evenodd" clip-rule="evenodd" class="fill-color" d="M170.6 350.8l94.8-94.8-94.8-94.8 47.4-47.4L360.2 256 218 398.2z"></path></symbol><symbol id="blog"><path d="M177.6 112.4v63.7c41.1 0 80.9 15.9 110.1 45.1 29.2 29.2 45.1 69 45.1 110.1h63.7c0-120.7-98.1-218.9-218.9-218.9zm0-112.7v63.7c147.2 0 267.9 120.7 267.9 269.3h63.7c.1-184.4-148.5-333-331.6-333zm-35.8 228.1c-13.3 0-22.5 4-30.5 11.9-6.8 8.2-10.5 18.5-10.6 29.2 0 11.9 4 21.2 10.6 27.9 8 9.3 17.2 13.3 30.5 13.3 17.2 0 31.8 4 42.4 13.3 10.6 9.3 15.9 22.5 15.9 38.5 0 17.2-5.3 30.5-17.2 42.5-10.6 11.9-25.2 17.2-39.8 17.2-15.9 0-29.2-5.3-39.8-17.2-10.6-11.9-17.2-25.2-17.2-42.5v-203c0-13.3-4-23.9-11.9-31.8-9.3-8-19.9-10.6-30.5-10.6s-21.2 4-29.2 11.9c-8 8-11.9 18.6-11.9 31.8v205.6c0 39.8 13.3 74.3 41.1 103.5 27.9 27.9 59.7 42.4 99.5 42.4 38.5 0 71.6-14.6 98.2-42.4 27.9-27.9 41.1-62.3 41.1-102.1s-13.3-73-39.8-98.2c-27.9-27.9-61.1-41.2-100.9-41.2z"></path></symbol><symbol id="chevron-left"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M349.3 353.5l-94.1-94.1 94.1-94.1-47.1-47-141.1 141.1 141.1 141.1z"></path></symbol><symbol id="chevron-right"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M171.3 350.1l94-94.1-94-94.1 47-47L359.4 256 218.3 397.1z"></path></symbol></svg><script src="/static/highlight.pack.v9.12.0.js"></script><script src="/static/base.min.js"></script>
+</body>
+</html>
