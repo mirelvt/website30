@@ -1,0 +1,74 @@
+$c-orange: #f57c00;
+
+@font-face {
+  font-family: "mvt-icons";
+  src: url("fonts/mvt-icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-star:before {
+    font-family: mvt-icons;
+    content: "\f100";
+    line-height: 1px;
+}
+
+// RANKING STARS MIXIN
+// ===================
+
+// Set hover + selected label for star ranking
+@mixin rating-stars($stars, $star-width, $c-hover, $c-selected) {
+    > label {
+        position: absolute;
+        top: 4px;
+        &:hover { color: $c-hover; }
+    }
+
+    @for $i from 1 through length($stars) {
+        > label:nth-of-type(n + #{$i}):hover ~ label { color: $c-hover; }
+
+        // position the stars in reversed order
+        > label:nth-of-type(n+#{$i}) {
+            left: ($star-width * length($stars)) - ($star-width * $i);
+        }
+
+        // Set selected color on all label siblings based on the checked radio
+        > input[type="radio"]:nth-of-type(n + #{$i}):checked  ~ label {
+            color: $c-selected;
+        }
+    }
+}
+
+// ============
+// RATING STARS
+// ------------
+
+[class^="icon-"]::before,
+[class*=" icon-"] {
+    font-family: mvt-icons;
+    line-height: 1px;
+}
+
+.remove-rating-wrapper { margin-bottom: 1.2rem; }
+
+$stars-list: (
+    1,
+    2,
+    3,
+    4
+);
+
+.rating {
+    @include rating-stars($stars-list, 32px, $c-orange, #fdd835);
+    position: relative;
+    overflow: hidden;
+    height: 3.6rem;
+
+    // Hide radio buttons
+    [type="radio"] { display: none; }
+    label { cursor: pointer; }
+    .icon-star { font-size: 3rem; }
+}
+// ------------------
+// @END RANKING STARS
+// ==================

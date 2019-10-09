@@ -1,13 +1,13 @@
 <html lang="en">
 <head>
-    <title>Font icons with Fontcustom and SASS - MvT</title>
+    <title>Font icons with Fontcustom and Sass - MvT</title>
     <meta name="section" content="blog" />
     <link rel="prev" href="/blog/css-js-tooltip.html" />
-    <link rel="next" href="/blog/iets.html" />
+    <link rel="next" href="/blog/rating-stars-sass.html" />
     <meta name="description" content="Create icon fonts with Fontcustom and SASS" />
 </head>
 <body>
-    <h1>Font icons with Fontcustom and SASS</h1>
+    <h1>Font icons with Fontcustom and Sass</h1>
     <p>November 21, 2015</p>
     <p>In 2013 and 2014 I used <a href="http://www.icomoon.io">Icomoon</a> to create font icons.
     It is a nice library and tool. You can choose icons from their library and
@@ -31,13 +31,13 @@
     <p>
         That is quite a few steps I have to go through, to update my font icon set. So how can this workflow
         be more efficient? 3 Months ago I read somewhere about <a href="https://rsp.github.io/fontcustom/">Fontcustom</a>,
-        not sure if it was an article in <a href="http://css-weekly.com">cssweekly</a> or the <a href="http://www.webdesignermagazine.nl">Webdesigner Magazine</a> (Dutch version),
+        not sure if it was an article in <a href="http://css-weekly.com">cssweekly</a> or the Webdesigner Magazine (Dutch version),
         but it caught my attention. Fontcustom is a command line tool to generate the font icon, based on
         a selection of svg files. It generates the css + preview html on the fly.
         And with Fontcustom I am able to speed up my workflow when new icons are to be implemented.
     </p>
     <h2>How to set up Fontcustom to speed up my workflow</h2>
-    <p>In my daily work I use SASS, and Fontcustom has the feature to generate .scss file. This is very neat, but the generated .scss file is similar to the generated css file: it defines for each icon an icon class, and when you have, let's say 30 icons, it's get cluttered.</p>
+    <p>In my daily work I use Sass, and Fontcustom has the feature to generate .scss file. This is very neat, but the generated .scss file is similar to the generated css file: it defines for each icon an icon class, and when you have, let's say 30 icons, it's get cluttered.</p>
 
     <pre rel="SCSS">
     <code class="scss">
@@ -239,7 +239,6 @@
 
     <p>My configuration is in place and when I have new icons to add, I just have to add the new icons to my svg directory and run the fontcustom command and scss command. The 6 slow steps are reduced to 3 faster steps.</p>
 
-    <p>I hope this article is meaningful to you and if you have any questions or remarks you can find me on twitter @mirelvt or you can email me <a href="mailto:mailenm@mirellavanteulingen.nl">mailenm@mirellavanteulingen.nl</a>.</p>
-
+    <p>I hope this article is meaningful to you and if you have any questions or remarks you can find me on twitter @mirelvt.</p>
 </body>
 </html>

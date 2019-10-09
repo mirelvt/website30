@@ -11,6 +11,7 @@
 <xsl:variable  name="html_title" select="/html/head/title" />
 <xsl:variable name="meta_descr" select="/html/head/meta[@name='description']/@content" />
 <xsl:variable name="extra_js" select="/html/head/extra_js" />
+<xsl:variable name="extra_css" select="/html/head/extra_css" />
 
 <xsl:variable name="section" select="/html/head/meta[@name='section']/@content" />
 
@@ -30,6 +31,11 @@
             </xsl:choose>
             <title><xsl:value-of select="$html_title" /></title>
             <link rel="stylesheet" href="/static/base.min.css" />
+            <xsl:if test="$extra_css">
+                <xsl:for-each select="/html/head/extra_css">
+                    <link rel="stylesheet" href="{.}" />
+                </xsl:for-each>
+            </xsl:if>
         </head>
         <body>
             <main class="page-{$section}" >
@@ -102,7 +108,7 @@
                 </symbol>
             </svg>
 
-            <script src="/static/highlight.pack.v9.12.0.js" />
+            <script src="/static/highlight-9.15.10.min.js" />
             <script src="/static/base.min.js" />
             <xsl:if test="$extra_js">
                 <xsl:for-each select="/html/head/extra_js">

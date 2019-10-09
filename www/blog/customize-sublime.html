@@ -1,0 +1,216 @@
+<!DOCTYPE html><html xmlns:xlink="https://www.w3.org/1999/xlink" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="This article is a small tutorial with tips to configure Sublime to your needs, a list of interesting packages, how to customize a theme and links to useful documentation.">
+<title>Customize Sublime text editor - MvT</title>
+<link rel="stylesheet" href="/static/base.min.css">
+</head>
+<body>
+<main class="page-blog"><div class="nav-arrows">
+<a href="/blog/customize-crispy-forms.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="/blog/rating-stars-sass.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div>
+    <h1>Customize Sublime text editor</h1>
+    <p>Februari 12, 2014</p>
+    Last year at the Fronteers conference in Amsterdam, Addy Osmani used Sublime Text Editor in his presentation.
+    The editor looked really cool. Right after the conference I installed Sublime and looked around for
+    packages which would make my life as front end developer easier and make editing more fun. After a
+    month of playing with Sublime, I decided to leave TextMate (used it since 2005) and use Sublime as
+    my new main editor.
+    <p>
+    In this article I'll give you tips to configure Sublime to your needs, interesting packages,
+    how to customize a theme and links to useful documentation. Let's get started.
+    </p>
+    <h2>Install Sublime Text Editor and packages</h2>
+    <p>The official page of Sublime Text Editor is:
+      <a href="http://www.sublimetext.com">http://www.sublimetext.com</a>,
+      you can find the downloads for OS X, Windows and Linux on:
+      <a href="http://www.sublimetext.com/2">http://www.sublimetext.com/2</a>.
+      To make the most out of Sublime, the first package you want to install
+      is the <a href="http://wbond.net/sublime_packages/package_control">
+      Package Control Manager</a>. With this tool you can easily install
+      useful packages. Follow the installation described on:
+      <a href="http://wbond.net/sublime_packages/package_control/installation">
+        http://wbond.net/sublime_packages/package_control/installation</a>.
+        The installation is really easy.
+    </p>
+    <p>When the Package Control is installed, you can start installing
+      packages you would like to use. Open Sublime and type in the following
+      command:</p>
+    <ul>
+      <li>
+        <strong>cmd</strong>+<strong>Shift</strong>+<strong>P</strong>
+        to open the Packages directory.</li>
+      <li>Type "<strong>install</strong>" and click on the search result:
+        <strong>"Package Control: Install Package"</strong>.
+        In this window you can search for the packages you like to install.
+      </li>
+    </ul>
+    <figure>
+      <img src="/static/img/packagemanager.png" alt="Sublime Package manager interface">
+      <figcaption>Installing packages</figcaption>
+    </figure>
+
+     <p>
+      I made a list of packages what makes programming more fun and my life as
+      front end developer easier:</p>
+
+    <ul>
+      <li>
+        <strong>Sass</strong>: syntax highlighting and tab/code completion
+        for Sass.
+      </li>
+      <li>
+        <a href="https://github.com/titoBouzout/SideBarEnhancements">
+          <strong>Sidebar enhancement</strong></a>: With this plugin you can
+          do the basics via the sidebar, like new file/folder, edit,
+          open/run, reveal, find in selected/parent/project, etc.</li>
+      <li>
+        <strong><a href="http://emmet.io">Emmet</a></strong>: looks like a
+        really awesome toolkit to improve your HTML &amp; CSS workflow.
+        Check out the <a href="http://docs.emmet.io/">documentation</a>
+        to see what it can do for you. I just read their documentation and
+        installed it. I don't have  experience with it yet, but it looks
+        really promising.
+      </li>
+      <li>
+        <strong>Less-Build</strong>: if you work with
+        <a href="http://lesscss.org/">LESS</a> I recommend to use this tool.
+        It provides two build systems for '.less' files, both minified and
+        non-minified. Requires lessc (via node.js) on OSX and Linux.
+      </li>
+      <li>
+        <strong>
+          <a href="https://github.com/danro/LESS-sublime">LESS</a>
+        </strong>: syntax highlighting for LESS.</li>
+      <li>
+        <strong>
+          <a href="https://github.com/squ1b3r/Djaneiro">Djaneiro</a>
+        </strong>: syntax highlighting and code completion for Django.
+      </li>
+      <li><strong>HTML5</strong></li>
+      <li><strong>HTML Snippets</strong></li>
+      <li><strong>HTML Attributes</strong></li>
+      <li>
+        <strong>
+          <a href="https://github.com/SublimeText/SublimeHg">SublimeHG</a>
+        </strong>: is a nice tool for
+        <a href="https://www.mercurial-scm.org/">Mercurial</a>. I use it to
+        see which files are changed, to write commit messages and pushing
+        it to the repository.</li>
+    </ul>
+
+    <p>If you don't work with LESS or Sass than you could use the following
+      tool to create css prefixes and to minify your css/js:</p>
+
+    <ul>
+    <li><a href="https://github.com/bistory/Sublime-Minifier">Minifier</a></li>
+    </ul>
+
+    <h2>Sublime customization</h2>
+
+    You can customize Sublime to your needs, like translating tab size to
+    spaces, font size, line highlight etc. These customizations are stored
+    in the user settings:
+
+    <ul>
+      <li>
+        <strong>"Preferences &gt; Settings-user"</strong> (on Linux), or
+      </li>
+      <li>
+        <strong>"Sublime Text 2 &gt; Preferences &gt; Settings-user"</strong>
+        (on OS X).
+      </li>
+    </ul>
+
+    <p>
+      Here's a list of useful settings. You can check the default_settings for
+      the complete list you wish to override.
+    </p>
+
+    <pre rel="json">
+    <code class="json">
+    {
+      "font_size": 11,
+      "bold_folder_labels":true,
+      "caret_style": "phase", // it will fade in and out rather than blink.
+      "highlight_line": true,
+      "ignored_packages":
+      [
+      "Vintage"
+      ],
+      "match_tags": true,
+      // scroll_past_end is already set in default settings,
+      // but on OS X, this value is overridden in the platform specific settings.
+      // That's why you need to place this line in your user settings.
+      "scroll_past_end": true,
+      "translate_tabs_to_spaces":true,
+      "trim_trailing_white_space_on_save": true
+    }
+    </code>
+    </pre>
+
+    <h2>Sublime Key commands</h2>
+
+    <p>Sublime has a lot of cool and very handy key commands. The ones I use most are (on OS X):</p>
+    <ul>
+      <li>
+        <strong>Opening The Packages directory</strong>: use the command <strong>cmd</strong>+<strong>Shift</strong>+<strong>P</strong>. All resources for supported programming and markup languages are stored here.
+      </li>
+      <li>
+        <strong>Opening a file:</strong> <strong>cmd</strong>+<strong>P</strong>. Start typing the name of the file and you get a list of matched file names.
+      </li>
+      <li>
+        <strong>Opening a file and search for a string</strong>: Use the command <strong>cmd</strong>+<strong>P</strong> and type [filename]@[string], for example: main@wrapper. It will open the file with the name <em>"main"</em> with a string <em>"wrapper"</em> in it. In my case the <em>".wrapper"</em> class is in the <em>"main.scss"</em>.
+      </li>
+      <li>
+        Multiple selection: you will never use <em>"find and replace"</em> again. To add all occurrences of the current word to the selection, use <strong>Ctrl</strong>+<strong>cmd</strong>+<strong>G</strong> on OS X, or <strong>Alt</strong>+<strong>F3</strong> on Windows and Linux.
+      </li>
+      <li>
+        <strong>Split windows</strong>: you can split your window in multiple edit screens. To do so use the key commands <strong>cmd</strong>+<strong>alt</strong>+<strong>2</strong>, this split the window in 2 panels. It depends on the width of your screen how many split windows are useful to you.
+      </li>
+      <li>
+        <strong>Emmet key commands</strong>: I tried some key commands shown on the demo site, but some of them didn't work, like creating a data uri. Most of these key commands are only for the demo. I found a list of working commands on: <a href="https://github.com/sergeche/emmet-sublime#available-actions">github</a>
+      </li>
+      <li>
+        Complete list of <strong>Sublime commands</strong>: check out the page on  <a href="http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_win.html">http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_win.html</a>
+      </li>
+    </ul>
+    <figure>
+      <img src="/static/img/findfilestring.png" alt="Find file with class name in Sublime.">
+      <figcaption>Find file with class name in Sublime.</figcaption>
+    </figure>
+    <h2>Open files via the terminal</h2>
+    <p>
+      I mostly use the terminal to navigate to folders and to open it in sublime. To use an easy command for it I created a symbolic link. In OS X the Application is in "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl". If it is in another directory use that path in step 2. Open your terminal and type in the following commands:
+    </p>
+    <pre rel="Terminal">
+    <code class="dos">
+    $ cd /usr/local/bin
+    $ ln -s /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl sublime
+    </code>
+    </pre>
+    <p>That's it. You can now use the command <em>"sublime"</em> in your terminal.</p>
+    <h2>Find your theme</h2>
+    <p>
+      Sublime comes with a couple of standard themes. If none of the default themes matches your personal color styles, you can find a lot of other themes on the internet. I use the Github version from <a href="https://github.com/daylerees/colour-schemes">Dayle Rees Color Schemes</a> and made some changes in it. How did I do that?
+    </p>
+    <ul>
+      <li>I installed <em>"Dayle Rees color schemes"</em> via Package manager.</li>
+      <li>Then I opened the folder <em>Browse Packages</em> (via Preferences).</li>
+      <li>Find the theme package and copy the theme file to your user directory in Browser Packages. In my case it was <em>"Github.tmTheme"</em>. This is an XML file.</li>
+      <li>Rename the copied file.</li>
+      <li>Select your theme via <strong>Preferences</strong> &gt; <strong>Color Scheme</strong> &gt; <strong>User</strong>.</li>
+      <li>Open the file in Sublime and play with the colors you want to change. I opened a CSS and HTML File side by side to see the effect of my changes.</li>
+      <li>When you're done, you can just close the theme file.</li>
+    </ul>
+    <p>I hope this article is meaningful for the people who want to start using Sublime. You can evaluate Sublime for free, and when you are enthusiastic about it, a personal license is only $80.</p>
+<div class="nav-arrows">
+<a href="/blog/customize-crispy-forms.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="/blog/rating-stars-sass.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div></main><input type="checkbox" name="menu" id="toggle-menu" class="toggle-menu" aria-hidden="true"><header><nav><div role="navigation">
+<a href="/" role="menuitem"><span>home</span></a><a href="/blog/" role="menuitem" class="selected"><span>blog</span></a><a href="#" role="menuitem"><span>fronteers</span></a><a href="#" role="menuitem"><span>about</span></a>
+</div></nav><label class="hamburger-wrapper" for="toggle-menu"><div class="hamburger"></div>
+<div class="menu-text">Menu</div></label></header><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="no-display"><symbol id="readmore"><path d="M32 0h447.8c17.7 0 32.1 14.4 32.1 32.1v447.8c0 17.7-14.4 32.1-32.1 32.1H32C14.3 512-.1 497.6-.1 479.9V32.1C-.1 14.3 14.3 0 32 0z"></path><path fill-rule="evenodd" clip-rule="evenodd" class="fill-color" d="M170.6 350.8l94.8-94.8-94.8-94.8 47.4-47.4L360.2 256 218 398.2z"></path></symbol><symbol id="blog"><path d="M177.6 112.4v63.7c41.1 0 80.9 15.9 110.1 45.1 29.2 29.2 45.1 69 45.1 110.1h63.7c0-120.7-98.1-218.9-218.9-218.9zm0-112.7v63.7c147.2 0 267.9 120.7 267.9 269.3h63.7c.1-184.4-148.5-333-331.6-333zm-35.8 228.1c-13.3 0-22.5 4-30.5 11.9-6.8 8.2-10.5 18.5-10.6 29.2 0 11.9 4 21.2 10.6 27.9 8 9.3 17.2 13.3 30.5 13.3 17.2 0 31.8 4 42.4 13.3 10.6 9.3 15.9 22.5 15.9 38.5 0 17.2-5.3 30.5-17.2 42.5-10.6 11.9-25.2 17.2-39.8 17.2-15.9 0-29.2-5.3-39.8-17.2-10.6-11.9-17.2-25.2-17.2-42.5v-203c0-13.3-4-23.9-11.9-31.8-9.3-8-19.9-10.6-30.5-10.6s-21.2 4-29.2 11.9c-8 8-11.9 18.6-11.9 31.8v205.6c0 39.8 13.3 74.3 41.1 103.5 27.9 27.9 59.7 42.4 99.5 42.4 38.5 0 71.6-14.6 98.2-42.4 27.9-27.9 41.1-62.3 41.1-102.1s-13.3-73-39.8-98.2c-27.9-27.9-61.1-41.2-100.9-41.2z"></path></symbol><symbol id="chevron-left"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M349.3 353.5l-94.1-94.1 94.1-94.1-47.1-47-141.1 141.1 141.1 141.1z"></path></symbol><symbol id="chevron-right"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M171.3 350.1l94-94.1-94-94.1 47-47L359.4 256 218.3 397.1z"></path></symbol></svg><script src="/static/highlight-9.15.10.min.js"></script><script src="/static/base.min.js"></script>
+</body>
+</html>
