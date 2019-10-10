@@ -72,6 +72,11 @@ body {
 .scroll-disabled { overflow: hidden; }
 .no-display { display: none; }
 
+.deprecated {
+    color: #ccc;
+    font-style: italic;
+    text-decoration: line-through;
+}
 
 main {
     max-width: 140rem;
