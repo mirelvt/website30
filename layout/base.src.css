@@ -598,3 +598,36 @@ button:hover { background-color: var(--c-hover); }
 
 /* **** @END BLOG PAGE **** */
 /* ----------------------- */
+
+
+/* Page errors */
+.page-error {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.messages-block {
+    position: relative;
+    margin: 20px auto;
+    width: 130px;
+    padding: 35px 0;
+    text-align: center;
+    font-size: 5rem;
+    color: #fff;
+    background: var(--c-primary);
+    border-radius: 10px;
+}
+
+/* Arrow */
+.messages-block::before {
+    position: absolute;
+    transform: translateY(50%);
+    left: -20px;
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 15px 20px 15px 0;
+    border-style: solid;
+    border-color: transparent var(--c-primary) transparent transparent;
+}
