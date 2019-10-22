@@ -632,3 +632,14 @@ button:hover { background-color: var(--c-hover); }
     border-style: solid;
     border-color: transparent var(--c-primary) transparent transparent;
 }
+
+.video-list dt {
+    font-size: 2rem;
+    color: var(--c-primary);
+}
+
+.video-list dd {
+    font-size: 1.7rem;
+    margin-left: 1.6rem;
+    margin-bottom: 2rem;
+}

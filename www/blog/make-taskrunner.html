@@ -15,14 +15,14 @@
     <p>March 15, 2017</p>
     <p>Every front end developer have heard of or is using one of the task runners like Grunt, Gulp, Broccoli. There are a lot of articles and how to's on the web about these tools. However, there is one that doesn't get a lot of attention and that is GNU Make. It was originally created by Stuart Feldman in April 1976. GNU Make is not really popular among front end developers, it has a steep learning curve in comparison with Grunt or Gulp and there are not much examples on how to use it for front end development. In this blog post I would like to change that, I will show you how you can use GNU Make as a task runner for front end development.</p>
 
-    <p>First of all, what is Make? There is a good description on <a href="https://en.wikipedia.org/wiki/Make_(software)">wikipedia</a>: Make is a build automation tool that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program.</p>
+    <p>First of all, what is Make? There is a good description on <a href="https://en.wikipedia.org/wiki/Make_(software)" target="_blank" rel="norefferer">wikipedia</a>: Make is a build automation tool that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program.</p>
 
     <h1>How to install GNU Make?</h1>
     <p>Let's first install Make. Mac OS comes with GNU Make 3.81, so it is already available. I have no experience on installing GNU Make on Linux or Windows, here some articles for these OS's:</p>
     <ul>
-        <li><a href="http://gnuwin32.sourceforge.net/packages/make.htm">Make for windows</a></li>
-        <li><a href="https://www.cyberciti.biz/faq/howto-installing-gnu-c-compiler-development-environment-on-ubuntu/">Make for Ubuntu</a></li>
-        <li><a href="https://software.opensuse.org/package/make">openSUSE</a></li>
+        <li><a href="http://gnuwin32.sourceforge.net/packages/make.htm" target="_blank" rel="norefferer">Make for windows</a></li>
+        <li><a href="https://www.cyberciti.biz/faq/howto-installing-gnu-c-compiler-development-environment-on-ubuntu/" target="_blank" rel="norefferer">Make for Ubuntu</a></li>
+        <li><a href="https://software.opensuse.org/package/make" target="_blank" rel="norefferer">openSUSE</a></li>
     </ul>
 
     <p>If you find better tutorials let me know and I will update the urls in this blog post. You can contact me on Twitter @mirelvt.</p>
@@ -149,7 +149,7 @@
     </code>
     </pre>
 
-    <p>Now that the rules are in place, you need to let make know what to compile. You use targets for this. In your Makefile the *all* target is set. This is one of Makes <a href="https://www.gnu.org/software/make/manual/make.html#Standard-Targets">standard targets</a>.</p>
+    <p>Now that the rules are in place, you need to let make know what to compile. You use targets for this. In your Makefile the *all* target is set. This is one of Makes <a href="https://www.gnu.org/software/make/manual/make.html#Standard-Targets" target="_blank" rel="norefferer">standard targets</a>.</p>
 
     <pre rel="makefile">
     <code class="makefile">CSS_OBJ = static/css
@@ -252,7 +252,7 @@
 
     <h2>Suffix rules</h2>
 
-    <p>Suffix rules are the old-fashioned way of defining implicit rules for make. They are supported in GNU make for compatibility with old makefiles. Suffix rule definitions are recognized by comparing each rule’s target against a defined list of known suffixes. If you wish to eliminate the default known suffixes instead of just adding to them, write a rule for .SUFFIXES with no prerequisites. By special dispensation, this eliminates all existing prerequisites of .SUFFIXES. You can then write another rule to add the suffixes you want. (Source <a href="https://www.gnu.org/software/make/manual/make.html#Suffix-Rules">GNU Manual</a>)</p>
+    <p>Suffix rules are the old-fashioned way of defining implicit rules for make. They are supported in GNU make for compatibility with old makefiles. Suffix rule definitions are recognized by comparing each rule’s target against a defined list of known suffixes. If you wish to eliminate the default known suffixes instead of just adding to them, write a rule for .SUFFIXES with no prerequisites. By special dispensation, this eliminates all existing prerequisites of .SUFFIXES. You can then write another rule to add the suffixes you want. (Source <a href="https://www.gnu.org/software/make/manual/make.html#Suffix-Rules" target="_blank" rel="norefferer">GNU Manual</a>)</p>
 
     <p>In our example the only suffixes we want are .min.css and .src.css:</p>
 
@@ -298,16 +298,16 @@
     <h2>Documentation</h2>
     <ul>
         <li>
-            <a href="https://www.gnu.org/software/make/">GNU Make</a>
+            <a href="https://www.gnu.org/software/make/" target="_blank" rel="norefferer">GNU Make</a>
         </li>
         <li>
-            <a href="https://www.gnu.org/software/make/manual/make.html">GNU Make manual</a>
+            <a href="https://www.gnu.org/software/make/manual/make.html" target="_blank" rel="norefferer">GNU Make manual</a>
         </li>
     </ul>
 <div class="nav-arrows">
 <a href="/blog/make-minify-js.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="/blog/conf_2016.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
 </div></main><input type="checkbox" name="menu" id="toggle-menu" class="toggle-menu" aria-hidden="true"><header><nav><div role="navigation">
-<a href="/" role="menuitem"><span>home</span></a><a href="/blog/" role="menuitem" class="selected"><span>blog</span></a><a href="#" role="menuitem"><span>fronteers</span></a><a href="#" role="menuitem"><span>about</span></a>
+<a href="/" role="menuitem"><span>home</span></a><a href="/blog/" role="menuitem" class="selected"><span>blog</span></a><a href="/about/" role="menuitem"><span>about</span></a>
 </div></nav><label class="hamburger-wrapper" for="toggle-menu"><div class="hamburger"></div>
 <div class="menu-text">Menu</div></label></header><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="no-display"><symbol id="readmore"><path d="M32 0h447.8c17.7 0 32.1 14.4 32.1 32.1v447.8c0 17.7-14.4 32.1-32.1 32.1H32C14.3 512-.1 497.6-.1 479.9V32.1C-.1 14.3 14.3 0 32 0z"></path><path fill-rule="evenodd" clip-rule="evenodd" class="fill-color" d="M170.6 350.8l94.8-94.8-94.8-94.8 47.4-47.4L360.2 256 218 398.2z"></path></symbol><symbol id="blog"><path d="M177.6 112.4v63.7c41.1 0 80.9 15.9 110.1 45.1 29.2 29.2 45.1 69 45.1 110.1h63.7c0-120.7-98.1-218.9-218.9-218.9zm0-112.7v63.7c147.2 0 267.9 120.7 267.9 269.3h63.7c.1-184.4-148.5-333-331.6-333zm-35.8 228.1c-13.3 0-22.5 4-30.5 11.9-6.8 8.2-10.5 18.5-10.6 29.2 0 11.9 4 21.2 10.6 27.9 8 9.3 17.2 13.3 30.5 13.3 17.2 0 31.8 4 42.4 13.3 10.6 9.3 15.9 22.5 15.9 38.5 0 17.2-5.3 30.5-17.2 42.5-10.6 11.9-25.2 17.2-39.8 17.2-15.9 0-29.2-5.3-39.8-17.2-10.6-11.9-17.2-25.2-17.2-42.5v-203c0-13.3-4-23.9-11.9-31.8-9.3-8-19.9-10.6-30.5-10.6s-21.2 4-29.2 11.9c-8 8-11.9 18.6-11.9 31.8v205.6c0 39.8 13.3 74.3 41.1 103.5 27.9 27.9 59.7 42.4 99.5 42.4 38.5 0 71.6-14.6 98.2-42.4 27.9-27.9 41.1-62.3 41.1-102.1s-13.3-73-39.8-98.2c-27.9-27.9-61.1-41.2-100.9-41.2z"></path></symbol><symbol id="chevron-left"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M349.3 353.5l-94.1-94.1 94.1-94.1-47.1-47-141.1 141.1 141.1 141.1z"></path></symbol><symbol id="chevron-right"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M171.3 350.1l94-94.1-94-94.1 47-47L359.4 256 218.3 397.1z"></path></symbol></svg><script src="/static/highlight-9.15.10.min.js"></script><script src="/static/base.min.js"></script>
 </body>

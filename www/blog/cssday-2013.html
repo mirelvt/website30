@@ -8,7 +8,9 @@
 <link rel="stylesheet" href="/static/base.min.css">
 </head>
 <body>
-<main class="page-blog"><div class="nav-arrows"><a href="/blog/customize-sublime.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a></div>
+<main class="page-blog"><div class="nav-arrows">
+<a href="/blog/customize-sublime.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="/blog/accessibility-ux-design.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div>
     <h1>CSS Day 2013 Amsterdam</h1>
     <p>June 16, 2013</p>
     <p>
@@ -16,7 +18,7 @@
     </p>
     <h2 id="summary">Summary</h2>
 
-    <p>Peter Paul Koch was the host of the day. Eric Meyer started the conference with his talk about fonts. Showing us a couple of creative ways to use different font types and browser quirks. Bert Bos, one of the people who invented CSS, talked about the history of CSS and the use of selectors. I didn't know that CSS was intended for simple documents with high quality typography. Stephen Hay gave a great, humouristic presentation about the power of Flexbox. Divya Manian showed us some really awesome demos of using filters and compositing. Tab Atkins talked about variables and conditional rules we hopefully can use in the near future. Daniel glazman gave an in-depth presentation about <a href="http://w3c.org/tr/css3-mediaqueries">media-queries</a> and shared his thoughts about future specifications. Peter Gaston presented in-detail all the properties and values of transitions and browser quirks.And Finally Lea Verou closed the conference with an enlightning demonstration of border radius. She demonstrated the possibilities and behaviors you probably wouldn't think of when using border-radius.</p>
+    <p>Peter Paul Koch was the host of the day. Eric Meyer started the conference with his talk about fonts. Showing us a couple of creative ways to use different font types and browser quirks. Bert Bos, one of the people who invented CSS, talked about the history of CSS and the use of selectors. I didn't know that CSS was intended for simple documents with high quality typography. Stephen Hay gave a great, humouristic presentation about the power of Flexbox. Divya Manian showed us some really awesome demos of using filters and compositing. Tab Atkins talked about variables and conditional rules we hopefully can use in the near future. Daniel glazman gave an in-depth presentation about <a href="http://w3c.org/tr/css3-mediaqueries" target="_blank" rel="norefferer">media-queries</a> and shared his thoughts about future specifications. Peter Gaston presented in-detail all the properties and values of transitions and browser quirks.And Finally Lea Verou closed the conference with an enlightning demonstration of border radius. She demonstrated the possibilities and behaviors you probably wouldn't think of when using border-radius.</p>
 
     <p>Below you'll find my notes of the conference. When the videos are available I will add the links in this post.</p>
 
@@ -64,8 +66,8 @@
     <p>A good list of selectors with explanation can be found on:</p>
 
     <ul>
-    <li><a href="http://www.w3schools.com/cssref/css_selectors.asp">w3schools</a></li>
-    <li><a href="http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/">tutsplus</a></li>
+    <li><a href="http://www.w3schools.com/cssref/css_selectors.asp" target="_blank" rel="norefferer">w3schools</a></li>
+    <li><a href="http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/" target="_blank" rel="norefferer">tutsplus</a></li>
     </ul>
 
     <h2 id="flexbox-stephen-hay">Flexbox - Stephen Hay</h2>
@@ -81,14 +83,14 @@
     <p>For more information about Flexbox, check out the following documentation:</p>
 
     <ul>
-      <li><a href="http://css-tricks.com/old-flexbox-and-new-flexbox/">Old and new flexbox</a></li>
-      <li><a href="http://coding.smashingmagazine.com/2013/05/22/centering-elements-with-flexbox/">Smashing magazine</a></li>
+      <li><a href="http://css-tricks.com/old-flexbox-and-new-flexbox/" target="_blank" rel="norefferer">Old and new flexbox</a></li>
+      <li><a href="http://coding.smashingmagazine.com/2013/05/22/centering-elements-with-flexbox/" target="_blank" rel="norefferer">Smashing magazine</a></li>
       <li>
-<a href="http://www.w3.org/TR/css3-flexbox/#overview-example">w3c.org css3 flexbox</a> </li>
+<a href="http://www.w3.org/TR/css3-flexbox/#overview-example" target="_blank" rel="norefferer">w3c.org css3 flexbox</a> </li>
     </ul>
     ## Filter effects &amp; compositing - Divya Manian
 
-    SVG filters are introduced by Adobe and work in Chrome and Safari. A filter changes the pixels of an element and creates a new stacking context. "Filter effects are a way of processing an element's rendering before it is displayed in the document. They are triggered by a style instruction (the ‘filter’ property)." <a href="https://www.w3.org/TR/filter-effects-1/">w3c.org filters</a>
+    SVG filters are introduced by Adobe and work in Chrome and Safari. A filter changes the pixels of an element and creates a new stacking context. "Filter effects are a way of processing an element's rendering before it is displayed in the document. They are triggered by a style instruction (the ‘filter’ property)." <a href="https://www.w3.org/TR/filter-effects-1/" target="_blank" rel="norefferer">w3c.org filters</a>
 
     There are 3 types of filters:
     <ul>
@@ -112,9 +114,9 @@
     <p>You can experiment with filters and compositing (in Photoshop known as blend modes) on <span class="deprecated">adobe's cssfilterlab</span>. You do need Safari or Chrome. More information about filters and blend modes can be found on:</p>
 
     <ul>
-      <li><a href="http://nimbu.in/cssday/#/step-1">Divya's slides</a></li>
-      <li><a href="https://www.w3.org/TR/filter-effects-1/">W3C.org Filter Effects</a></li>
-      <li><a href="http://adobe.github.io/web-platform/demos/compositing/">Adobe github</a></li>
+      <li><a href="http://nimbu.in/cssday/#/step-1" target="_blank" rel="norefferer">Divya's slides</a></li>
+      <li><a href="https://www.w3.org/TR/filter-effects-1/" target="_blank" rel="norefferer">W3C.org Filter Effects</a></li>
+      <li><a href="http://adobe.github.io/web-platform/demos/compositing/" target="_blank" rel="norefferer">Adobe github</a></li>
     </ul>
     ## Variables &amp; conditionals - Tab Atkins
 
@@ -157,7 +159,7 @@
     </code>
     </pre>
 
-    All the features Tab showed us, really made me wanting it implemented tomorrow. You can find his slides on: <a href="http://www.xanthir.com/talks/2013-06-14">xanthir.com</a> (use chrome and your arrow keys to navigate).
+    All the features Tab showed us, really made me wanting it implemented tomorrow. You can find his slides on: <a href="http://www.xanthir.com/talks/2013-06-14" target="_blank" rel="norefferer">xanthir.com</a> (use chrome and your arrow keys to navigate).
 
     ## Animations &amp; Transitions - Peter Gaston
 
@@ -172,8 +174,8 @@
 
     <p>Peter also showed us examples of specs violation, things that were in the specs but not applied in browsers.</p>
 
-    <p>Peter's slides are on <a href="https://speakerdeck.com/stopsatgreen/animations-and-transitions">speakerdeck</a>. You can also check out some nice animation/transition demos on
-       <a href="http://tympanus.net/Development/PseudoElementsAnimationsTransitions/index3.html">
+    <p>Peter's slides are on <a href="https://speakerdeck.com/stopsatgreen/animations-and-transitions" target="_blank" rel="norefferer">speakerdeck</a>. You can also check out some nice animation/transition demos on
+       <a href="http://tympanus.net/Development/PseudoElementsAnimationsTransitions/index3.html" target="_blank" rel="norefferer">
            tympanus.net
        </a>.</p>
 
@@ -190,17 +192,19 @@
     <ul>
       <li><span class="deprecated">webplatform border radius</span></li>
       <li><span class="deprecated">webplatform border corner shape</span></li>
-      <li><a href="https://www.w3.org/TR/css-backgrounds-3/">w3.org corners</a></li>
+      <li><a href="https://www.w3.org/TR/css-backgrounds-3/" target="_blank" rel="norefferer">w3.org corners</a></li>
     </ul>
 
     <p>The layout of the presentation really made me happy, nice colors and beautiful layout. Amazing how she talks and do live coding at once. I attended her talk last year at Fronteers Conference, that was already awesome and this time she pulled it off again.</p>
 
     <ul>
-      <li><a href="http://github.com/leaverou/csss">Lea's presentation framework</a></li>
+      <li><a href="http://github.com/leaverou/csss" target="_blank" rel="norefferer">Lea's presentation framework</a></li>
       <li><span class="deprecated">Lea's presentation</span></li>
     </ul>
-<div class="nav-arrows"><a href="/blog/customize-sublime.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a></div></main><input type="checkbox" name="menu" id="toggle-menu" class="toggle-menu" aria-hidden="true"><header><nav><div role="navigation">
-<a href="/" role="menuitem"><span>home</span></a><a href="/blog/" role="menuitem" class="selected"><span>blog</span></a><a href="#" role="menuitem"><span>fronteers</span></a><a href="#" role="menuitem"><span>about</span></a>
+<div class="nav-arrows">
+<a href="/blog/customize-sublime.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="/blog/accessibility-ux-design.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div></main><input type="checkbox" name="menu" id="toggle-menu" class="toggle-menu" aria-hidden="true"><header><nav><div role="navigation">
+<a href="/" role="menuitem"><span>home</span></a><a href="/blog/" role="menuitem" class="selected"><span>blog</span></a><a href="/about/" role="menuitem"><span>about</span></a>
 </div></nav><label class="hamburger-wrapper" for="toggle-menu"><div class="hamburger"></div>
 <div class="menu-text">Menu</div></label></header><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="no-display"><symbol id="readmore"><path d="M32 0h447.8c17.7 0 32.1 14.4 32.1 32.1v447.8c0 17.7-14.4 32.1-32.1 32.1H32C14.3 512-.1 497.6-.1 479.9V32.1C-.1 14.3 14.3 0 32 0z"></path><path fill-rule="evenodd" clip-rule="evenodd" class="fill-color" d="M170.6 350.8l94.8-94.8-94.8-94.8 47.4-47.4L360.2 256 218 398.2z"></path></symbol><symbol id="blog"><path d="M177.6 112.4v63.7c41.1 0 80.9 15.9 110.1 45.1 29.2 29.2 45.1 69 45.1 110.1h63.7c0-120.7-98.1-218.9-218.9-218.9zm0-112.7v63.7c147.2 0 267.9 120.7 267.9 269.3h63.7c.1-184.4-148.5-333-331.6-333zm-35.8 228.1c-13.3 0-22.5 4-30.5 11.9-6.8 8.2-10.5 18.5-10.6 29.2 0 11.9 4 21.2 10.6 27.9 8 9.3 17.2 13.3 30.5 13.3 17.2 0 31.8 4 42.4 13.3 10.6 9.3 15.9 22.5 15.9 38.5 0 17.2-5.3 30.5-17.2 42.5-10.6 11.9-25.2 17.2-39.8 17.2-15.9 0-29.2-5.3-39.8-17.2-10.6-11.9-17.2-25.2-17.2-42.5v-203c0-13.3-4-23.9-11.9-31.8-9.3-8-19.9-10.6-30.5-10.6s-21.2 4-29.2 11.9c-8 8-11.9 18.6-11.9 31.8v205.6c0 39.8 13.3 74.3 41.1 103.5 27.9 27.9 59.7 42.4 99.5 42.4 38.5 0 71.6-14.6 98.2-42.4 27.9-27.9 41.1-62.3 41.1-102.1s-13.3-73-39.8-98.2c-27.9-27.9-61.1-41.2-100.9-41.2z"></path></symbol><symbol id="chevron-left"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M349.3 353.5l-94.1-94.1 94.1-94.1-47.1-47-141.1 141.1 141.1 141.1z"></path></symbol><symbol id="chevron-right"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M171.3 350.1l94-94.1-94-94.1 47-47L359.4 256 218.3 397.1z"></path></symbol></svg><script src="/static/highlight-9.15.10.min.js"></script><script src="/static/base.min.js"></script>
 </body>
