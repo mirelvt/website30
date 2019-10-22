@@ -385,8 +385,9 @@ nav {
 /* **** HOMEPAGE **** */
 .page-home {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     column-gap: 8rem;
+    max-width: 100rem;
 }
 
 .block-home {
@@ -400,7 +401,7 @@ nav {
         bottom: 1rem;
     }
 
-    .block-home:nth-of-type(2) .block-home-visual .img-border {
+    .block-home:first-child .block-home-visual .img-border {
         background-color: var(--c-primary);
     }
 

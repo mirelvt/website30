@@ -1,0 +1,173 @@
+<!DOCTYPE html><html xmlns:xlink="https://www.w3.org/1999/xlink" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The topics were quite diverse from Progressive enhancement to webVR, from svg animations to mind blowing data visualisations. But also the future of the web had been discussed and how to deal with the Asian market which still use feature phones with proxy browser and a horrible data connection. This article is a summary with the highlights of the 2 day event.">
+<title>Fronteers Conference 2016 - MvT</title>
+<link rel="stylesheet" href="/static/base.min.css">
+</head>
+<body>
+<main class="page-blog"><div class="nav-arrows">
+<a href="/blog/make-taskrunner.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="/blog/svg-icons-django-template.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div>
+    <h1>Fronteers Conference 2016</h1>
+    <p>October 10, 2016</p>
+     <p>
+         Thursday 8 and Friday 9 October was the epic Fronteers conference.
+         The topics were quite diverse from Progressive enhancement to webVR,
+         from svg animations to mind blowing data visualisations. But also the
+         future of the web had been discussed and how to deal with the Asian market
+         which still use feature phones with proxy browser and a horrible data connection.
+         This article is a summary with the highlights of the 2 day event.
+     </p>
+
+     <h2>Progressive Enhancement and CSS</h2>
+     <p>
+         We can build a lot of cool things for the web these days, but sometimes
+         it is useful to step back and remind ourselves of the basics. The first
+         talk was about progressive enhancement and css by Ire Aderinokun.
+     </p>
+     <p>
+         The basics are:
+    </p>
+    <ol>
+         <li>basic content and functionality should be accessible to all web browsers. </li>
+         <li>Mark up should contain all content.</li>
+         <li>Content should be plain text in the markup</li>
+         <li>Enhanced layout can be provided by css. Without css the content should still be accessible.</li>
+         <li>Enhanced behavior can be provided by javascript. Should also work without javascript enabled.</li>
+         <li>Web browser preferences of the user should be respected.</li>
+     </ol>
+     <p>
+         Things can go wrong when javascript is disabled, when a feature is not
+         available yet in the browser or when the browser does not understand the
+         semantic meaning (e.g. html5 tags).
+     </p>
+     <p>
+         These issues can be fixed by using feature detection, polyfill for unsupported
+         features, role attributes etc. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">CSS Feature Queries</a>
+         is also in progress. At time of writing it is available in all latest browsers, except for IE.
+     </p>
+     <h2>Data visualisations and progressive web apps</h2>
+     <p>
+         Nadieh Bremer gave us a mind blowing presentation about data visualisations.
+         She explained her design process, the issues she encountered and how she solved
+         them. During her talk she showed us some beautiful and amazing interactive graphics.
+     </p>
+     <figure>
+         <img src="/static/img/nadieh_bremer.jpg">
+     </figure>
+     <p>
+         Nolan Lawson talked about progressive web apps, the interesting part of
+         the presentation was how to serve offline content and how to use multi-threading.
+         The old way for static data is:
+         <a href="https://www.html5rocks.com/en/tutorials/appcache/beginner/">appCache</a>.
+         The new way: <a href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers">Cache API</a> (Service workers). For dynamic data the
+         old way is <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API">localStorage</a> and the new way <a href="http://blogs.shephertz.com/2014/01/14/html5-learn-how-to-use-indexeddb/">IndexedDB</a>.
+     </p>
+     <p>
+         For multi-threading you can use <a href="http://www.htmlgoodies.com/html5/tutorials/introducing-html-5-web-workers-bringing-multi-threading-to-javascript.html#fbid=bNp9ZTkylph">web workers</a>.
+     </p>
+     <h2>CSP and functional animations</h2>
+     <p>
+         Scott Helme gave an introduction about modern web security standards:
+     </p>
+     <ul>
+         <li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">CSP</a>: Content Security Policy</li>
+         <li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security">STS</a>: Strict Transport Security</li>
+         <li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning">PKP</a>: Public Key Pins</li>
+         <li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">SRI</a>: Sub Resource Integrity</li>
+     </ul>
+     <figure>
+         <img src="/static/img/scott_helme.jpg">
+     </figure>
+     <p>
+         Sarah Drasner demonstrated how animations can help the user. She uses the
+         following deployment tools <a href="https://facebook.github.io/react/">react</a>,
+         svg and <a href="http://greensock.com/">GSAP</a>. Animations can be used for:
+     </p>
+     <ul>
+         <li>Revealing information</li>
+         <li>Anticipatory cues</li>
+         <li>Spatial awareness</li>
+         <li>Immersive animation</li>
+     </ul>
+     <figure>
+         <img src="/static/img/sara_drasner.jpg">
+     </figure>
+     <h2>The future</h2>
+     <p>
+         Peter Gasston elaborates in his talk "Surveying the landscape" the future
+         of the web. The role of the web has changed a lot since the first web page.
+         It is now an integral part of our culture. People consume web content not
+         only via the browser but also via applications like Facebook. The
+         statistics shows there is a shift from web to apps. But there is
+         hope for us web developers, while 1.6 billion people use Facebook every month,
+         there is over 3 billion people who has access to a web browser. We
+         need to change our mindset of thinking that the web is only viewed via the browser to
+         anything that can access the web.
+     </p>
+     <p>
+         Jason Grigsby also talks about the future of the web in his talk "Adapting to input".
+         The development of input is going very fast. First you had a typewriter, 112 years
+         later the mouse, but now every year there is a new invention for input.
+     </p>
+     <p>
+         We need to get rid off the assumption of touch and desktop. You can't know
+         which device people are working on and whether they are using the mouse or
+         keyboard. In the future you can have touch and mouse on the same device.
+     </p>
+     <p>
+         To handle this issue (mouse and touch), browsers are implementing pointer events.
+         At time of writing IE11, Edge, Chrome 55+, Opera 42 supports pointer events.
+         You can read about <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events">CSS pointer events</a>
+         and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events">javascript pointer events</a> on Mozilla developer site.
+     </p>
+     <figure>
+         <img src="/static/img/jason_grigsby.jpg">
+     </figure>
+     <h2>Accessibility and not Wealthy Western Web</h2>
+     <p>
+         Leonie Watson demonstrated how to make the web more accessible.
+         Screen readers use accessibility tree in the browser, there are
+         add ons available. ARIA attributes are a polyfill for meaning in HTML &amp; SVG.
+         Pseudo elements content are scanned and read by the screen reader.
+         Flexbox gives issues when messing with the order, don't use tabindex to solve
+         this problem, it screws up the rest of the tabindex of the content. You can
+         use aria-flowto.
+     </p>
+     <p>
+         For a couple of frameworks there are accessibility tools available:
+     </p>
+     <ul>
+         <li><a href="tenon.io">Tenon API</a></li>
+         <li>Ember: <a href="https://github.com/ember-a11y/ember-a11y-testing">a11y test suite</a>.</li>
+         <li>React: react accessibility API</li>
+         <li>Angular: <a href="https://docs.angularjs.org/guide/accessibility">NGARIA</a> (appears to be awful)</li>
+     </ul>
+     <p>
+
+         Test your web applications yourself, also zoom in and see if you can still
+         navigate. Main message is "It doesn't have to be perfect, just a little bit
+         better than yesterday".
+     </p>
+     <p>
+         Bruce Lawson showed how the internet is used in Asia. South Eastern Asia
+         is the fast growing market for mobile internet. If you want to serve this market,
+         you have to be aware that they use 2g feature phones which can run proxy browsers.
+         It costs less MB to place a web app(1.3mb) on the phone than a native one(30mb).
+         Be aware during development what is supported on a proxy browser (Opera mini, UC browser).
+     </p>
+<div class="nav-arrows">
+<a href="/blog/make-taskrunner.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="/blog/svg-icons-django-template.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div></main><input type="checkbox" name="menu" id="toggle-menu" class="toggle-menu" aria-hidden="true"><header><nav><div role="navigation">
+<a href="/" role="menuitem"><span>home</span></a><a href="/blog/" role="menuitem" class="selected"><span>blog</span></a><a href="#" role="menuitem"><span>fronteers</span></a><a href="#" role="menuitem"><span>about</span></a>
+</div></nav><label class="hamburger-wrapper" for="toggle-menu"><div class="hamburger"></div>
+<div class="menu-text">Menu</div></label></header><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="no-display"><symbol id="readmore"><path d="M32 0h447.8c17.7 0 32.1 14.4 32.1 32.1v447.8c0 17.7-14.4 32.1-32.1 32.1H32C14.3 512-.1 497.6-.1 479.9V32.1C-.1 14.3 14.3 0 32 0z"></path><path fill-rule="evenodd" clip-rule="evenodd" class="fill-color" d="M170.6 350.8l94.8-94.8-94.8-94.8 47.4-47.4L360.2 256 218 398.2z"></path></symbol><symbol id="blog"><path d="M177.6 112.4v63.7c41.1 0 80.9 15.9 110.1 45.1 29.2 29.2 45.1 69 45.1 110.1h63.7c0-120.7-98.1-218.9-218.9-218.9zm0-112.7v63.7c147.2 0 267.9 120.7 267.9 269.3h63.7c.1-184.4-148.5-333-331.6-333zm-35.8 228.1c-13.3 0-22.5 4-30.5 11.9-6.8 8.2-10.5 18.5-10.6 29.2 0 11.9 4 21.2 10.6 27.9 8 9.3 17.2 13.3 30.5 13.3 17.2 0 31.8 4 42.4 13.3 10.6 9.3 15.9 22.5 15.9 38.5 0 17.2-5.3 30.5-17.2 42.5-10.6 11.9-25.2 17.2-39.8 17.2-15.9 0-29.2-5.3-39.8-17.2-10.6-11.9-17.2-25.2-17.2-42.5v-203c0-13.3-4-23.9-11.9-31.8-9.3-8-19.9-10.6-30.5-10.6s-21.2 4-29.2 11.9c-8 8-11.9 18.6-11.9 31.8v205.6c0 39.8 13.3 74.3 41.1 103.5 27.9 27.9 59.7 42.4 99.5 42.4 38.5 0 71.6-14.6 98.2-42.4 27.9-27.9 41.1-62.3 41.1-102.1s-13.3-73-39.8-98.2c-27.9-27.9-61.1-41.2-100.9-41.2z"></path></symbol><symbol id="chevron-left"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M349.3 353.5l-94.1-94.1 94.1-94.1-47.1-47-141.1 141.1 141.1 141.1z"></path></symbol><symbol id="chevron-right"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M171.3 350.1l94-94.1-94-94.1 47-47L359.4 256 218.3 397.1z"></path></symbol></svg><script src="/static/highlight-9.15.10.min.js"></script><script src="/static/base.min.js"></script>
+</body>
+</html>

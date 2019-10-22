@@ -70,13 +70,7 @@
                             </xsl:if>
                             <span>blog</span>
                         </a>
-                        <a href="#" role="menuitem">
-                            <xsl:if test="$section = 'fronteers'">
-                                <xsl:attribute name="class">selected</xsl:attribute>
-                            </xsl:if>
-                            <span>fronteers</span>
-                        </a>
-                        <a href="#" role="menuitem">
+                        <a href="/about/" role="menuitem">
                             <xsl:if test="$section = 'about'">
                                 <xsl:attribute name="class">selected</xsl:attribute>
                             </xsl:if>
