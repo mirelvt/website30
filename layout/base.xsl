@@ -79,7 +79,7 @@
                             </xsl:if>
                             <span>blog</span>
                         </a>
-                        <a href="/about/" role="menuitem">
+                        <a href="/about.html" role="menuitem">
                             <xsl:if test="$section = 'about'">
                                 <xsl:attribute name="class">selected</xsl:attribute>
                             </xsl:if>

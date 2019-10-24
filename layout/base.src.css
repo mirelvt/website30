@@ -79,7 +79,7 @@ body {
 }
 
 main {
-    max-width: 140rem;
+    max-width: 96rem;
     margin: 0 auto;
     padding: 12vw 6vw 6vw;
 }
@@ -463,8 +463,6 @@ nav {
 
 /* **** BLOG PAGE *** */
 
-.page-blog { max-width: 96rem; }
-
 .page-blog ul {
     margin: 0 0 1.5rem;
     padding: 0;
@@ -642,4 +640,35 @@ button:hover { background-color: var(--c-hover); }
     font-size: 1.7rem;
     margin-left: 1.6rem;
     margin-bottom: 2rem;
+}
+
+/* About me */
+.photos {
+    position: relative;
+    height: 286px;
+}
+
+.photo-side,
+.photo-front {
+    position: absolute;
+    max-width: 100%;
+    border: 10px solid #fff;
+    box-shadow: 1px 1px 8px 0 var(--c-shadow);
+}
+
+.photo-side { top: 20px; }
+    .photo-side:first-child {
+        left: 0;
+        transform: rotate(5deg);
+    }
+
+    .photo-side:nth-of-type(2) {
+        left: 59%;
+        transform: rotate(-5deg);
+    }
+
+.photo-front {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }

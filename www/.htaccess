@@ -128,17 +128,29 @@ RewriteRule (.*) https://mirellavanteulingen.nl/$1 [R=301,L]
 DirectoryIndex index.html
 
 # Redirect old file path to new file path
-Redirect http://mirellavanteulingen.nl/fronteers/index.html https://mirellavanteulingen.nl/fronteers/
-Redirect http://mirellavanteulingen.nl/blog/index.html https://mirellavanteulingen.nl/blog/
-Redirect http://mirellavanteulingen.nl/fronteers/oocss.html https://mirellavanteulingen.nl/fronteers/oocss/
-Redirect http://mirellavanteulingen.nl/fronteers/rijksmuseum.html https://mirellavanteulingen.nl/fronteers/rijksmuseum/
-Redirect http://mirellavanteulingen.nl/fronteers/accessibility-is-ux-design.html https://mirellavanteulingen.nl/fronteers/accessibility-is-ux-design/
-Redirect http://mirellavanteulingen.nl/fronteers/fronteers2012 https://mirellavanteulingen.nl/conf_2012/
-Redirect http://mirellavanteulingen.nl/fronteers/fronteers2012/responsive-design.html https://mirellavanteulingen.nl/conf_2012/adapting-responsive-design/
-Redirect http://mirellavanteulingen.nl/fronteers/fronteers2012/developer-toolbelt.html https://mirellavanteulingen.nl/conf_2012/developer-toolbelt/
-Redirect http://mirellavanteulingen.nl/fronteers/fronteers2012/pixelisnotapixel.html https://mirellavanteulingen.nl/conf_2012/pixelisnotapixel/
-Redirect http://mirellavanteulingen.nl/fronteers/fronteers2012/style-guides.html https://mirellavanteulingen.nl/conf_2012/styleguides/
-Redirect http://mirellavanteulingen.nl/blog/customize-sublime.html https://mirellavanteulingen.nl/blog/customize_sublime/
+Redirect http://mirellavanteulingen.nl/fronteers/https://mirellavanteulingen.nl/blog/
+Redirect http://mirellavanteulingen.nl/fronteers/oocss https://mirellavanteulingen.nl/blog/oocss.html/
+Redirect http://mirellavanteulingen.nl/fronteers/rijksmuseum/ https://mirellavanteulingen.nl/blog/rijksmuseum.html/
+Redirect http://mirellavanteulingen.nl/fronteers/accessibility-is-ux-design/ https://mirellavanteulingen.nl/blog/accessibility-ux-design.html/
+Redirect http://mirellavanteulingen.nl/conf_2012/ https://mirellavanteulingen.nl/blog/conf_2012.html/
+Redirect http://mirellavanteulingen.nl/about/ https://mirellavanteulingen.nl/about.html/
 
 # Error pages
 ErrorDocument 404 https://www.mirellavanteulingen.nl/404.html
+
+# CSP
+Header set Content-Security-Policy "
+    default-src 'none';
+    connect-src 'self';
+    font-src 'self';
+    media-src 'self';
+    manifest-src" 'self';
+    worker-src 'self';
+    frame-src" 'self';
+    frame-ancestors 'self';
+    base-uri 'none';
+    form-action 'self';
+    style-src 'self';
+    script-src 'self' www.google-analytics.com;
+    img-src 'self' 'data';
+"
