@@ -63,34 +63,27 @@
                 </xsl:if>
             </main>
 
-            <input type="checkbox" name="menu" id="toggle-menu" class="toggle-menu" aria-hidden="true" />
             <header>
                 <nav>
-                    <div role="navigation">
-                        <a href="/" role="menuitem">
-                            <xsl:if test="$section = 'home'">
-                                <xsl:attribute name="class">selected</xsl:attribute>
-                            </xsl:if>
-                            <span>home</span>
-                        </a>
-                        <a href="/blog/" role="menuitem">
-                            <xsl:if test="$section = 'blog'">
-                                <xsl:attribute name="class">selected</xsl:attribute>
-                            </xsl:if>
-                            <span>blog</span>
-                        </a>
-                        <a href="/about.html" role="menuitem">
-                            <xsl:if test="$section = 'about'">
-                                <xsl:attribute name="class">selected</xsl:attribute>
-                            </xsl:if>
-                            <span>about</span>
-                        </a>
-                    </div>
+                    <a href="/" role="menuitem">
+                        <xsl:if test="$section = 'home'">
+                            <xsl:attribute name="class">selected</xsl:attribute>
+                        </xsl:if>
+                        <span>home</span>
+                    </a>
+                    <a href="/blog/" role="menuitem">
+                        <xsl:if test="$section = 'blog'">
+                            <xsl:attribute name="class">selected</xsl:attribute>
+                        </xsl:if>
+                        <span>blog</span>
+                    </a>
+                    <a href="/about.html" role="menuitem">
+                        <xsl:if test="$section = 'about'">
+                            <xsl:attribute name="class">selected</xsl:attribute>
+                        </xsl:if>
+                        <span>about</span>
+                    </a>
                 </nav>
-                <label class="hamburger-wrapper" for="toggle-menu">
-                    <div class="hamburger"></div>
-                    <div class="menu-text">Menu</div>
-                </label>
             </header>
 
             <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="no-display">

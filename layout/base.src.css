@@ -81,7 +81,7 @@ body {
 main {
     max-width: 96rem;
     margin: 0 auto;
-    padding: 12vw 6vw 6vw;
+    padding: 120px 6vw 6vw;
 }
 
 main h1:first-of-type { margin-top: 0; }
@@ -124,7 +124,7 @@ h2 { margin-bottom: 1.5rem; }
 h3,
 h4,
 h5,
-h6 { margin-bottom: 0; }
+h6 { margin-bottom: 1rem; }
 
 p {
     margin-top: 1.8rem;
@@ -190,100 +190,34 @@ figcaption {
 /* HEADER + MENU */
 
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 6rem;
-    padding-right: 2rem;
     font-size: 1.6rem;
     background-color: var(--c-primary);
+    border-bottom: 1px solid #fff;
 }
-
-/* Hamburger */
-.hamburger-wrapper {
-    display: flex;
-    align-items: center;;
-    position: relative;
-    margin-left: auto;
-    width: 8.5rem;
-    height: 6rem;
-    color: #fff;
-    cursor: pointer;
-}
-
-.menu-text {
-    font-weight: bold;
-    font-size: 1.8rem;
-    margin-left: 1.5rem;
-}
-
-.hamburger {
-    flex: 0 0 21px;
-    transform: translateZ(0);
-    transition: transform 0.5s, background-color 0.3s;
-    position: relative;
-    width: 20px;
-    height: 2px;
-    background-color: #fff;
-
-}
-
-.hamburger::after,
-.hamburger::before {
-    transition: transform 0.5s, background-color 0.3s;
-    position: absolute;
-    display: block;
-    width: 21px;
-    height: 2px;
-    content: "";
-    background-color: #fff;
-}
-
-.hamburger::after { top: 6px; }
-.hamburger::before { top: -6px; }
-
 
 /* Menu */
 nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: visibility 400ms ease-in-out, opacity 400ms ease-in-out;
-    visibility: hidden;
-    opacity: 0;
-    background-color: rgba(23, 47, 14, 0.95);
+    height: inherit;
 }
 
 [role="menuitem"] {
     position: relative;
     display: block;
-    width: 25vw;
-    min-width: 25rem;
-    margin-bottom: 3rem;
-    font-size: 3.5rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 2.5rem;
     color: #fff;
     text-align: center;
     text-decoration: none;
-    opacity: 0;
     transition: opacity 350ms ease-out;
-}
-
-[role="menuitem"]::after {
-    display: block;
-    margin-top: 0.75rem;
-    height: 1px;
-    content: "";
-    background: linear-gradient(to right,
-        rgba(255, 255, 255, 0) 0,
-        #fff 25%,
-        #fff 75%,
-        rgba(255, 255, 255, 0) 100%);
 }
 
 [role="menuitem"] span::before,
@@ -295,14 +229,14 @@ nav {
 
 [role="menuitem"] span::before {
     content: "{";
-    padding-right: 0.75rem;
-    transform: translateX(2rem);
+    padding-right: 0.5rem;
+    transform: translateX(1rem);
 }
 
 [role="menuitem"] span::after {
     content: "}";
-    padding-left: 0.75rem;
-    transform: translateX(-2rem);
+    padding-left: 0.5rem;
+    transform: translateX(-1rem);
 }
 
 [role="menuitem"]:hover { color: #fff; }
@@ -314,42 +248,6 @@ nav {
     opacity: 1;
     transform: translateX(0);
 }
-
-/* Toggle menu */
-.toggle-menu {
-    position: absolute;
-    top: -30px;
-    opacity: 0;
-}
-
-.toggle-menu:checked + header .hamburger { background-color: transparent; }
-
-.toggle-menu:checked + header  .hamburger::before {
-    transform: translateY(6px) rotate(45deg);
-}
-
-.toggle-menu:checked + header  .hamburger::after {
-    transform: translateY(-6px) rotate(-45deg);
-}
-
-.toggle-menu:checked + header nav {
-    visibility: visible;
-    opacity: 1;
-}
-
-/* animate menu items */
-.toggle-menu:checked + header [role="menuitem"] {
-    --no: 1;
-    --delay: calc(220ms * var(--no));
-    transition-delay: var(--delay);
-    opacity: 1;
-}
-
-.toggle-menu:checked + header [role="menuitem"]:nth-of-type(2) { --no: 2; }
-.toggle-menu:checked + header [role="menuitem"]:nth-of-type(3) { --no: 3; }
-.toggle-menu:checked + header [role="menuitem"]:nth-of-type(4) { --no: 4; }
-/* @end menu item animation */
-
 
 /* @END HEADER + MENU */
 /* ------------------ */
@@ -383,16 +281,21 @@ nav {
 
 
 /* **** HOMEPAGE **** */
-.page-home {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 8rem;
-    max-width: 100rem;
+.page-home { max-width: 100rem; }
+
+/* 700 / 16 * 1em*/
+@media screen and (min-width: 43.75em) {
+    .page-home {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 8rem;
+    }
 }
 
 .block-home {
     position: relative;
-    padding-bottom: 6rem;
+    padding-bottom: 4rem;
+    margin-bottom: 12vh;
     border-bottom: 1px solid rgba(60,73,70,.25);
 }
 
@@ -488,21 +391,22 @@ nav {
 /* next + prev arrows */
 .nav-arrows {
     width: 12rem;
-    margin: 0 auto 30px;
+    margin: 0 auto 3rem;
 }
 
-.nav-arrows a { display: inline-block; }
+    .nav-arrows:last-child { margin-top: 3rem; }
+    .nav-arrows a { display: inline-block; }
 
-.nav-arrows svg {
-    width: 3.2rem;
-    height: 3.2rem;
-    fill: var(--c-primary);
-    color: #fff;
-    transition: fill 0.15s;
-}
+    .nav-arrows svg {
+        width: 3.2rem;
+        height: 3.2rem;
+        fill: var(--c-primary);
+        color: #fff;
+        transition: fill 0.15s;
+    }
 
-.nav-arrows svg:hover { fill: var(--c-hover); }
-.nav-arrows svg:first-child { margin-right: 2.5rem; }
+    .nav-arrows svg:hover { fill: var(--c-hover); }
+    .nav-arrows svg:first-child { margin-right: 2.5rem; }
 /* @End next + prev arrows */
 
 /* Code styling */
@@ -540,6 +444,7 @@ code {
     padding: 1.5rem;
     white-space: pre;
     font-family: "Droid Sans Mono";
+    font-size: 80%;
 }
 
 /* @End code styling */
@@ -671,4 +576,45 @@ button:hover { background-color: var(--c-hover); }
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+/* 800 / 16 */
+@media screen and (max-width: 50em) {
+    .photo-side { display: none };
+}
+
+/* ------------------------ */
+/* PAGE LAYOUT BREAK POINTS */
+/* 600 / 16 */
+@media screen and (max-width: 37.5em) {
+    body { font-size: 18px; }
+    h1 { font-size: 31px; }
+    h2 { font-size: 26px; }
+    h3 { font-size: 24px; }
+    h4 { font-size: 20px; }
+    h5 { font-size: 18px; }
+    h6 { font-size: 16px; }
+
+    p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    h1,
+    h2,
+    h3 { line-height: 1.1em; }
+}
+
+/* 420 / 16 */
+@media screen and (max-width: 26.25em) {
+    main { padding: 2rem 8vw 10rem; }
+
+    header {
+        top: unset;
+        bottom: 0;
+        border-bottom: none;
+        border-top: 1px solid #fff;
+    }
+
+    .nav-arrows:last-child { margin-bottom: 0; }
 }

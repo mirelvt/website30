@@ -28,7 +28,7 @@
     <h2>Pie chart</h2>
     <p>I create a pie chart and animate the stroke-dasharray using the animate tag. Looks pretty clean and readable.</p>
 
-    <pre rel="svg">
+    <pre rel="SVG">
     <code>
     &lt;svg viewbox="0 0 400 400"&gt;
         &lt;!-- main circle --&gt;
@@ -65,7 +65,7 @@
 
     <p>If you also want the percentage (counter) be animated the code looks like this:</p>
 
-    <pre rel="svg">
+    <pre rel="SVG">
     <code>
     &lt;svg viewbox="0 0 400 400"&gt;
         &lt;defs&gt;
@@ -148,7 +148,7 @@
 
     <h2>Demo bar chart</h2>
     <p>The code for a simple bar chart:</p>
-    <pre>
+    <pre rel="SVG">
     <code>
     &lt;svg viewBox="0 0 190 165"&gt;
         &lt;g transform="translate(20, 0)"&gt;
@@ -356,7 +356,7 @@
     <p>It turns out that <a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/5254111/" target="_blank" rel="norefferer">Microsoft Edge does not support SMIL</a>, while <a href="https://caniuse.com/#search=SMIL" target="_blank" rel="norefferer">other browsers</a> do.</p>
 
     <p>If the animation is not a deal breaker you can set the end state of the stroke-dasharray for Edge by using Javascript. You check if SMIL is not supported and do your thing for IE, Edge:</p>
-    <pre>
+    <pre rel="JS">
     <code>
     var has_smil = Boolean(document.createElementNS) &amp; &amp;
             (/SVGAnimate/).test(document.createElementNS('https://www.w3.org/2000/svg', 'animate'));
@@ -378,7 +378,7 @@
         <li>fill</li>
     </ul>
 
-    <p>Somehow Firefox renders these svg attributes used in the animation, as CSS. If you animate the width, or height of an svg element then Firefox has no issues. I reported this bug at <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1459872" target="_blank" rel="norefferer">Bugzilla</a>. Depending on your project you can use for Firefox the iframe workaround: load the svg in an iframe with a less strict CSP.</p>
+    <p>For some vague reason Firefox's CSP engine thinks that these svg attributes used in the animation are inline styles. If you animate the width, or height of an svg element then Firefox has no issues. I reported this bug at <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1459872" target="_blank" rel="norefferer">Bugzilla</a>. Depending on your project you can use for Firefox the iframe workaround: load the svg in an iframe with a less strict CSP.</p>
 
     <h2>Conclusion</h2>
     <p>Can you use SMIL for production sites? If you don't need to fully support Edge and can use the iframe workaround for Firefox when working with a CSP, or if you use chromebit for narrowcasting, then yes you can. For cross browser support you still need a library.</p>

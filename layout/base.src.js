@@ -1,24 +1,9 @@
 (function() {
     'use strict';
 
-    function createScrollComponent(checkbox) {
-        checkbox.addEventListener('change', toggleScroll, false);
-
-        function toggleScroll() {
-            if (checkbox.checked == true) {
-                document.body.classList.add('scroll-disabled');
-            } else {
-                document.body.classList.remove('scroll-disabled');
-            }
-        }
-    }
-
-    function onDocumentLoaded() {
-        createScrollComponent(document.getElementById('toggle-menu'));
+    document.addEventListener('DOMContentLoaded', function() {
         hljs.initHighlightingOnLoad();
-    }
-
-    document.addEventListener('DOMContentLoaded', onDocumentLoaded, false);
+    });
 })();
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
