@@ -11,14 +11,14 @@
     <p>March 15, 2017</p>
     <p>Every front end developer have heard of or is using one of the task runners like Grunt, Gulp, Broccoli. There are a lot of articles and how to's on the web about these tools. However, there is one that doesn't get a lot of attention and that is GNU Make. It was originally created by Stuart Feldman in April 1976. GNU Make is not really popular among front end developers, it has a steep learning curve in comparison with Grunt or Gulp and there are not much examples on how to use it for front end development. In this blog post I would like to change that, I will show you how you can use GNU Make as a task runner for front end development.</p>
 
-    <p>First of all, what is Make? There is a good description on <a href="https://en.wikipedia.org/wiki/Make_(software)" target="_blank" rel="norefferer">wikipedia</a>: Make is a build automation tool that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program.</p>
+    <p>First of all, what is Make? There is a good description on <a href="https://en.wikipedia.org/wiki/Make_(software)" target="_blank" rel="noreferrer">wikipedia</a>: Make is a build automation tool that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program.</p>
 
     <h1>How to install GNU Make?</h1>
     <p>Let's first install Make. Mac OS comes with GNU Make 3.81, so it is already available. I have no experience on installing GNU Make on Linux or Windows, here some articles for these OS's:</p>
     <ul>
-        <li><a href="http://gnuwin32.sourceforge.net/packages/make.htm" target="_blank" rel="norefferer">Make for windows</a></li>
-        <li><a href="https://www.cyberciti.biz/faq/howto-installing-gnu-c-compiler-development-environment-on-ubuntu/" target="_blank" rel="norefferer">Make for Ubuntu</a></li>
-        <li><a href="https://software.opensuse.org/package/make" target="_blank" rel="norefferer">openSUSE</a></li>
+        <li><a href="http://gnuwin32.sourceforge.net/packages/make.htm" target="_blank" rel="noreferrer">Make for windows</a></li>
+        <li><a href="https://www.cyberciti.biz/faq/howto-installing-gnu-c-compiler-development-environment-on-ubuntu/" target="_blank" rel="noreferrer">Make for Ubuntu</a></li>
+        <li><a href="https://software.opensuse.org/package/make" target="_blank" rel="noreferrer">openSUSE</a></li>
     </ul>
 
     <p>If you find better tutorials let me know and I will update the urls in this blog post. You can contact me on Twitter @mirelvt.</p>
@@ -145,7 +145,7 @@
     </code>
     </pre>
 
-    <p>Now that the rules are in place, you need to let make know what to compile. You use targets for this. In your Makefile the *all* target is set. This is one of Makes <a href="https://www.gnu.org/software/make/manual/make.html#Standard-Targets" target="_blank" rel="norefferer">standard targets</a>.</p>
+    <p>Now that the rules are in place, you need to let make know what to compile. You use targets for this. In your Makefile the *all* target is set. This is one of Makes <a href="https://www.gnu.org/software/make/manual/make.html#Standard-Targets" target="_blank" rel="noreferrer">standard targets</a>.</p>
 
     <pre rel="makefile">
     <code class="makefile">CSS_OBJ = static/css
@@ -248,7 +248,7 @@
 
     <h2>Suffix rules</h2>
 
-    <p>Suffix rules are the old-fashioned way of defining implicit rules for make. They are supported in GNU make for compatibility with old makefiles. Suffix rule definitions are recognized by comparing each rule’s target against a defined list of known suffixes. If you wish to eliminate the default known suffixes instead of just adding to them, write a rule for .SUFFIXES with no prerequisites. By special dispensation, this eliminates all existing prerequisites of .SUFFIXES. You can then write another rule to add the suffixes you want. (Source <a href="https://www.gnu.org/software/make/manual/make.html#Suffix-Rules" target="_blank" rel="norefferer">GNU Manual</a>)</p>
+    <p>Suffix rules are the old-fashioned way of defining implicit rules for make. They are supported in GNU make for compatibility with old makefiles. Suffix rule definitions are recognized by comparing each rule’s target against a defined list of known suffixes. If you wish to eliminate the default known suffixes instead of just adding to them, write a rule for .SUFFIXES with no prerequisites. By special dispensation, this eliminates all existing prerequisites of .SUFFIXES. You can then write another rule to add the suffixes you want. (Source <a href="https://www.gnu.org/software/make/manual/make.html#Suffix-Rules" target="_blank" rel="noreferrer">GNU Manual</a>)</p>
 
     <p>In our example the only suffixes we want are .min.css and .src.css:</p>
 
@@ -294,10 +294,10 @@
     <h2>Documentation</h2>
     <ul>
         <li>
-            <a href="https://www.gnu.org/software/make/" target="_blank" rel="norefferer">GNU Make</a>
+            <a href="https://www.gnu.org/software/make/" target="_blank" rel="noreferrer">GNU Make</a>
         </li>
         <li>
-            <a href="https://www.gnu.org/software/make/manual/make.html" target="_blank" rel="norefferer">GNU Make manual</a>
+            <a href="https://www.gnu.org/software/make/manual/make.html" target="_blank" rel="noreferrer">GNU Make manual</a>
         </li>
     </ul>
 </body>

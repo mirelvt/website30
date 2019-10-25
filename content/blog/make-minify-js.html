@@ -57,7 +57,7 @@ clean:
 
 <h2>UglifyJS</h2>
 <p>You need a package which minifies the javascript files.
-I use <a href="https://github.com/mishoo/UglifyJS" target="_blank" rel="norefferer">UglifyJS</a> for this task, it is a javascript parser, compressor and beautifier. You can install it via npm:</p>
+I use <a href="https://github.com/mishoo/UglifyJS" target="_blank" rel="noreferrer">UglifyJS</a> for this task, it is a javascript parser, compressor and beautifier. You can install it via npm:</p>
 
 <pre rel="Terminal"> <code class="hljs ruby">$ npm install -g uglify-js</code> </pre>
 
@@ -81,7 +81,7 @@ JS_MIN_OBJS= $(patsubst %.src.js, %.min.js, $(wildcard $(JS_SRCS)/*.src.js))
 </code>
 </pre>
 
-<p>The UglifyJS options are documented on their <a href="https://github.com/mishoo/UglifyJS#usage" target="_blank" rel="norefferer">github page</a>, another resource is a blog post from <a href="https://davidwalsh.name/compress-uglify" target="_blank" rel="norefferer">David Walsh</a>. You can also find the list of options in your terminal with the command: *uglifyjs -h*.</p>
+<p>The UglifyJS options are documented on their <a href="https://github.com/mishoo/UglifyJS#usage" target="_blank" rel="noreferrer">github page</a>, another resource is a blog post from <a href="https://davidwalsh.name/compress-uglify" target="_blank" rel="noreferrer">David Walsh</a>. You can also find the list of options in your terminal with the command: *uglifyjs -h*.</p>
 
 <p>In my example I ask uglify to preserve the copyright comments in the output *(- -comments)* and compress *(-c)* the file with the following options:</p>
 
