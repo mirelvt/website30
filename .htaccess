@@ -127,14 +127,6 @@ RewriteRule (.*) https://mirellavanteulingen.nl/$1 [R=301,L]
 # Provide Specific Index Page (Set the default handler)
 DirectoryIndex index.html
 
-# Redirect old file path to new file path
-Redirect http://mirellavanteulingen.nl/fronteers/ https://mirellavanteulingen.nl/blog/
-Redirect http://mirellavanteulingen.nl/fronteers/oocss https://mirellavanteulingen.nl/blog/oocss.html/
-Redirect http://mirellavanteulingen.nl/fronteers/rijksmuseum/ https://mirellavanteulingen.nl/blog/rijksmuseum.html/
-Redirect http://mirellavanteulingen.nl/fronteers/accessibility-is-ux-design/ https://mirellavanteulingen.nl/blog/accessibility-ux-design.html/
-Redirect http://mirellavanteulingen.nl/conf_2012/ https://mirellavanteulingen.nl/blog/conf_2012.html/
-Redirect http://mirellavanteulingen.nl/about/ https://mirellavanteulingen.nl/about.html/
-
 # Error pages
 ErrorDocument 404 https://mirellavanteulingen.nl/404.html
 
