@@ -10,11 +10,11 @@
     <h1>Sublime Text, VSCode, Atom</h1>
     <p>February 04, 2018</p>
     <p>
-    Since 2013 I'm using SublimeText editor and wrote an how to about it to get you up and running. Now 5 years later I'm still using it. I've tested <a href="https://atom.io/" target="_blank" rel="noreferrer">Atom</a> and <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer">VSCode</a> as well, but keep returning to <a href="https://www.sublimetext.com/" target="_blank" rel="noreferrer">SublimeText</a>. In this post I'll explain what packages I need for my
-    environment and why I still like <a href="https://www.sublimetext.com/" target="_blank" rel="noreferrer">SublimeText</a> over <a href="https://atom.io/" target="_blank" rel="noreferrer">Atom</a> or <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer">VSCode</a>.
+    Since 2013 I'm using SublimeText editor and wrote an how to about it to get you up and running. Now 5 years later I'm still using it. I've tested <a href="https://atom.io/" target="_blank" rel="noreferrer noopener">Atom</a> and <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer noopener">VSCode</a> as well, but keep returning to <a href="https://www.sublimetext.com/" target="_blank" rel="noreferrer noopener">SublimeText</a>. In this post I'll explain what packages I need for my
+    environment and why I still like <a href="https://www.sublimetext.com/" target="_blank" rel="noreferrer noopener">SublimeText</a> over <a href="https://atom.io/" target="_blank" rel="noreferrer noopener">Atom</a> or <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer noopener">VSCode</a>.
     </p>
 
-    <p>Sublime Text 3 is officially out since September 2017. If you have a license for Sublime2 you can upgrade for a small fee to version 3. For the hard work and effort the developers put in this "Sublime" editor I happily pay this small fee for the upgrade. On their <a href="https://www.sublimetext.com/blog/" target="_blank" rel="noreferrer">blog</a> the SublimeText team dedicated a special page with a list of improvements: <a href="https://www.sublimetext.com/2to3" target="_blank" rel="noreferrer">2.0 to 3.0 changes</a>.</p>
+    <p>Sublime Text 3 is officially out since September 2017. If you have a license for Sublime2 you can upgrade for a small fee to version 3. For the hard work and effort the developers put in this "Sublime" editor I happily pay this small fee for the upgrade. On their <a href="https://www.sublimetext.com/blog/" target="_blank" rel="noreferrer noopener">blog</a> the SublimeText team dedicated a special page with a list of improvements: <a href="https://www.sublimetext.com/2to3" target="_blank" rel="noreferrer noopener">2.0 to 3.0 changes</a>.</p>
 
     <h2>Testing Atom and VSCode</h2>
     <p>Last year I got interested in other editors and tested Atom and VSCode both for 2 weeks seperately.</p>
@@ -90,7 +90,7 @@
     <p>Use cmd+alt+b to run make.</p>
 
     <h3>Mercurial integration</h3>
-    <p>I installed <a href="https://atom.io/packages/atom-hg" target="_blank" rel="noreferrer">atom-hg</a>, but I only see in the tree view which files are changed with the default branch. The readme is very summier. There is no option to see the diff. However, there is a simple package to commit your changes: <a href="https://atom.io/packages/hg-commit" target="_blank" rel="noreferrer">hg-commit</a>. It shows the files which are modified but you can still not see the diff. Also the input field for writing a commit is only 1 row. You can't write a good summary. Conclusion: the setup in Atom for mercurial integration is not satisfied.</p>
+    <p>I installed <a href="https://atom.io/packages/atom-hg" target="_blank" rel="noreferrer noopener">atom-hg</a>, but I only see in the tree view which files are changed with the default branch. The readme is very summier. There is no option to see the diff. However, there is a simple package to commit your changes: <a href="https://atom.io/packages/hg-commit" target="_blank" rel="noreferrer noopener">hg-commit</a>. It shows the files which are modified but you can still not see the diff. Also the input field for writing a commit is only 1 row. You can't write a good summary. Conclusion: the setup in Atom for mercurial integration is not satisfied.</p>
 
     <h3>Linting</h3>
     <p>To install linter packages for Javascript and SCSS you need:</p>
@@ -99,7 +99,7 @@
         <li>linter-eslint, it will also ask to install its dependencies.</li>
         <li>linter-scsslint.</li>
     </ul>
-    <p>Restart Atom and the linters work. I assume you already have installed the packages for <a href="https://eslint.org/docs/user-guide/getting-started" target="_blank" rel="noreferrer">eslint</a> and <a href="https://github.com/brigade/scss-lint" target="_blank" rel="noreferrer">scss-lint</a> and configured the linting options.</p>
+    <p>Restart Atom and the linters work. I assume you already have installed the packages for <a href="https://eslint.org/docs/user-guide/getting-started" target="_blank" rel="noreferrer noopener">eslint</a> and <a href="https://github.com/brigade/scss-lint" target="_blank" rel="noreferrer noopener">scss-lint</a> and configured the linting options.</p>
 
 
     <h2>VSCode</h2>
@@ -132,7 +132,7 @@
     </code>
     </pre>
 
-    <p>Downside in VSCode is that the configuration file can not be defined globally. This feature is on the <a href="https://github.com/Microsoft/vscode/issues/1435" target="_blank" rel="noreferrer">radar</a> at the dev team of Microsoft.</p>
+    <p>Downside in VSCode is that the configuration file can not be defined globally. This feature is on the <a href="https://github.com/Microsoft/vscode/issues/1435" target="_blank" rel="noreferrer noopener">radar</a> at the dev team of Microsoft.</p>
 
     <p>You'll find the task.json in your project directory in the .vscode folder. To use Make via Task runner you need to copy this file into every project.</p>
 
@@ -167,7 +167,7 @@
     <p>For Make you don't need to install anything. Just hit cmd+shift+B to see the build options and choose Make. The chosen option is saved. If you need to build again you only use the keys: cmd+B.</p>
 
     <h3>Mercurial integration</h3>
-    <p>Unfortunately there are no fullstack packages for Mercurial integration. You have a nice one for Sublime2 from <a href="https://github.com/guillermooo/Mercurial" target="_blank" rel="noreferrer">guillermooo</a> but it is not upgraded to Sublime3.</p>
+    <p>Unfortunately there are no fullstack packages for Mercurial integration. You have a nice one for Sublime2 from <a href="https://github.com/guillermooo/Mercurial" target="_blank" rel="noreferrer noopener">guillermooo</a> but it is not upgraded to Sublime3.</p>
 
     <p>To compare changes you can install:</p>
     <ul>

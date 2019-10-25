@@ -22,7 +22,7 @@
 </div>
     <h1>Font icons with Fontcustom and Sass</h1>
     <p>November 21, 2015</p>
-    <p>In 2013 and 2014 I used <a href="http://www.icomoon.io" target="_blank" rel="noreferrer">Icomoon</a> to create font icons.
+    <p>In 2013 and 2014 I used <a href="http://www.icomoon.io" target="_blank" rel="noreferrer noopener">Icomoon</a> to create font icons.
     It is a nice library and tool. You can choose icons from their library and
     they have the feature to upload your own svgs to create the font icon set. It is a great tool if you only need to generate the font icon once. But not when you have to add new ones to the set.
     </p>
@@ -33,7 +33,7 @@
         When using Icomoon I have to go through several steps to update my font icon set:
     </p>
     <ul>
-        <li>Uploading the json file in icomoon. We keep the generated selection.json file in our VCS <a href="https://mercurial.selenic.com" target="_blank" rel="noreferrer">Mercurial</a>.
+        <li>Uploading the json file in icomoon. We keep the generated selection.json file in our VCS <a href="https://mercurial.selenic.com" target="_blank" rel="noreferrer noopener">Mercurial</a>.
             <li>Add the new icons to the selection.</li>
             <li>Generate the font.</li>
             <li>Replace the old font icon files with the new ones.</li>
@@ -43,8 +43,8 @@
     </ul>
     <p>
         That is quite a few steps I have to go through, to update my font icon set. So how can this workflow
-        be more efficient? 3 Months ago I read somewhere about <a href="https://rsp.github.io/fontcustom/" target="_blank" rel="noreferrer">Fontcustom</a>,
-        not sure if it was an article in <a href="http://css-weekly.com" target="_blank" rel="noreferrer">cssweekly</a> or the Webdesigner Magazine (Dutch version),
+        be more efficient? 3 Months ago I read somewhere about <a href="https://rsp.github.io/fontcustom/" target="_blank" rel="noreferrer noopener">Fontcustom</a>,
+        not sure if it was an article in <a href="http://css-weekly.com" target="_blank" rel="noreferrer noopener">cssweekly</a> or the Webdesigner Magazine (Dutch version),
         but it caught my attention. Fontcustom is a command line tool to generate the font icon, based on
         a selection of svg files. It generates the css + preview html on the fly.
         And with Fontcustom I am able to speed up my workflow when new icons are to be implemented.
@@ -63,7 +63,7 @@
     </code>
     </pre>
     <p>
-        I wanted to use the SASS maps feature to get a nice list of all the icons and use an @each loop to generate the classes. How do I get Fontcustom generate the output I want? First you need to have your project structure ready and <a href="https://rsp.github.io/fontcustom/" target="_blank" rel="noreferrer">Fontcustom</a> installed. My project structure looks like this:
+        I wanted to use the SASS maps feature to get a nice list of all the icons and use an @each loop to generate the classes. How do I get Fontcustom generate the output I want? First you need to have your project structure ready and <a href="https://rsp.github.io/fontcustom/" target="_blank" rel="noreferrer noopener">Fontcustom</a> installed. My project structure looks like this:
     </p>
     <pre rel="Folder structure">
     <code class="dts">FOO-project/

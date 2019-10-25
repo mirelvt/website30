@@ -23,7 +23,7 @@
     <h1>Fronteers Conference 2014</h1>
     <p>October 15, 2014</p>
     <p>
-        On 9 and 10 october was the big event. Two days of inspiring talks and where you meet old friends and make new ones. This article gives a summary of most of the talks. The master of ceremony for this conference was <a href="http://jakearchibald.com/" target="_blank" rel="noreferrer">Jake Archibald</a>.
+        On 9 and 10 october was the big event. Two days of inspiring talks and where you meet old friends and make new ones. This article gives a summary of most of the talks. The master of ceremony for this conference was <a href="http://jakearchibald.com/" target="_blank" rel="noreferrer noopener">Jake Archibald</a>.
     </p>
     <h2>Day 1</h2>
     <p>The first day Heydon Pickering talked about best practises on developing with html and CSS. It is all about semantics, it is more readable, understandable and maintainable. For example use <em>[role="tab"][aria-selected="true"]</em> instead of .tab-active. He mentioned that the difference in performance is extremely minimal whether using attributes or class names.</p>
@@ -43,22 +43,22 @@
 <li>Stateful animations: default state --&gt; event --&gt; predefined state</li>
 <li>Dynamic animations: current state: 1. factores + event + factors: 1a new state, 1b new state</li>
 </ul>
-<p>Interesting animation libraries to check out: <a href="http://greensock.com/gsap" target="_blank" rel="noreferrer">Greensock animation platform</a> and <a href="http://julian.com/research/velocity/" target="_blank" rel="noreferrer">Velocityjs</a></p>
-<figure><img src="/static/img/rachel-nabors-fronteers-2014.jpg" alt="Rachel Nabors - The State of Web Animation"></figure><p>The mini sessions gave us a glance in game development for the web. There are hundreds of frameworks available, Thomas Palef recommended <a href="http://phaser.io/" target="_blank" rel="noreferrer">Phaser</a>, a free open source HTML5 framework. If you want to get started with game development he advices to start making a really tiny game like ping, space invader or breakout. Once you have the hang of it, start creating another one with a little more complexity, and so on. Until you ar ready to create a real game you might think people want to play.</p>
+<p>Interesting animation libraries to check out: <a href="http://greensock.com/gsap" target="_blank" rel="noreferrer noopener">Greensock animation platform</a> and <a href="http://julian.com/research/velocity/" target="_blank" rel="noreferrer noopener">Velocityjs</a></p>
+<figure><img src="/static/img/rachel-nabors-fronteers-2014.jpg" alt="Rachel Nabors - The State of Web Animation"></figure><p>The mini sessions gave us a glance in game development for the web. There are hundreds of frameworks available, Thomas Palef recommended <a href="http://phaser.io/" target="_blank" rel="noreferrer noopener">Phaser</a>, a free open source HTML5 framework. If you want to get started with game development he advices to start making a really tiny game like ping, space invader or breakout. Once you have the hang of it, start creating another one with a little more complexity, and so on. Until you ar ready to create a real game you might think people want to play.</p>
 <h2>Day 2</h2>
 <p>Day two started with Nicholas Gallagher talking about making the Twitter UI infrastructure. The ui is split up in ui-components like: ui-icon, ui-ProductPage etc. Each component has its own file infrastructure and contains only the code necessary for the component, including tests. For the worksflow they created automatic tasks to test and run the new change: make install, build, test etc. They design for adaptability and define components as the unit of scale.</p>
-<p>Dave Olsen shared his experience with optimizing web performance. (Check out slidesearch for the <a href="http://www.slidesearch.org/slide/optimizing-web-performance-fronteers-edition" target="_blank" rel="noreferrer">slides</a>). Do you know that 1.8mb is the average weight of a web page today? 78% are images and javascript. RDW sites whose small screen design weighs the same as the large screen design? And 71% of the users expect your mobile site to load as quickly as your desktop site.</p>
+<p>Dave Olsen shared his experience with optimizing web performance. (Check out slidesearch for the <a href="http://www.slidesearch.org/slide/optimizing-web-performance-fronteers-edition" target="_blank" rel="noreferrer noopener">slides</a>). Do you know that 1.8mb is the average weight of a web page today? 78% are images and javascript. RDW sites whose small screen design weighs the same as the large screen design? And 71% of the users expect your mobile site to load as quickly as your desktop site.</p>
 <blockquote>Mobile first means performance first <cite>- Dave Olsen</cite>
 </blockquote>
-<p>You can diagnose web performance issues with pagespeed insights of Google, Chrome dev tools and <a href="http://webpagetest.org" target="_blank" rel="noreferrer">webpagetest.org</a>. To optimize for mobile you can reduce asset size, reduce requests and speed up page-render. Try <a href="https://redbot.org" target="_blank" rel="noreferrer">redbot.org</a> to see if you're caching. Web performance for javascript:</p>
+<p>You can diagnose web performance issues with pagespeed insights of Google, Chrome dev tools and <a href="http://webpagetest.org" target="_blank" rel="noreferrer noopener">webpagetest.org</a>. To optimize for mobile you can reduce asset size, reduce requests and speed up page-render. Try <a href="https://redbot.org" target="_blank" rel="noreferrer noopener">redbot.org</a> to see if you're caching. Web performance for javascript:</p>
 <ul>
 <li>Avoid using bulky frameworks try microjs.com to find libraries that may be smaller. Javascript also blocks the rendering of the page.</li>
 <li>Avoid DOM reflows &amp; repaints. they slow down page render time as well as burn battery.</li>
-<li>Use <span class="deprecated">touch</span> or <a href="https://github.com/ftlabs/fastclick" target="_blank" rel="noreferrer">fastclick</a>.</li>
+<li>Use <span class="deprecated">touch</span> or <a href="https://github.com/ftlabs/fastclick" target="_blank" rel="noreferrer noopener">fastclick</a>.</li>
 <li>Use CDNs to serve common js libraries to help reduce RTT for requests.</li>
-<li>Use service like <a href="https://www.npmjs.org/package/grunt-penthouse" target="_blank" rel="noreferrer">penthouse</a> to find critical CSS.</li>
+<li>Use service like <a href="https://www.npmjs.org/package/grunt-penthouse" target="_blank" rel="noreferrer noopener">penthouse</a> to find critical CSS.</li>
 <li>Also focus on getting a fast initial render.</li>
-<li><a href="http://perf-tooling.today/" target="_blank" rel="noreferrer">perf-tooling.today</a></li>
+<li><a href="http://perf-tooling.today/" target="_blank" rel="noreferrer noopener">perf-tooling.today</a></li>
 <li><span class="deprecated">yahoo.github.io/boomerang/doc/</span></li>
 </ul>
 <p>Sara Soueidan gave us a rollercoaster ride through animating SVGs with CSS and HTML. It was a great talk with lot of examples. Things to know about using svg:</p>
@@ -66,8 +66,8 @@
 <li>CSS animations only work inside the svg, when using an img, object, embed, iframe tag, or embedded in CSS as background, but CSS interactions won't.</li>
 <li>When you use inline svg both CSS animations and CSS interactions will work.</li>
 <li>
-<a href="http://www.w3.org/TR/SVG2/" target="_blank" rel="noreferrer">SVG2</a> will contain more attributes which we can use in CSS.</li>
-<li>With <a href="http://www.w3.org/TR/SMIL/" target="_blank" rel="noreferrer">SMIL</a> you can e.g. animate attributes and do event handling. At this time of writing SMIL does not work in IE and Opera Mini.</li>
+<a href="http://www.w3.org/TR/SVG2/" target="_blank" rel="noreferrer noopener">SVG2</a> will contain more attributes which we can use in CSS.</li>
+<li>With <a href="http://www.w3.org/TR/SMIL/" target="_blank" rel="noreferrer noopener">SMIL</a> you can e.g. animate attributes and do event handling. At this time of writing SMIL does not work in IE and Opera Mini.</li>
 </ul>
 <p></p>
 <blockquote>Hell, is not understanding my own code <cite>- Kyle Simpson</cite>
@@ -75,20 +75,20 @@
 <p>Everyone at the conference has written code that worked without knowing why. First learn the language in depth and you also need better tools. Kyle Simpson gave us a list of handy tools to make your live as JS developer easier. He is working on a <span class="deprecated">configurable two way formatting tool</span> to end the discussion of whether or not using semi colons, whitespace vs tabs. Pick the tools that suits you, but be aware there is no such thing as a holy grail for the right toolset. The tools he recommended are:</p>
 <ul>
 <li>
-<a href="http://sweetjs.org" target="_blank" rel="noreferrer">sweetjs.org</a> provides macros to javascript developers. Currently being adopted by the Mozilla Foundation.</li>
+<a href="http://sweetjs.org" target="_blank" rel="noreferrer noopener">sweetjs.org</a> provides macros to javascript developers. Currently being adopted by the Mozilla Foundation.</li>
 <li>
-<a href="http://esprima.org/test/compare.html" target="_blank" rel="noreferrer">esprima/acorn</a> (parser)</li>
+<a href="http://esprima.org/test/compare.html" target="_blank" rel="noreferrer noopener">esprima/acorn</a> (parser)</li>
 <li>
-<a href="https://github.com/estools/escodegen" target="_blank" rel="noreferrer">escodegen</a> (code generator)</li>
+<a href="https://github.com/estools/escodegen" target="_blank" rel="noreferrer noopener">escodegen</a> (code generator)</li>
 <li>
-<a href="https://github.com/estools/escope" target="_blank" rel="noreferrer">escope/eslevels</a> (scope analyzer)</li>
+<a href="https://github.com/estools/escope" target="_blank" rel="noreferrer noopener">escope/eslevels</a> (scope analyzer)</li>
 <li>
-<a href="http://gotwarlost.github.io/istanbul/" target="_blank" rel="noreferrer">istanbul</a> (code coverage)</li>
+<a href="http://gotwarlost.github.io/istanbul/" target="_blank" rel="noreferrer noopener">istanbul</a> (code coverage)</li>
 <li>
-<a href="https://github.com/estools/estraverse" target="_blank" rel="noreferrer">estraverse</a> (analyze AST)</li>
+<a href="https://github.com/estools/estraverse" target="_blank" rel="noreferrer noopener">estraverse</a> (analyze AST)</li>
 <li>
-<a href="http://eslint.org/" target="_blank" rel="noreferrer">eslint</a> (pluggable code linting rules)</li>
-<li><a href="http://jscomplexity.org" target="_blank" rel="noreferrer">jscomplexity.org</a></li>
+<a href="http://eslint.org/" target="_blank" rel="noreferrer noopener">eslint</a> (pluggable code linting rules)</li>
+<li><a href="http://jscomplexity.org" target="_blank" rel="noreferrer noopener">jscomplexity.org</a></li>
 </ul>
 <p></p>
 <p>Petro Salema closed the conference with an inspiring talk, named "Dream big, think small".</p>
