@@ -21,7 +21,6 @@
         <head>
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta name="robots" content="noindex" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <link rel="manifest" href="/static/manifest.json" />
             <link rel="icon" type="image/png" href="/static/app-icons/icon-96x96.png" sizes="96x96" />
@@ -30,6 +29,7 @@
             <link rel="apple-touch-icon" sizes="152x152" href="/static/app-icons/ios-152.png" />
             <link rel="apple-touch-icon" sizes="167x167" href="/static/app-icons/ios-167.png" />
             <link rel="apple-touch-icon" sizes="180x180" href="/static/app-icons/ios-180.png" />
+            <meta name="theme-color" content="#7cb342" />
             <xsl:choose>
                 <xsl:when test="$meta_descr">
                     <meta name="description" content="{$meta_descr}" />
