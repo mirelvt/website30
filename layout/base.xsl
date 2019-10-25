@@ -64,7 +64,7 @@
             </main>
 
             <header>
-                <nav>
+                <nav role="menu">
                     <a href="/" role="menuitem">
                         <xsl:if test="$section = 'home'">
                             <xsl:attribute name="class">selected</xsl:attribute>

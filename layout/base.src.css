@@ -229,13 +229,13 @@ nav {
 
 [role="menuitem"] span::before {
     content: "{";
-    padding-right: 0.5rem;
+    padding-right: 0.45rem;
     transform: translateX(1rem);
 }
 
 [role="menuitem"] span::after {
     content: "}";
-    padding-left: 0.5rem;
+    padding-left: 0.6rem;
     transform: translateX(-1rem);
 }
 
