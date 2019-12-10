@@ -2,7 +2,7 @@
 <head>
     <title>Content Security Policy for Frontend developers - MvT</title>
     <meta name="section" content="blog" />
-    <link rel="prev" href="/blog/index.html" />
+    <link rel="prev" href="/blog/frontend-frameworks.html" />
     <link rel="next" href="/blog/svg-charts-animations.html" />
     <meta name="description" content="What I learnt from using Content Security Policy." />
 </head>
@@ -59,11 +59,23 @@ Header set Content-Security-Policy "
     base-uri 'none';
 "</code></pre>
 
-<p>More information on CSP, check out these links:</p>
-<ul>
-    <li><a href="https://www.w3.org/TR/CSP2/" target="_blank" rel="noreferrer noopener">CSP Level 2</a></li>
-    <li><a href="https://www.w3.org/TR/CSP3/" target="_blank" rel="noreferrer noopener">CSP Level 3</a></li>
-    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank" rel="noreferrer noopener">Mozilla</a></li>
-</ul>
+    <p>More information on CSP, check out these links:</p>
+    <ul>
+        <li><a href="https://www.w3.org/TR/CSP2/" target="_blank" rel="noreferrer noopener">CSP Level 2</a></li>
+        <li><a href="https://www.w3.org/TR/CSP3/" target="_blank" rel="noreferrer noopener">CSP Level 3</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank" rel="noreferrer noopener">Mozilla</a></li>
+    </ul>
+
+    <h3>Use rel="noreferrer noopener" for cross-origin destinations</h3>
+    <p>If you use <strong><em>target="_blank"</em></strong> to open another origin you can run into performance and security issues. The other origin may run on the same process as your page and if the other origin runs a lot of javascript, your page performance may also suffer. When using <strong>target="_blank"</strong> the other page can access your <strong><em>window</em></strong> object with the <strong><em>window.opener</em></strong> property. The other page can potentially redirect your page to a malicious URL.</p>
+
+    <p>You can use <strong><em>rel="noopener"</em></strong> and <strong><em>rel="norefererer"</em></strong> to avoid these issues.</p>
+    <pre rel="HTML"><code>&lt;a href="https://other_origin.com" target="_blank" rel="noreferrer noopener"&gt;
+        Link to other origin
+    &lt;/a&gt;</code></pre>
+    <ul>
+        <li><strong>rel="noopener"</strong>: prevents the new page from being able to access the <strong><em>window.opener</em></strong> property and ensures it runs in a separate process.</li>
+        <li><strong>rel="noreferrer"</strong>: has the same effect, but also prevents the Referer Header from being sent to the new page.</li>
+    </ul>
 </body>
 </html>
