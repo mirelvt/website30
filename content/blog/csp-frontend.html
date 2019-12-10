@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <title>Content Security Policy for Frontend developers - MvT</title>
+    <meta name="section" content="blog" />
+    <link rel="prev" href="/blog/index.html" />
+    <link rel="next" href="/blog/svg-charts-animations.html" />
+    <meta name="description" content="What I learnt from using Content Security Policy." />
+</head>
+<body>
+    <h1>What I learnt from using Content Security Policy.</h1>
+    <p>December 11, 2019</p>
+    <p>As front end developer at Dreamsolution, I also need to check on
+    <a href="https://content-security-policy.com/" target="_blank" rel="noreferrer noopener">Content Security Policy (CSP)</a> errors in our projects. During development you can track down most of the CSP errors if they occur.</p>
+
+    <p>What I have experienced is that the error descriptions in Chrome, Firefox and
+    Safari are very cryptic. The origin is sometimes hard to find.
+    For example if you use add blockers in your browser it can trigger CSP errors.
+    If the CSP blocks a base64 url and you know you don't use this in your project,
+    try to disable the add blocker and refresh again. If the CSP error goes away
+    then you know you don't need to take action.</p>
+    <p>When setting up your CSP you make it as strict as possible. But sometimes
+    you have to loosen it a little when using third party libraries (e.g. HighCharts, jQuery etc.). They can throw inline-style or inline-script CSP errors.</p>
+
+    <p>There are several ways to loosen your CSP. You can use
+    <a href="https://blog.mozilla.org/security/2014/10/04/csp-for-the-web-we-have/" target="_blank" rel="noreferrer noopener">Nonces or Hashes</a>,
+    if this doesn't work for your project you can choose to allow unsafe-inline content.</p>
+
+    <h2>Store third party libraries on your local domain</h2>
+    <p>If you use CDNs to third party libraries you can whitelist these domains.
+    Although it is whitelisted it is not necessarily secure. You don't have control
+    over these domains and attackers might succeed in getting unauthorized access
+    to these domains. If so, they can attack your site.</p>
+    <p>To avoid this, serve the third party libraries from your local domain.
+    And keep these packages up to date by checking their change logs for bug fixes etc.</p>
+
+    <h2>Firefox CSP error when using SMIL in SVG.</h2>
+    <p>You can get inline-css CSP error in Firefox when animating the following SVG attributes using <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL" target="_blank" rel="noreferrer noopener">SMIL</a>:</p>
+    <ul>
+        <li>stroke</li>
+        <li>stroke-dasharray</li>
+        <li>fill</li>
+    </ul>
+
+    <p>For some vague reason Firefox's CSP engine thinks that these svg attributes used in the animation are inline styles. If you animate the width or height of an svg element then Firefox has no issues. I reported this bug at <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1459872" target="_blank" rel="noreferrer noopener">Bugzilla</a>. Depending on your project you can use for Firefox the iframe workaround: load the svg in an iframe with a less strict CSP.</p>
+
+    <h2>Define CSP for static HTML site</h2>
+    <p>If you have a static html site (like me) you can define your CSP in your .htaccess file. Here's an example:</p>
+    <pre><code>
+# CSP
+Header set Content-Security-Policy "
+    default-src 'none';
+    script-src 'self' https://www.google-analytics.com;
+    style-src 'self';
+    img-src 'self' https://www.google-analytics.com https://*.googleapis.com;
+    frame-src 'self';
+    connect-src 'self';
+    font-src 'self';
+    manifest-src 'self';
+    base-uri 'none';
+"</code></pre>
+
+<p>More information on CSP, check out these links:</p>
+<ul>
+    <li><a href="https://www.w3.org/TR/CSP2/" target="_blank" rel="noreferrer noopener">CSP Level 2</a></li>
+    <li><a href="https://www.w3.org/TR/CSP3/" target="_blank" rel="noreferrer noopener">CSP Level 3</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank" rel="noreferrer noopener">Mozilla</a></li>
+</ul>
+</body>
+</html>

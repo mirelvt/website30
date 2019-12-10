@@ -1,0 +1,85 @@
+<!DOCTYPE html><html xmlns:xlink="https://www.w3.org/1999/xlink" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="/static/manifest.json">
+<link rel="icon" type="image/png" href="/static/app-icons/icon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" sizes="58x58" href="/static/app-icons/ios-58.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/app-icons/ios-120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/app-icons/ios-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/static/app-icons/ios-167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/app-icons/ios-180.png">
+<meta name="theme-color" content="#7cb342">
+<meta name="description" content="What I learnt from using Content Security Policy.">
+<title>Content Security Policy for Frontend developers - MvT</title>
+<link rel="stylesheet" href="/static/base.min.css">
+</head>
+<body>
+<main class="page-blog"><div class="nav-arrows">
+<a href="/blog/index.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="/blog/svg-charts-animations.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div>
+    <h1>What I learnt from using Content Security Policy.</h1>
+    <p>December 11, 2019</p>
+    <p>As front end developer at Dreamsolution, I also need to check on
+    <a href="https://content-security-policy.com/" target="_blank" rel="noreferrer noopener">Content Security Policy (CSP)</a> errors in our projects. During development you can track down most of the CSP errors if they occur.</p>
+
+    <p>What I have experienced is that the error descriptions in Chrome, Firefox and
+    Safari are very cryptic. The origin is sometimes hard to find.
+    For example if you use add blockers in your browser it can trigger CSP errors.
+    If the CSP blocks a base64 url and you know you don't use this in your project,
+    try to disable the add blocker and refresh again. If the CSP error goes away
+    then you know you don't need to take action.</p>
+    <p>When setting up your CSP you make it as strict as possible. But sometimes
+    you have to loosen it a little when using third party libraries (e.g. HighCharts, jQuery etc.). They can throw inline-style or inline-script CSP errors.</p>
+
+    <p>There are several ways to loosen your CSP. You can use
+    <a href="https://blog.mozilla.org/security/2014/10/04/csp-for-the-web-we-have/" target="_blank" rel="noreferrer noopener">Nonces or Hashes</a>,
+    if this doesn't work for your project you can choose to allow unsafe-inline content.</p>
+
+    <h2>Store third party libraries on your local domain</h2>
+    <p>If you use CDNs to third party libraries you can whitelist these domains.
+    Although it is whitelisted it is not necessarily secure. You don't have control
+    over these domains and attackers might succeed in getting unauthorized access
+    to these domains. If so, they can attack your site.</p>
+    <p>To avoid this, serve the third party libraries from your local domain.
+    And keep these packages up to date by checking their change logs for bug fixes etc.</p>
+
+    <h2>Firefox CSP error when using SMIL in SVG.</h2>
+    <p>You can get inline-css CSP error in Firefox when animating the following SVG attributes using <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL" target="_blank" rel="noreferrer noopener">SMIL</a>:</p>
+    <ul>
+        <li>stroke</li>
+        <li>stroke-dasharray</li>
+        <li>fill</li>
+    </ul>
+
+    <p>For some vague reason Firefox's CSP engine thinks that these svg attributes used in the animation are inline styles. If you animate the width or height of an svg element then Firefox has no issues. I reported this bug at <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1459872" target="_blank" rel="noreferrer noopener">Bugzilla</a>. Depending on your project you can use for Firefox the iframe workaround: load the svg in an iframe with a less strict CSP.</p>
+
+    <h2>Define CSP for static HTML site</h2>
+    <p>If you have a static html site (like me) you can define your CSP in your .htaccess file. Here's an example:</p>
+    <pre><code>
+# CSP
+Header set Content-Security-Policy "
+    default-src 'none';
+    script-src 'self' https://www.google-analytics.com;
+    style-src 'self';
+    img-src 'self' https://www.google-analytics.com https://*.googleapis.com;
+    frame-src 'self';
+    connect-src 'self';
+    font-src 'self';
+    manifest-src 'self';
+    base-uri 'none';
+"</code></pre>
+
+<p>More information on CSP, check out these links:</p>
+<ul>
+    <li><a href="https://www.w3.org/TR/CSP2/" target="_blank" rel="noreferrer noopener">CSP Level 2</a></li>
+    <li><a href="https://www.w3.org/TR/CSP3/" target="_blank" rel="noreferrer noopener">CSP Level 3</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank" rel="noreferrer noopener">Mozilla</a></li>
+</ul>
+<div class="nav-arrows">
+<a href="/blog/index.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-left"><use xlink:href="#chevron-left"></use></svg></a><a href="/blog/svg-charts-animations.html"><svg viewBox="0 0 512 512" width="10" height="10" class="icon-chevron-right"><use xlink:href="#chevron-right"></use></svg></a>
+</div></main><header><nav role="menu"><a href="/" role="menuitem"><span>home</span></a><a href="/blog/" role="menuitem" class="selected"><span>blog</span></a><a href="/about.html" role="menuitem"><span>about</span></a></nav></header><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="no-display"><symbol id="readmore"><path d="M32 0h447.8c17.7 0 32.1 14.4 32.1 32.1v447.8c0 17.7-14.4 32.1-32.1 32.1H32C14.3 512-.1 497.6-.1 479.9V32.1C-.1 14.3 14.3 0 32 0z"></path><path fill-rule="evenodd" clip-rule="evenodd" class="fill-color" d="M170.6 350.8l94.8-94.8-94.8-94.8 47.4-47.4L360.2 256 218 398.2z"></path></symbol><symbol id="blog"><path d="M177.6 112.4v63.7c41.1 0 80.9 15.9 110.1 45.1 29.2 29.2 45.1 69 45.1 110.1h63.7c0-120.7-98.1-218.9-218.9-218.9zm0-112.7v63.7c147.2 0 267.9 120.7 267.9 269.3h63.7c.1-184.4-148.5-333-331.6-333zm-35.8 228.1c-13.3 0-22.5 4-30.5 11.9-6.8 8.2-10.5 18.5-10.6 29.2 0 11.9 4 21.2 10.6 27.9 8 9.3 17.2 13.3 30.5 13.3 17.2 0 31.8 4 42.4 13.3 10.6 9.3 15.9 22.5 15.9 38.5 0 17.2-5.3 30.5-17.2 42.5-10.6 11.9-25.2 17.2-39.8 17.2-15.9 0-29.2-5.3-39.8-17.2-10.6-11.9-17.2-25.2-17.2-42.5v-203c0-13.3-4-23.9-11.9-31.8-9.3-8-19.9-10.6-30.5-10.6s-21.2 4-29.2 11.9c-8 8-11.9 18.6-11.9 31.8v205.6c0 39.8 13.3 74.3 41.1 103.5 27.9 27.9 59.7 42.4 99.5 42.4 38.5 0 71.6-14.6 98.2-42.4 27.9-27.9 41.1-62.3 41.1-102.1s-13.3-73-39.8-98.2c-27.9-27.9-61.1-41.2-100.9-41.2z"></path></symbol><symbol id="chevron-left"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M349.3 353.5l-94.1-94.1 94.1-94.1-47.1-47-141.1 141.1 141.1 141.1z"></path></symbol><symbol id="chevron-right"><path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z"></path><path class="fill-color" d="M171.3 350.1l94-94.1-94-94.1 47-47L359.4 256 218.3 397.1z"></path></symbol></svg><script src="/static/highlight-9.15.10.min.js"></script><script src="/static/base.min.js"></script>
+</body>
+</html>
