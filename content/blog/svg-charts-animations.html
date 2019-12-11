@@ -11,7 +11,7 @@
     <h1>Create SVG charts and animations without a JS Library</h1>
     <p>June 3, 2018</p>
     At Dreamsolution we need to visualize a lot of data using bar charts, pie charts, counters etc. Most of the time
-    we use the <a href="https://www.highcharts.com/" target="_blank" rel="noreferrer noopener">Highcharts</a> library for the charts. Now I had some use cases
+    we use the <a href="https://www.highcharts.com/">Highcharts</a> library for the charts. Now I had some use cases
     where a library as Highcharts is overdone. The question was how can I create a simple pie and bar chart without
     using a library (Highcharts, Greensock, Raphael, SnapSVG and SVG.js)?
 
@@ -21,9 +21,9 @@
     using CSS animations in a separate file would not do the trick. (Unless you can serve your solution to the latest greatest browers,
     using CSS custom properties).
     <p>You can also use inline CSS to be able to work with dynamic values,
-    but if you have a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" target="_blank" rel="noreferrer noopener">CSP</a> in place, then inline CSS are blocked due to security reasons.</p>
+    but if you have a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">CSP</a> in place, then inline CSS are blocked due to security reasons.</p>
 
-    <p>It was time to start playing with <a href="https://www.w3.org/TR/SVG/animate.html#RelationshipToSMILAnimation" target="_blank" rel="noreferrer noopener">SMIL</a>.</p>
+    <p>It was time to start playing with <a href="https://www.w3.org/TR/SVG/animate.html#RelationshipToSMILAnimation">SMIL</a>.</p>
 
     <h2>Pie chart</h2>
     <p>I create a pie chart and animate the stroke-dasharray using the animate tag. Looks pretty clean and readable.</p>
@@ -353,7 +353,7 @@
     <h1>Issues:</h1>
     <p>
     As you can see it is easy to create simple pie chart and bar chart svg with animation without using a library. However I did bump into some issues in Edge and Firefox.</p>
-    <p>It turns out that <a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/5254111/" target="_blank" rel="noreferrer noopener">Microsoft Edge does not support SMIL</a>, while <a href="https://caniuse.com/#search=SMIL" target="_blank" rel="noreferrer noopener">other browsers</a> do.</p>
+    <p>It turns out that <a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/5254111/">Microsoft Edge does not support SMIL</a>, while <a href="https://caniuse.com/#search=SMIL">other browsers</a> do.</p>
 
     <p>If the animation is not a deal breaker you can set the end state of the stroke-dasharray for Edge by using Javascript. You check if SMIL is not supported and do your thing for IE, Edge:</p>
     <pre rel="JS">
@@ -378,11 +378,11 @@
         <li>fill</li>
     </ul>
 
-    <p>For some vague reason Firefox's CSP engine thinks that these svg attributes used in the animation are inline styles. If you animate the width, or height of an svg element then Firefox has no issues. I reported this bug at <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1459872" target="_blank" rel="noreferrer noopener">Bugzilla</a>. Depending on your project you can use for Firefox the iframe workaround: load the svg in an iframe with a less strict CSP.</p>
+    <p>For some vague reason Firefox's CSP engine thinks that these svg attributes used in the animation are inline styles. If you animate the width, or height of an svg element then Firefox has no issues. I reported this bug at <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1459872">Bugzilla</a>. Depending on your project you can use for Firefox the iframe workaround: load the svg in an iframe with a less strict CSP.</p>
 
     <h2>Conclusion</h2>
     <p>Can you use SMIL for production sites? If you don't need to fully support Edge and can use the iframe workaround for Firefox when working with a CSP, or if you use chromebit for narrowcasting, then yes you can. For cross browser support you still need a library.</p>
 
-    <p>I hope that in the near future all the major browsers will support SMIL. It is easy to use and <a href="https://www.w3.org/TR/SMIL3/" target="_blank" rel="noreferrer noopener">SMIL3.0</a> is available since 2008. For more examples go to <a href="https://css-tricks.com/guide-svg-animations-smil/" target="_blank" rel="noreferrer noopener">CSS Tricks</a>.</p>
+    <p>I hope that in the near future all the major browsers will support SMIL. It is easy to use and <a href="https://www.w3.org/TR/SMIL3/">SMIL3.0</a> is available since 2008. For more examples go to <a href="https://css-tricks.com/guide-svg-animations-smil/">CSS Tricks</a>.</p>
 </body>
 </html>

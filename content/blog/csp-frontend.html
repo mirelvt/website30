@@ -10,7 +10,7 @@
     <h1>What I learnt from using Content Security Policy.</h1>
     <p>December 11, 2019</p>
     <p>As front end developer at Dreamsolution, I also need to check on
-    <a href="https://content-security-policy.com/" target="_blank" rel="noreferrer noopener">Content Security Policy (CSP)</a> errors in our projects. During development you can track down most of the CSP errors if they occur.</p>
+    <a href="https://content-security-policy.com/">Content Security Policy (CSP)</a> errors in our projects. During development you can track down most of the CSP errors if they occur.</p>
 
     <p>What I have experienced is that the error descriptions in Chrome, Firefox and
     Safari are very cryptic. The origin is sometimes hard to find.
@@ -18,30 +18,31 @@
     If the CSP blocks a base64 url and you know you don't use this in your project,
     try to disable the add blocker and refresh again. If the CSP error goes away
     then you know you don't need to take action.</p>
-    <p>When setting up your CSP you make it as strict as possible. But sometimes
-    you have to loosen it a little when using third party libraries (e.g. HighCharts, jQuery etc.). They can throw inline-style or inline-script CSP errors.</p>
+    <p>When you set up your CSP you want to make it as strict as possible. But sometimes you have to loosen it a little when using third party libraries (e.g. HighCharts, jQuery etc.). They can throw inline-style or inline-script CSP errors.</p>
 
     <p>There are several ways to loosen your CSP. You can use
-    <a href="https://blog.mozilla.org/security/2014/10/04/csp-for-the-web-we-have/" target="_blank" rel="noreferrer noopener">Nonces or Hashes</a>,
+    <a href="https://blog.mozilla.org/security/2014/10/04/csp-for-the-web-we-have/">Nonces or Hashes</a>,
     if this doesn't work for your project you can choose to allow unsafe-inline content.</p>
+
+    <p>If your team works with Django Framework, it is possible to create a <em>View decorator</em> to change the default Content-Security-Policy. With this decorator you can override or add an extra directive ("style-src" is a "directive") to your Django View. This way you don't have to loosen your entire web applications' CSP.</p>
 
     <h2>Store third party libraries on your local domain</h2>
     <p>If you use CDNs to third party libraries you can whitelist these domains.
     Although it is whitelisted it is not necessarily secure. You don't have control
     over these domains and attackers might succeed in getting unauthorized access
     to these domains. If so, they can attack your site.</p>
-    <p>To avoid this, serve the third party libraries from your local domain.
+    <p>To avoid this, serve third party libraries from your local domain.
     And keep these packages up to date by checking their change logs for bug fixes etc.</p>
 
     <h2>Firefox CSP error when using SMIL in SVG.</h2>
-    <p>You can get inline-css CSP error in Firefox when animating the following SVG attributes using <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL" target="_blank" rel="noreferrer noopener">SMIL</a>:</p>
+    <p>You can get inline-css CSP error in Firefox when animating the following SVG attributes using <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL">SMIL</a>:</p>
     <ul>
         <li>stroke</li>
         <li>stroke-dasharray</li>
         <li>fill</li>
     </ul>
 
-    <p>For some vague reason Firefox's CSP engine thinks that these svg attributes used in the animation are inline styles. If you animate the width or height of an svg element then Firefox has no issues. I reported this bug at <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1459872" target="_blank" rel="noreferrer noopener">Bugzilla</a>. Depending on your project you can use for Firefox the iframe workaround: load the svg in an iframe with a less strict CSP.</p>
+    <p>For some vague reason Firefox's CSP engine thinks that these svg attributes used in the animation are inline styles. If you animate the width or height of an svg element then Firefox has no issues. I reported this bug at <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1459872">Bugzilla</a>. Depending on your project you can use the iframe workaround: load the svg in an iframe with a less strict CSP.</p>
 
     <h2>Define CSP for static HTML site</h2>
     <p>If you have a static html site (like me) you can define your CSP in your .htaccess file. Here's an example:</p>
@@ -61,21 +62,9 @@ Header set Content-Security-Policy "
 
     <p>More information on CSP, check out these links:</p>
     <ul>
-        <li><a href="https://www.w3.org/TR/CSP2/" target="_blank" rel="noreferrer noopener">CSP Level 2</a></li>
-        <li><a href="https://www.w3.org/TR/CSP3/" target="_blank" rel="noreferrer noopener">CSP Level 3</a></li>
-        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank" rel="noreferrer noopener">Mozilla</a></li>
-    </ul>
-
-    <h3>Use rel="noreferrer noopener" for cross-origin destinations</h3>
-    <p>If you use <strong><em>target="_blank"</em></strong> to open another origin you can run into performance and security issues. The other origin may run on the same process as your page and if the other origin runs a lot of javascript, your page performance may also suffer. When using <strong>target="_blank"</strong> the other page can access your <strong><em>window</em></strong> object with the <strong><em>window.opener</em></strong> property. The other page can potentially redirect your page to a malicious URL.</p>
-
-    <p>You can use <strong><em>rel="noopener"</em></strong> and <strong><em>rel="norefererer"</em></strong> to avoid these issues.</p>
-    <pre rel="HTML"><code>&lt;a href="https://other_origin.com" target="_blank" rel="noreferrer noopener"&gt;
-        Link to other origin
-    &lt;/a&gt;</code></pre>
-    <ul>
-        <li><strong>rel="noopener"</strong>: prevents the new page from being able to access the <strong><em>window.opener</em></strong> property and ensures it runs in a separate process.</li>
-        <li><strong>rel="noreferrer"</strong>: has the same effect, but also prevents the Referer Header from being sent to the new page.</li>
+        <li><a href="https://www.w3.org/TR/CSP2/">CSP Level 2</a></li>
+        <li><a href="https://www.w3.org/TR/CSP3/">CSP Level 3</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Mozilla</a></li>
     </ul>
 </body>
 </html>

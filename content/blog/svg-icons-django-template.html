@@ -10,7 +10,7 @@
     <h1>How to use svg icons in Django templates?</h1>
     <p>October 4, 2016</p>
     <p>I am accustomed to use icon fonts in our projects at Dreamsolution, which are created with
-<a href="https://rsp.github.io/fontcustom/" target="_blank" rel="noreferrer noopener">Fontcustom</a>. It is a nice tool to
+<a href="https://rsp.github.io/fontcustom/">Fontcustom</a>. It is a nice tool to
 generate the font icon from our own svg icons. Using the icon font in the last 3
 years I always bump into some styling issues. The icon font has anti-alias and
 doesn't get as sharp as vector images. The most annoying thing is positioning
@@ -20,9 +20,9 @@ it correctly in the latest browsers, you have to do a lot of tweaking.</p>
 
 <p>I was curious if you can use svg icons in an maintainable way. After
 reading the article on
-<a href="https://css-tricks.com/svg-symbol-good-choice-icons/" target="_blank" rel="noreferrer noopener">CSS-tricks</a>
+<a href="https://css-tricks.com/svg-symbol-good-choice-icons/">CSS-tricks</a>
 about svg symbols and Sara Soueidans' article about
-<a href="https://24ways.org/2014/an-overview-of-svg-sprite-creation-techniques/" target="_blank" rel="noreferrer noopener">
+<a href="https://24ways.org/2014/an-overview-of-svg-sprite-creation-techniques/">
 svg sprites</a>, I created a little demo page using this technique and discussed
 it with my colleagues to give this technique a chance in one of our projects.
 Because of the great advantages of svg, the decision was easily made.</p>
@@ -79,7 +79,7 @@ directory.</p>
 </code></pre>
 
 <p>Instead of typing this every time I need an icon, I created a template tag called
-*icon.py*. In the djangoproject documentation you can find more information about <a href="https://docs.djangoproject.com/en/1.10/howto/custom-template-tags/#writing-custom-template-tags" target="_blank" rel="noreferrer noopener">custom template tags</a>.</p>
+*icon.py*. In the djangoproject documentation you can find more information about <a href="https://docs.djangoproject.com/en/1.10/howto/custom-template-tags/#writing-custom-template-tags">custom template tags</a>.</p>
 
 <pre rel="icon.py">
 <code class="python">
