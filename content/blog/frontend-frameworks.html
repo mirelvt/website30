@@ -8,137 +8,207 @@
 </head>
 <body>
     <h1>Overview of frontend tools and frameworks in the wild.</h1>
-    <p>December 12, 2019</p>
-    <p>There are lots of frameworks and tools available for web development. And new ones are published while writing this post.</p>
-    <p>At Dreamsolution the framework we use for our projects is Django. We also have projects created with Flask. But for front end development we use Sass, CSS, Django Templating/HTML and Vanilla JS. In the past we used JQuery for old browser support, but the last few years we don't need to suport IE9 (depends on the clients' customers) so we could skip jQuery and wrote our own js "components" for Ajax, closest, toggle, delegate custom events etc. It is a much smaller js file than using the complete jQuery library. For compiling minified CSS and JS we use <a href="/blog/make-taskrunner.html">GNU Make</a>.</p>
-    <p>Whether you need framework A or B or no framework, good thing is that they exist and you can learn from it. If you don't need a framework but you know that a specific problem is fixed by one of the frameworks or library, you can check the code to see how they solved it.</p>
-
-    <p>I created a list of the frameworks and tools that I've heard/read about. I wanted to make an overview of how much is out there, the list is quite overwhelming. I ordered the frameworks and tools alphabetically.</p>
-
-    <p>If you want to know what the most popular tools are at the moment, check out <a href="https://ashleynolan.co.uk/blog/frontend-tooling-survey-2019-results">The front end tooling survey 2019</a>, <a href="https://2019.stateofcss.com/">State of CSS 2019</a>, <a href="https://stateofjs.com/">State of Javascript</a>.</p>
+    <p>Februari 21, 2020</p>
+    <p>Reason why I made this list is because I was curious how much tools and frameworks are available. And as you can see the list is quite overwhelming. And proves in my opinion that as front end developer you first need to have a solid knowledge of HTML, CSS, SVG and Javascript before jumping into a framework (if you really need one). </p>
+    <p>Here's the list, it is ordered alphabetically. (While writing this post, new ones are published and existing ones might be deprecated.)</p>
 
     <h2>CSS Frameworks</h2>
-    <ul>
-        <li>Ant design</li>
-        <li>Basis</li>
-        <li>BemSkel</li>
-        <li>Bootstrap</li>
-        <li>Bulma</li>
-        <li>ChuckCSS</li>
-        <li>Flexbox Grid</li>
-        <li>Foundation</li>
-        <li>FrowCSS</li>
-        <li>Gridlex</li>
-        <li>Kube</li>
-        <li>Materialize CSS</li>
-        <li>Miligram</li>
-        <li>Primer</li>
-        <li>Raster</li>
-        <li>Reflex</li>
-        <li>Semantic UI</li>
-        <li>ShapeCSS</li>
-        <li>Skeleton</li>
-        <li>Spectre</li>
-        <li>Tachyons</li>
-        <li>Tailwind</li>
-        <li>TentCSS</li>
-        <li>BobScss</li>
-        <li>Thimble</li>
-        <li>UIKit</li>
-        <li>Useful.ly</li>
-        <li>Wire</li>
-        <li>Juiced</li>
-    </ul>
+    <div class="list-grid">
+        <div>
+            <ul>
+                <li><a href="https://ant.design/">Ant design</a></li>
+                <li><a href="http://bemskel.com/">BemSkel</a></li>
+                <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+                <li><a href="https://bulma.io/">Bulma</a></li>
+                <li><a href="http://chuckcss.io/">ChuckCSS</a></li>
+                <li><a href="http://flexboxgrid.com/">Flexbox Grid</a></li>
+                <li><a href="https://foundation.zurb.com/">Foundation</a></li>
+                <li><a href="https://frowcss.com/">FrowCSS</a></li>
+                <li><a href="https://gridlex.devlint.fr/">Gridlex</a></li>
+                <li><a href="https://materializecss.com/">Materialize CSS</a></li>
+                <li><a href="https://milligram.io/">Miligram</a></li>
+                <li><a href="https://postcss.org/">PostCSS</a></li>
+                <li><a href="https://primer.style/">Primer</a></li>
+                <li><a href="https://purecss.io/">PureCSS</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://rsms.me/raster/">Raster</a></li>
+                <li><a href="http://reflexgrid.com/docs/">Reflex</a></li>
+                <li><a href="https://semantic-ui.com/">Semantic UI</a></li>
+                <li><a href="http://shapecss.microdreamit.com/">ShapeCSS</a></li>
+                <li><a href="http://getskeleton.com/">Skeleton</a></li>
+                <li><a href="https://picturepan2.github.io/spectre/">Spectre</a></li>
+                <li><a href="https://tachyons.io/">Tachyons</a></li>
+                <li><a href="https://tailwindcss.com/">Tailwind</a></li>
+                <li><a href="https://css.sitetent.com/">TentCSS</a></li>
+                <li><a href="https://bbo-code.com/bobscss">BobScss</a></li>
+                <li><a href="https://thimblecss.com/">Thimble</a></li>
+                <li><a href="https://getuikit.com/">UIKit</a></li>
+                <li><a href="https://useful.ly/">Useful.ly</a></li>
+                <li><a href="https://www.wirecss.com/">Wire</a></li>
+                <li><a href="http://juicedcss.com/">Juiced</a></li>
+            </ul>
+        </div>
+    </div>
 
     <h2>Javascript Frameworks</h2>
-    <ul>
-        <li>AngularJS</li>
-        <li>Aurelia</li>
-        <li>BackboneJS</li>
-        <li>Dojo</li>
-        <li>Electron</li>
-        <li>Emberjs</li>
-        <li>FlutterJS</li>
-        <li>Framework7</li>
-        <li>Ionic</li>
-        <li>Keystone</li>
-        <li>KnockoutJS</li>
-        <li>Mercury</li>
-        <li>Meteor</li>
-        <li>Mithril</li>
-        <li>MobX</li>
-        <li>NextJS</li>
-        <li>NodeJS</li>
-        <li>Omniscient</li>
-        <li>Polymer</li>
-        <li>PhoneGap</li>
-        <li>ReactJS</li>
-        <li>RingoJS</li>
-        <li>StapesJS</li>
-        <li>Socket</li>
-        <li>SvelteJS</li>
-        <li>VueJS</li>
-        <li>Webix</li>
-    </ul>
+    <div class="list-grid">
+        <div>
+            <ul>
+                <li><a href="https://angularjs.org/">AngularJS</a></li>
+                <li><a href="https://aurelia.io/">Aurelia</a></li>
+                <li><a href="https://backbonejs.org/">BackboneJS</a></li>
+                <li><a href="https://dojotoolkit.org/">Dojo</a></li>
+                <li><a href="https://electronjs.org/">Electron</a></li>
+                <li><a href="https://emberjs.com/">Emberjs</a></li>
+                <li><a href="https://flutter.dev/">FlutterJS</a></li>
+                <li><a href="https://framework7.io/">Framework7</a></li>
+                <li><a href="https://ionicframework.com/">Ionic</a></li>
+                <li><a href="https://www.keystonejs.com/">Keystone</a></li>
+                <li><a href="https://knockoutjs.com/">KnockoutJS</a></li>
+                <li><a href="https://www.meteor.com/">Meteor</a></li>
+                <li><a href="https://mithril.js.org/">Mithril</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://mobx.js.org/README.html">MobX</a></li>
+                <li><a href="https://nextjs.org/">NextJS</a></li>
+                <li><a href="https://nodejs.org/en/">NodeJS</a></li>
+                <li><a href="https://omniscientjs.github.io/">Omniscient</a></li>
+                <li><a href="https://www.polymer-project.org/">Polymer</a></li>
+                <li><a href="https://reactjs.org/">ReactJS</a></li>
+                <li><a href="https://ringojs.org/">RingoJS</a></li>
+                <li><a href="https://github.com/sockjs/sockjs-client">Socket</a></li>
+                <li><a href="https://svelte.dev/">SvelteJS</a></li>
+                <li><a href="https://vuejs.org/">VueJS</a></li>
+                <li><a href="https://webix.com/">Webix</a></li>
+            </ul>
+        </div>
+    </div>
 
     <h2>Javascript build tools</h2>
-    <ul>
-        <li>BroccoliJS</li>
-        <li>Browserify</li>
-        <li>Brunch</li>
-        <li>Gulp</li>
-        <li>Grunt</li>
-        <li>FuseBox</li>
-        <li>LassoJS</li>
-        <li>Microbundle</li>
-        <li>Parcel</li>
-        <li>RequireJS</li>
-        <li>Rollup.js</li>
-        <li>StealJS</li>
-        <li>SystemJS</li>
-        <li>Webpack</li>
-        <li>Yeoman</li>
-    </ul>
+    <div class="list-grid">
+        <div>
+            <ul>
+                <li><a href="https://broccoli.build/">BroccoliJS</a></li>
+                <li><a href="http://browserify.org/">Browserify</a></li>
+                <li><a href="https://brunch.io/">Brunch</a></li>
+                <li><a href="https://gulpjs.com/">Gulp</a></li>
+                <li><a href="https://gruntjs.com/">Grunt</a></li>
+                <li><a href="https://fuse-box.org/">FuseBox</a></li>
+                <li><a href="https://github.com/lasso-js/lasso">LassoJS</a></li>
+                <li><a href="https://github.com/developit/microbundle">Microbundle</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://parceljs.org/">Parcel</a></li>
+                <li><a href="https://requirejs.org/">RequireJS</a></li>
+                <li><a href="https://rollupjs.org/guide/en/">Rollup.js</a></li>
+                <li><a href="https://stealjs.com/">StealJS</a></li>
+                <li><a href="https://github.com/systemjs/systemjs">SystemJS</a></li>
+                <li><a href="https://webpack.js.org/">Webpack</a></li>
+                <li><a href="https://yeoman.io/">Yeoman</a></li>
+            </ul>
+        </div>
+    </div>
 
     <h2>Package Managers</h2>
     <ul>
-        <li>Bower</li>
-        <li>Duo</li>
-        <li>Ender</li>
-        <li>JSPM</li>
-        <li>NPM</li>
-        <li>Yarn</li>
-        <li>Volo</li>
+        <li><a href="https://bower.io/">Bower</a></li>
+        <li><a href="https://github.com/duojs/duo">Duo</a></li>
+        <li><a href="https://enderjs.com/">Ender</a></li>
+        <li><a href="https://jspm.org/">JSPM</a></li>
+        <li><a href="https://www.npmjs.com/">NPM</a></li>
+        <li><a href="https://yarnpkg.com/lang/en/">Yarn</a></li>
+        <li><a href="https://github.com/volojs/volo">Volo</a></li>
     </ul>
 
     <h2>Javascript compilers</h2>
     <ul>
-        <li>Babeljs</li>
-        <li>Dart</li>
-        <li>Typescript</li>
-        <li>Elm</li>
-        <li>Purescript</li>
-        <li>Coffeescript</li>
-        <li>Clojurescript</li>
-        <li>Scala</li>
-        <li>Reason</li>
-        <li>Haxe</li>
-        <li>Nim</li>
+        <li><a href="https://babeljs.io/">Babeljs</a></li>
+        <li><a href="https://dart.dev/">Dart</a></li>
+        <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
+        <li><a href="https://elmprogramming.com/why-elm.html">Elm</a></li>
+        <li><a href="http://www.purescript.org/">Purescript</a></li>
+        <li><a href="https://coffeescript.org/">Coffeescript</a></li>
+        <li><a href="https://clojurescript.org/">Clojurescript</a></li>
+        <li><a href="https://www.scala-lang.org/">Scala</a></li>
+        <li><a href="https://reasonml.github.io/">Reason</a></li>
+        <li><a href="https://haxe.org/">Haxe</a></li>
+        <li><a href="https://nim-lang.org/docs/nimc.html">Nim</a></li>
     </ul>
 
     <h2>SVG, Canvas, WebGL</h2>
     <ul>
-        <li>Anime.js</li>
-        <li>D3js</li>
-        <li>Graphic.js</li>
-        <li>GreenSock</li>
-        <li>Pixi.js</li>
-        <li>Raphaël</li>
-        <li>Snap.svg</li>
-        <li>SVG.js</li>
-        <li>Three.js</li>
-        <li>Two.js</li>
-        <li>Velocity.js</li>
+        <li><a href="https://animejs.com/">Anime.js</a></li>
+        <li><a href="https://d3js.org/">D3js</a></li>
+        <li><a href="http://www.graphicsjs.org/">Graphic.js</a></li>
+        <li><a href="https://greensock.com/">GreenSock - GSAP</a></li>
+        <li><a href="https://www.pixijs.com/">Pixi.js</a></li>
+        <li><a href="https://github.com/DmitryBaranovskiy/raphael">Raphaël</a></li>
+        <li><a href="http://snapsvg.io/">Snap.svg</a></li>
+        <li><a href="https://svgjs.com/docs/3.0/">SVG.js</a></li>
+        <li><a href="https://threejs.org/">Three.js</a></li>
+        <li><a href="https://two.js.org/">Two.js</a></li>
+        <li><a href="http://velocityjs.org/">Velocity.js</a></li>
+    </ul>
+
+    <h2>Linters</h2>
+    Most of these linters are installable via editors like SublimeText, Atom and VSCode.
+    <ul>
+        <li><a href="http://csslint.net/">CSSLint</a></li>
+        <li><a href="https://stylelint.io/">StyleLint</a></li>
+        <li><a href="https://github.com/sds/scss-lint">SCSSLint</a></li>
+        <li><a href="https://eslint.org/">ESLint</a></li>
+        <li><a href="https://github.com/jshint/jshint">JSHint</a></li>
+        <li><a href="https://www.npmjs.com/package/jslint">JSLint</a></li>
+    </ul>
+
+    <h2>Minifiers</h2>
+    <ul>
+        <li><a href="https://developers.google.com/closure/compiler">Google Closure Compiler</a></li>
+        <li><a href="https://www.minifier.org/">Minify</a></li>
+        <li><a href="https://github.com/terser/terser">TerserJS</a></li>
+        <li><a href="https://github.com/mishoo/UglifyJS">UglifyJS</a></li>
+    </ul>
+
+    <h2>Static site generators</h2>
+    <ul>
+        <li><a href="https://jekyllrb.com/">Jekyll</a></li>
+        <li><a href="https://gohugo.io/">Hugo</a></li>
+        <li><a href="https://hexo.io/">Hexo</a></li>
+        <li><a href="https://www.gatsbyjs.org/">Gatsby</a></li>
+        <li><a href="https://nuxtjs.org/">Nuxt</a></li>
+        <li><a href="https://www.mkdocs.org/">MkDocs</a></li>
+        <li><a href="https://blog.getpelican.com/">Pelican</a></li>
+        <li><a href="https://metalsmith.io/">Metalsmith</a></li>
+        <li><a href="https://middlemanapp.com/">Middleman</a></li>
+        <li><a href="https://spike.js.org/">Spike</a></li>
+    </ul>
+
+    <h2>Testing tools</h2>
+    <ul>
+        <li><a href="https://karma-runner.github.io/latest/index.html">Karma</a></li>
+        <li><a href="https://www.protractortest.org/#/">Protractor</a></li>
+        <li><a href="http://casperjs.org/">Casper</a></li>
+    </ul>
+
+    <h2>Javascript template engine</h2>
+    <ul>
+        <li><a href="https://olado.github.io/doT/">doT.js</a></li>
+        <li><a href="https://ejs.co/">EJS</a></li>
+        <li><a href="https://handlebarsjs.com/">HandlebarsJS</a></li>
+        <li><a href="http://jade-lang.com/">Jade</a></li>
+        <li><a href="https://markojs.com/">Marko</a></li>
+        <li><a href="http://mustache.github.io/">Mustache</a></li>
+        <li><a href="https://mozilla.github.io/nunjucks/">Nunjucks</a></li>
+        <li><a href="https://pugjs.org/api/getting-started.html">Pug</a></li>
+        <li><a href="https://idangero.us/template7/#.XhcNY2RKjAw">Template7</a></li>
+        <li><a href="http://underscorejs.org/">Underscore.js</a></li>
     </ul>
 </body>
 </html>

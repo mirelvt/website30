@@ -252,10 +252,6 @@ nav {
 /* @END HEADER + MENU */
 /* ------------------ */
 
-
-/* read more */
-.fill-color { fill: currentColor; }
-
 .read-more {
     display: flex;
     align-items: center;
@@ -581,6 +577,12 @@ button:hover { background-color: var(--c-hover); }
 /* 800 / 16 */
 @media screen and (max-width: 50em) {
     .photo-side { display: none };
+}
+
+.list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8rem;
 }
 
 /* ------------------------ */
