@@ -86,6 +86,7 @@
                 </nav>
             </header>
 
+            <script async src="//www.google-analytics.com/analytics.js"></script>
             <script src="/static/highlight-9.15.10.min.js" />
             <script src="/static/base.min.js" />
             <xsl:if test="$extra_js">
