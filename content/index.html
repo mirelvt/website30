@@ -2,41 +2,37 @@
 <head>
     <title>Mirella van Teulingen</title>
     <meta name="section" content="home" />
+    <extra_js>/static/home.min.js</extra_js>
 </head>
 <body>
-    <div class="block-home">
-        <div class="block-home-visual">
-            <a href="blog" class="img-border"><icon symbol="blog" /></a>
-        </div>
-        <div class="block-home-text">
-            <h2><a href="blog">Blog</a></h2>
-            <p>
-            This is my personal blog where I write about things I come across
-            while coding and the meetings/conferences I attended. Most articles
-            are related to front end development.
-            </p>
-        </div>
-        <a href="blog" class="read-more">
-            <span>Read more</span> <icon symbol="readmore" />
-        </a>
-    </div>
-    <div class="block-home">
-        <div class="block-home-visual">
-            <a href="about.html" class="img-border">
-                <img src="static/img/portret-small.jpg" alt="zelfportret" />
-            </a>
-        </div>
-        <div class="block-home-text">
-            <h2><a href="about.html">About me</a></h2>
-            <p>
-                My name is Mirella van Teulingen and I'm a Dutch front end developer.
-                I work in a team of python and javascript developers at
-                <a href="http://www.dreamsolution.nl">Dreamsolution</a> in Delft.
-            </p>
-        </div>
-        <a href="about.html" class="read-more">
-            <span>Read more</span> <icon symbol="readmore" />
-        </a>
-    </div>
+    <section>
+        <h1>Hey! I'm Mirella van Teulingen and i'm a Dutch front end developer.</h1>
+        <svg viewBox="0 0 700 450" class="svg-home-nav">
+            <defs>
+                <filter id="blur">
+                    <feGaussianBlur stdDeviation="5" />
+                </filter>
+                <filter id="unblur">
+                    <feGaussianBlur stdDeviation="0" />
+                </filter>
+            </defs>
+            <g class="nav" transform="translate(315, -60)">
+                <rect x="0" y="200" rx="10" ry="10" transform="rotate(-20, 0, 178)" class="nav-line-1" />
+                <a href="blog">
+                    <g class="nav-text-1"><text x="140" y="180">Blog</text></g>
+                </a>
+                <rect x="-5" y="378" rx="10" ry="10" transform="rotate(20, 0, 378)" class="nav-line-2" />
+                <a href="about.html">
+                    <g class="nav-text-2"><text x="125" y="440">About me</text></g>
+                </a>
+            </g>
+            <g transform="translate(0, 50)">
+                <circle cx="240" cy="150" r="160"
+                stroke-dasharray="1010, 1010"
+                stroke="rgb(96, 179, 85)" fill="transparent" stroke-width="15" transform="rotate(-90, 225, 187)" class="img-border" />
+                <image x="24" y="32" width="328" height="281" href="static/img/aboutme-front.jpg" class="photo-me" />
+            </g>
+        </svg>
+    </section>
 </body>
 </html>

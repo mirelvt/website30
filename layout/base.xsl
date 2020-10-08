@@ -17,7 +17,7 @@
 
 <xsl:template match="/">
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-    <html lang="en">
+    <html lang="en" class="no-js">
         <head>
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -63,30 +63,43 @@
                 </xsl:if>
             </main>
 
-            <header>
-                <nav role="menu">
-                    <a href="/" role="menuitem">
+            <xsl:if test="$section != 'home'">
+                <nav>
+                    <input type="checkbox" name="toggle-nav" id="toggle-nav" tabindex="1" />
+                    <a href="/" role="menuitem" title="home">
                         <xsl:if test="$section = 'home'">
                             <xsl:attribute name="class">selected</xsl:attribute>
                         </xsl:if>
-                        <span>home</span>
+                        <xsl:call-template name="icon">
+                            <xsl:with-param name="symbol">home</xsl:with-param>
+                        </xsl:call-template>
                     </a>
-                    <a href="/blog/" role="menuitem">
+                    <a href="/blog/" role="menuitem" class="nav-item-1" title="blog">
                         <xsl:if test="$section = 'blog'">
                             <xsl:attribute name="class">selected</xsl:attribute>
                         </xsl:if>
-                        <span>blog</span>
+                         <xsl:call-template name="icon">
+                            <xsl:with-param name="symbol">blog</xsl:with-param>
+                        </xsl:call-template>
                     </a>
-                    <a href="/about.html" role="menuitem">
+                    <a href="/about.html" role="menuitem" class="nav-item-2" title="about">
                         <xsl:if test="$section = 'about'">
                             <xsl:attribute name="class">selected</xsl:attribute>
                         </xsl:if>
-                        <span>about</span>
+                        <xsl:call-template name="icon">
+                            <xsl:with-param name="symbol">mvt</xsl:with-param>
+                        </xsl:call-template>
                     </a>
+                    <label for="toggle-nav" arial-label="open navigation">
+                        <xsl:call-template name="icon">
+                            <xsl:with-param name="symbol">plus</xsl:with-param>
+                        </xsl:call-template>
+                    </label>
                 </nav>
-            </header>
+            </xsl:if>
 
-            <script async src="//www.google-analytics.com/analytics.js"></script>
+
+            <script async="" src="//www.google-analytics.com/analytics.js"></script>
             <script src="/static/highlight-9.15.10.min.js" />
             <script src="/static/base.min.js" />
             <xsl:if test="$extra_js">
@@ -100,18 +113,13 @@
 
 <xsl:template match="icon" name="icon">
     <xsl:param name="symbol" select="symbol" />
-    <xsl:choose>
-        <xsl:when test="$symbol">
-            <svg viewBox="0 0 512 512" width="10" height="10" class="icon-{$symbol}">
-                <use xlink:href="/static/icons-sprite.svg#{$symbol}" />
-            </svg>
-        </xsl:when>
-        <xsl:otherwise>
-            <svg viewBox="0 0 512 512" width="10" height="10" class="icon-{@symbol}">
-                <use xlink:href="/static/icons-sprite.svg#{@symbol}" />
-            </svg>
-        </xsl:otherwise>
-    </xsl:choose>
+    <xsl:param name="icon_title" select="icon_title" />
+    <svg viewBox="0 0 512 512" width="10" height="10" class="icon-{$symbol}">
+        <xsl:if test="$icon_title !=''">
+            <title><xsl:value-of select="$icon_title" /></title>
+        </xsl:if>
+        <use xlink:href="/static/icons-sprite.svg#{$symbol}" />
+    </svg>
 </xsl:template>
 
 <xsl:template match="blog_list">
@@ -136,6 +144,10 @@
             <xsl:with-param name="symbol">
                 <xsl:if test="@rel = 'prev'">chevron-left</xsl:if>
                 <xsl:if test="@rel = 'next'">chevron-right</xsl:if>
+            </xsl:with-param>
+            <xsl:with-param name="icon_title">
+                <xsl:if test="@rel = 'prev'">previous article</xsl:if>
+                <xsl:if test="@rel = 'next'">next article</xsl:if>
             </xsl:with-param>
         </xsl:call-template>
     </a>
