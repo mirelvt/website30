@@ -28,6 +28,9 @@ $(OBJ)/%.min.css: layout/%.scss
 $(OBJ)/%.min.js: layout/%.src.js
 	terser --comments -c hoist_vars=true,join_vars=true -m -o $@ $<
 
+run:
+	python3 -m http.server -d www 8000
+
 clean:
 	rm -f $(HTML_OBJS) $(CSS_OBJS) $(JS_OBJS)
 
