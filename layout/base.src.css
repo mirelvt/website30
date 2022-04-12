@@ -1,20 +1,34 @@
-@import url(atom-one-light.min.css);
+/*@import url(atom-one-light.min.css);*/
+@import url(rainbow.min.css);
 
 :root {
     --font-generic: arial, helvetica, sans-serif;
-    --c-primary: #8dd6f9;
-    --c-text: #d6e7fb;
-    --c-shadow: var(--c-text);
+/*    --c-primary: #8dd6f9;*/
+    --c-primary: #e5eae7;
+/*    --c-text: #d6e7fb;*/
+/*    --c-text: #eff8ef;*/
+    --c-text: #e5eae7;
+    --c-shadow: #000;
     --c-hover: #53a7ce;;
-    --c-svg: #7cb342;
+/*    --c-svg: #7cb342;*/
+    --c-svg: #5d9464;
     --c-svg-hover: #689F29;
 }
 
 @font-face {
-    font-family: "Source Sans Pro";
-     src: url('fonts/SourceSansPro-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-family: Karla;
+    src: url('fonts/Karla-Italic-VariableFont_wght.ttf');
+    font-weight: 200 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Karla;
+    src: url('fonts/Karla-VariableFont_wght.ttf');
+    font-weight: 200 800;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -54,13 +68,19 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: "Roboto Mono", var(--font-generic);
-    font-size: 1.8rem;
-    background-image: linear-gradient(145deg,
+    font-family: Karla, var(--font-generic);
+    font-weight: 300;
+    font-size: 1.9rem;
+    line-height: 1.22;
+    /*background-image: linear-gradient(145deg,
                         rgb(56, 95, 139) 0%,
                         rgb(0, 34, 75) 65%,
                         rgb(0, 34, 75) 100%);
-    background-attachment: fixed;
+    background-attachment: fixed;*/
+/*    background-color: #403F47;*/
+    background-color: #272221;
+
+;
 }
 
 .scroll-disabled { overflow: hidden; }
@@ -101,11 +121,12 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Source Sans Pro", var(--font-generic);
     color: var(--c-primary);
-    font-weight: normal;
+    font-weight: 500;
+     line-height: 1;
 }
 
+h1 { font-weight: 600; }
 h1 { font-size: 5rem; }
 h2 { font-size: 3.6rem; }
 h3 { font-size: 3rem; }
@@ -555,7 +576,7 @@ code {
     padding: 1.5rem;
     white-space: pre;
     font-family: 'Roboto Mono';
-    font-size: 80%;
+    font-size: 90%;
 }
 
 /* @End code styling */
@@ -597,7 +618,7 @@ code {
 
 button {
     padding: 0.5rem 1rem;
-    font-family: "Source Sans Pro", var(--font-generic);
+    font-family: Karla, var(--font-generic);
     font-size: 1.8rem;
     color: #fff;
     background-color: var(--c-svg);
