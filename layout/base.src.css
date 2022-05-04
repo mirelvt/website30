@@ -456,7 +456,7 @@ main h1:first-of-type { margin-top: 0; }
     .svg-home-nav .nav text {
         fill: var(--c-text);
         font-size: 50px;
-        font-family: "Droid Sans Mono";
+        font-family: 'Roboto Mono';
     }
 
 
