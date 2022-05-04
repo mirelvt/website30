@@ -1,8 +1,8 @@
 {
     "name": "Mirella van Teulingen Blog",
     "short_name": "mirelvt_blog",
-    "theme_color": "#7cb342",
-    "background_color": "#7cb342",
+    "theme_color": "#5d9464",
+    "background_color": "#272221",
     "display": "fullscreen",
     "start_url": "/",
     "icons": [{

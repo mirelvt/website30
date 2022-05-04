@@ -9,7 +9,7 @@
         --c-link: #37af76;
         --c-text: #e5eae7;
         --c-shadow: #000;
-        --c-svg: #5d9464;
+        --c-svg: var(--c-primary);
         --c-svg-hover: #689F29;
 
         --c-pie-main: #474949;
