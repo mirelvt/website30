@@ -46,9 +46,9 @@
     </pre>
 
     <h3>Demo pie chart:</h3>
-    <button data-trigger="startanimation">Start animation</button>
+    <button data-trigger="startanimation" data-target="pie-chart-1">Start animation</button>
     <div class="svg-piechart-example">
-        <svg viewbox="0 0 400 400">
+        <svg viewbox="0 0 400 400" data-elm="pie-chart-1">
             <!-- main circle -->
             <circle fill="#ccc" cx="200" cy="200" r="200" class="pie-main" />
             <!-- circle where the dash-stroke will be animated -->
@@ -105,9 +105,9 @@
     </code>
     </pre>
 
-    <button data-trigger="startanimation">Start animation</button>
+    <button data-trigger="startanimation" data-target="pie-chart-2">Start animation</button>
     <div class="svg-piechart-example">
-        <svg viewbox="0 0 400 400">
+        <svg viewbox="0 0 400 400" data-elm="pie-chart-2">
             <defs>
     <!--             Clip path creates a clipping region that defines what part of
                 an element should be displayed in svg.
@@ -246,9 +246,9 @@
     </code>
     </pre>
 
-    <button data-trigger="startanimation">Start animation</button>
+    <button data-trigger="startanimation" data-target="bar-chart">Start animation</button>
     <div class="svg-bar-example">
-        <svg viewBox="0 0 190 165">
+        <svg viewBox="0 0 190 165" data-elm="bar-chart">
             <g transform="translate(20, 0)">
                 <!-- reset bar -->
                 <line class="barchart_line bar-1"

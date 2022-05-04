@@ -503,8 +503,7 @@ main h1:first-of-type { margin-top: 0; }
 .svg-piechart-example {
     width: 60vw;
     height: 40vh;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
+    margin: 4vh auto;
 }
 
 .svg-piechart-example svg {

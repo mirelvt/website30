@@ -1,17 +1,16 @@
 (function() {
     'use strict';
 
-    function startAnimation() {
-        const anim_elms = document.querySelectorAll('animate');
-        const anim_trans_elms =document.querySelectorAll('animateTransform');
+    function startAnimation(evt) {
+        const btn = evt.target;
+        const svg_elm = document.querySelector(`[data-elm="${btn.dataset.target
+}"]`)
+        const anim_elms = svg_elm.querySelectorAll('animateTransform, animate');
 
-        for (let i = 0; i < anim_elms.length; i++) {
-            let e_parent = anim_elms[i].parentNode;
-            e_parent.dispatchEvent(new CustomEvent('startanimation'));
-        }
+        svg_elm.dispatchEvent(new CustomEvent('startanimation'));
 
-        for (let i = 0; i < anim_trans_elms.length; i++) {
-            let e_parent = anim_trans_elms[i].parentNode;
+        for (const anim of anim_elms) {
+            let e_parent = anim.parentNode;
             e_parent.dispatchEvent(new CustomEvent('startanimation'));
         }
     }
@@ -20,8 +19,9 @@
         var btns = document.querySelectorAll('[data-trigger="startanimation"]');
 
         if (btns) {
-            for (let i = 0; i < btns.length; i++)
-                btns[i].addEventListener('click', startAnimation);
+            for (let btn of btns) {
+                btn.addEventListener('click', startAnimation);
+            }
         }
     });
 })();
