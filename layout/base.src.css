@@ -629,6 +629,12 @@ main h1:first-of-type { margin-top: 0; }
     column-gap: 8rem;
 }
 
+
+.svg-sprite {
+    display: flex; /* avoid spacing */
+    visibility: hidden;
+}
+
 /* ------------------------ */
 /* PAGE LAYOUT BREAK POINTS */
 /* 600 / 16 */

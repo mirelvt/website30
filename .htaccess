@@ -131,14 +131,4 @@ DirectoryIndex index.html
 ErrorDocument 404 https://mirellavanteulingen.nl/404.html
 
 # CSP
-Header set Content-Security-Policy "
-  default-src 'none';
-  script-src 'self' *.mirellavanteulingen.nl https://www.google-analytics.com;
-  style-src 'self' *.mirellavanteulingen.nl;
-  img-src 'self' *.mirellavanteulingen.nl https://www.google-analytics.com https://*.googleapis.com;
-  frame-src 'self' *.mirellavanteulingen.nl;
-  connect-src 'self' *.mirellavanteulingen.nl;
-  font-src 'self' *.mirellavanteulingen.nl;
-  manifest-src 'self';
-  base-uri 'none';
-"
+Header set Content-Security-Policy "default-src 'self'; base-uri 'none';"
