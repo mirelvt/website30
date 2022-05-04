@@ -60,16 +60,16 @@
 
     <pre rel="Folder structure">
     <code class="dts">FOO-project/
-       static/
-          css/
-             /* here comes the generated css files */
-       scss/
-          base.scss
-          login.scss
-          shop.scss
-          _variables.scss
-          _mixins.scss
-       Makefile
+    static/
+        css/
+            /* here comes the generated css files */
+    scss/
+        base.scss
+        login.scss
+        shop.scss
+        _variables.scss
+        _mixins.scss
+    Makefile
     </code>
     </pre>
 
@@ -77,7 +77,7 @@
 
     <pre rel="makefile">
     <code class="makefile">CSS_OBJ = static/css
-    SASS_SRCS = scss
+SASS_SRCS = scss
     </code>
     </pre>
 
@@ -91,12 +91,12 @@
 
     <pre rel="makefile">
     <code class="makefile">CSS_OBJ = static/css
-    SASS_SRCS = scss
+SASS_SRCS = scss
 
-    CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
-    CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
-    CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
-    CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
+CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
+CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
+CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
+CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
     </code>
     </pre>
 
@@ -121,7 +121,7 @@
     <p>A rule has the following format:</p>
     <pre rel="makefile">
     <code class="makefile">targets : prerequisites
-       recipe</code></pre>
+    recipe</code></pre>
 
     <p>In our example the first rule is to compile .src.css files with Sass.
     The target is **$(CSS_OBJ)/%.src.css**, the prerequisites **$(SASS_SRCS)/%.scss $(CSS_DEPS)** and the recipe **scss $&lt; $@** . $&lt; and $@ are called automatic variables. These variables have values computed afresh for each rule that is executed. The rule to create .src.css will be executed 3 times: for the base, login and shop. The rule to create .min.css files are also executed 3 times.</p>
@@ -130,18 +130,18 @@
 
     <pre rel="makefile">
     <code class="makefile">CSS_OBJ = static/css
-    SASS_SRCS = scss
+SASS_SRCS = scss
 
-    CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
-    CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
-    CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
-    CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
+CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
+CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
+CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
+CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
 
-    $(CSS_OBJ)/%.src.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
-        scss $<code_esc>&lt;</code_esc> $@
+$(CSS_OBJ)/%.src.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
+    scss $<code_esc>&lt;</code_esc> $@
 
-    $(CSS_OBJ)/%.min.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
-        scss --sourcemap=none --style compressed $<code_esc>&lt;</code_esc> $@
+$(CSS_OBJ)/%.min.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
+    scss --sourcemap=none --style compressed $<code_esc>&lt;</code_esc> $@
     </code>
     </pre>
 
@@ -149,20 +149,20 @@
 
     <pre rel="makefile">
     <code class="makefile">CSS_OBJ = static/css
-    SASS_SRCS = scss
+SASS_SRCS = scss
 
-    CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
-    CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
-    CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
-    CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
+CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
+CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
+CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
+CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
 
-    all: $(CSS_MIN_OBJS) $(CSS_OBJS)
+all: $(CSS_MIN_OBJS) $(CSS_OBJS)
 
-    $(CSS_OBJ)/%.src.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
-        scss $<code_esc>&lt;</code_esc> $@
+$(CSS_OBJ)/%.src.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
+    scss $<code_esc>&lt;</code_esc> $@
 
-    $(CSS_OBJ)/%.min.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
-        scss --sourcemap=none --style compressed $<code_esc>&lt;</code_esc> $@
+$(CSS_OBJ)/%.min.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
+    scss --sourcemap=none --style compressed $<code_esc>&lt;</code_esc> $@
     </code>
     </pre>
 
@@ -192,23 +192,23 @@
 
     <pre rel="makefile">
     <code class="makefile">CSS_OBJ = static/css
-    SASS_SRCS = scss
+SASS_SRCS = scss
 
-    CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
-    CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
-    CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
-    CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
+CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
+CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
+CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
+CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
 
-    all: $(CSS_OBJS) $(CSS_MIN_OBJS)
+all: $(CSS_OBJS) $(CSS_MIN_OBJS)
 
-    $(CSS_OBJ)/%.src.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
-        scss $<code_esc>&lt;</code_esc> $@
+$(CSS_OBJ)/%.src.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
+    scss $<code_esc>&lt;</code_esc> $@
 
-    $(CSS_OBJ)/%.min.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
-        scss --sourcemap=none --style compressed $<code_esc>&lt;</code_esc> $@
+$(CSS_OBJ)/%.min.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
+    scss --sourcemap=none --style compressed $<code_esc>&lt;</code_esc> $@
 
-    clean:
-        rm -f $(CSS_OBJS) $(CSS_MIN_OBJS)
+clean:
+    rm -f $(CSS_OBJS) $(CSS_MIN_OBJS)
     </code>
     </pre>
 
@@ -220,29 +220,29 @@
     </code></pre>
 
     <h2>.PHONY</h2>
-    <p>The Makefile is finished, right? Not really. If you create a file with, for example, the name *clean* and you run: make clean, clean would always be considered up to date and its recipe would not be executed, because it had no prerequisites. Just try it, create a file named clean and run make clean. You will get the following output in your terminal: **make: `clean' is up to date**. So how to avoid this? <a href="https://www.gnu.org/software/make/manual/make.html#Phony-Targets">Phony target</a> comes to the rescue. With phony target you avoid conflict with a file of the same name and it also improve performance. Add **.PHONY: clean all** to your Makefile and run make clean again. As you can see the clean file triggers no conflict anymore and executes the target.</p>
+    <p>The Makefile is finished, right? Not really. If you create a file with, for example, the name <b>clean</b> and you run: <b>make clean</b>, clean would always be considered up to date and its recipe would not be executed, because it had no prerequisites. Just try it, create a file named clean and run make clean. You will get the following output in your terminal: <b>make: `clean' is up to date</b>. So how to avoid this? <a href="https://www.gnu.org/software/make/manual/make.html#Phony-Targets">Phony target</a> comes to the rescue. With phony target you avoid conflict with a file of the same name and it also improve performance. Add <b>.PHONY: clean all</b> to your Makefile and run make clean again. As you can see the clean file triggers no conflict anymore and executes the target.</p>
 
     <pre rel="makefile">
     <code class="makefile">CSS_OBJ = static/css
-    SASS_SRCS = scss
+SASS_SRCS = scss
 
-    CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
-    CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
-    CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
-    CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
+CSS_DEPS = $(wildcard $(SASS_SRCS)/_*.scss)
+CSS_SRCS = $(filter-out _%, $(notdir $(wildcard $(SASS_SRCS)/*.scss)))
+CSS_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.src.css, $(CSS_SRCS))
+CSS_MIN_OBJS = $(patsubst %.scss, $(CSS_OBJ)/%.min.css, $(CSS_SRCS))
 
-    all: $(CSS_OBJS) $(CSS_MIN_OBJS)
+all: $(CSS_OBJS) $(CSS_MIN_OBJS)
 
-    $(CSS_OBJ)/%.src.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
-        scss $<code_esc>&lt;</code_esc> $@
+$(CSS_OBJ)/%.src.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
+    scss $<code_esc>&lt;</code_esc> $@
 
-    $(CSS_OBJ)/%.min.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
-        scss --sourcemap=none --style compressed $<code_esc>&lt;</code_esc> $@
+$(CSS_OBJ)/%.min.css: $(SASS_SRCS)/%.scss $(CSS_DEPS)
+    scss --sourcemap=none --style compressed $<code_esc>&lt;</code_esc> $@
 
-    clean:
-        rm -f $(CSS_OBJS) $(CSS_MIN_OBJS)
+clean:
+    rm -f $(CSS_OBJS) $(CSS_MIN_OBJS)
 
-    .PHONY: clean all
+.PHONY: clean all
     </code>
     </pre>
 
@@ -279,14 +279,15 @@
     </code>
     </pre>
 
-    <p>Now you have a simple task runner to create source CSS and minified CSS files with just **23 lines of code**!</p>
+    <p>Now you have a simple task runner to create source CSS and minified CSS files with just <b>23 lines of code</b>!</p>
 
-    <h2>Run make in Sublime or Atom</h2>
+    <h2>Run make in Sublime, Atom or VSCode</h2>
 
     <p>You can use the terminal to run make, but you can perhaps also use your favorite editor, check their site if there is a package available. If you use Sublime or Atom:</p>
     <ul>
-    <li>Sublime is shipped with its own build tool. You can find the list of build tools in the Tools/Build System menu. To select the build system you want, use the following key command (on Mac): **super+shift+B**. Once the choice has been made, the selected build system will be remembered for the project. Now you just simply run <strong>super+B</strong> to compile your css.</li>
-    <li>Atom has a package named **build-make** which you can install via their package manager. You also need the **atom-build** package.</li>
+    <li>Sublime is shipped with its own build tool. You can find the list of build tools in the <em>Tools/Build System</em> menu. To select the build system you want, use the following key command (on Mac): <b>super+shift+B</b>. Once the choice has been made, the selected build system will be remembered for the project. Now you just simply run <strong>super+B</strong> to compile your css.</li>
+    <li>Atom has a package named <b>build-make</b> which you can install via their package manager. You also need the <b>atom-build</b> package.</li>
+    <li>In VSCode you need to create a task to be able to use Make.</li>
     </ul>
 
     <p>You can do a lot more with Make, you can also generate minified js files, generate css with less or generate font icons using fontcustom. The options are endless. To get you up and running I shall create in the near future some more Makefile examples which you can use.</p>
