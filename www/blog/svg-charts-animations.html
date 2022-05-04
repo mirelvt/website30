@@ -64,14 +64,14 @@
     <div class="svg-piechart-example">
         <svg viewbox="0 0 400 400">
             <!-- main circle -->
-            <circle fill="#ccc" cx="200" cy="200" r="200"></circle>
+            <circle fill="#ccc" cx="200" cy="200" r="200" class="pie-main"></circle>
             <!-- circle where the dash-stroke will be animated -->
-            <circle cx="200" cy="200" r="160" transform="rotate(-90, 200, 200)" stroke-dasharray="0, 1000" stroke="#7cb342" stroke-width="80" data-fallback="edge">
+            <circle cx="200" cy="200" r="160" transform="rotate(-90, 200, 200)" stroke-dasharray="0, 1000" stroke-width="80" data-fallback="edge" class="pie-stroke">
                 <animate attributeName="stroke-dasharray" dur="1s" to="300,1000" fill="freeze" begin="startanimation"></animate>
             </circle>
             <!-- Inner circle -->
-            <circle cx="200" cy="200" r="160" fill="#fff"></circle>
-            <text x="115" y="230" textAnchor="middle" font-size="100" fill="#3c4946">30%</text>
+            <circle cx="200" cy="200" r="160" class="pie-inner"></circle>
+            <text x="115" y="230" textAnchor="middle" font-size="100" class="pie-text">30%</text>
         </svg>
     </div>
 
@@ -131,23 +131,23 @@
                 </clipPath>
             </defs>
             <!-- main circle -->
-            <circle fill="#ccc" cx="200" cy="200" r="200"></circle>
+            <circle class="pie-main" cx="200" cy="200" r="200"></circle>
             <!-- circle where the dash-stroke will be animated -->
-            <circle cx="200" cy="200" r="160" transform="rotate(-90, 200, 200)" stroke-dasharray="0, 1000" stroke="#7cb342" stroke-width="80" data-fallback="edge">
+            <circle cx="200" cy="200" r="160" transform="rotate(-90, 200, 200)" stroke-dasharray="0, 1000" class="pie-stroke" stroke-width="80" data-fallback="edge">
                 <animate attributeName="stroke-dasharray" dur="1s" to="300,1000" fill="freeze" begin="startanimation"></animate>
             </circle>
             <!-- Inner circle -->
-            <circle cx="200" cy="200" r="160" fill="#fff"></circle>
+            <circle cx="200" cy="200" r="160" class="pie-inner"></circle>
             <g class="counter-clippath" clip-path="url(#counter-clippath)" transform="translate(0, 165)">
-                <g class="move-svg-text">
+                <g class="move-svg-text pie-text">
                     <animateTransform attributeName="transform" type="translate" dur="1s" calcMode="discrete" begin="startanimation" values="0 0; 0 -90; 0 -180; 0 -270; 0 -360; 0 -450; 0 -540" fill="freeze"></animateTransform>
-                    <text x="200" y="70" text-anchor="middle" font-size="100" fill="#3c4946">1%</text>
-                    <text x="200" y="160" text-anchor="middle" font-size="100" fill="#3c4946">3%</text>
-                    <text x="200" y="250" text-anchor="middle" font-size="100" fill="#3c4946">5%</text>
-                    <text x="200" y="340" text-anchor="middle" font-size="100" fill="#3c4946">7%</text>
-                    <text x="200" y="430" text-anchor="middle" font-size="100" fill="#3c4946">9%</text>
-                    <text x="200" y="520" text-anchor="middle" font-size="100" fill="#3c4946">11%</text>
-                    <text x="200" y="610" text-anchor="middle" font-size="100" fill="#3c4946">13%</text>
+                    <text x="200" y="70" text-anchor="middle" font-size="100">1%</text>
+                    <text x="200" y="160" text-anchor="middle" font-size="100">3%</text>
+                    <text x="200" y="250" text-anchor="middle" font-size="100">5%</text>
+                    <text x="200" y="340" text-anchor="middle" font-size="100">7%</text>
+                    <text x="200" y="430" text-anchor="middle" font-size="100">9%</text>
+                    <text x="200" y="520" text-anchor="middle" font-size="100">11%</text>
+                    <text x="200" y="610" text-anchor="middle" font-size="100">13%</text>
                 </g>
             </g>
         </svg>

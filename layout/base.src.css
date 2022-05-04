@@ -12,6 +12,12 @@
         --c-svg: #5d9464;
         --c-svg-hover: #689F29;
 
+        --c-pie-main: #474949;
+        --c-pie-text: var(--c-pie-main);
+        --c-pie-inner: #b1b4b1;
+
+        --bg-body: #272221;
+
         --size-nav-icon: 2rem;
     }
 
@@ -58,7 +64,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         font-feature-settings: "liga", "kern";
-        background-color: #fff;
+        background-color: var(--bg-body);
     }
 
     body {
@@ -69,7 +75,7 @@
         font-weight: 300;
         font-size: 1.9rem;
         line-height: 1.22;
-        background-color: #272221;
+        background-color: var(--bg-body);
     }
 
     a {
@@ -503,11 +509,16 @@ main h1:first-of-type { margin-top: 0; }
     width: 100%;
     height: 100%;
 }
+
+.pie-main { fill: var(--c-pie-main); }
+.pie-stroke { stroke: var(--c-primary); }
+.pie-inner { fill: var(--c-pie-inner); }
+.pie-text { fill: var(--c-pie-text); }
 /* @End pie chart example */
 
 /* bar chart example */
 .svg-bar-example {
-    max-width: 45vw;
+    max-width: 40rem;
     height: auto;
     margin-top: 4rem;
     margin-left: auto;
