@@ -45,6 +45,7 @@
                     <link rel="stylesheet" href="{.}" />
                 </xsl:for-each>
             </xsl:if>
+            <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-35887478-1" />
         </head>
         <body>
             <main class="page-{$section}" >
@@ -125,8 +126,8 @@
                 </symbol>
             </svg>
 
-            <script src="/static/highlight-11.5.1.min.js" />
-            <script src="/static/base.min.js" />
+            <script defer="defer" src="/static/highlight-11.5.1.min.js" />
+            <script defer="defer" src="/static/base.min.js" />
             <xsl:if test="$extra_js">
                 <xsl:for-each select="/html/head/extra_js">
                     <script src="{.}" />

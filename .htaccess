@@ -131,4 +131,4 @@ DirectoryIndex index.html
 ErrorDocument 404 https://mirellavanteulingen.nl/404.html
 
 # CSP
-Header set Content-Security-Policy "default-src 'self'; base-uri 'none';"
+Header set Content-Security-Policy "default-src 'none'; base-uri 'none'; object-src 'none'; script-src 'self'; img-src 'self'"
