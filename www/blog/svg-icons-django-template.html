@@ -44,17 +44,18 @@ it with my colleagues to give this technique a chance in one of our projects.
 Because of the great advantages of svg, the decision was easily made.</p>
 
 <p>The project we started to use svg symbols is build with Django Framework.
-The svg icons are created separately and placed in a folder called *svg-icons*. This folder is purely for version control.</p>
+The svg icons are created separately and placed in a folder called <b>svg-icons</b>. This folder is purely for version control.</p>
 
-<p>In the *templates* directory I created the include template file *include_icon_sprite.html*.
-It is a html file because at the time of writing we still need to support IE and IE does
-not support xlink to an svg file. I include this file in the base template at
+<p>In the <b>templates</b> directory I created the include template file <b>include_icon_sprite.html</b>.
+It is a html file, because at the time of writing we still need to support IE and IE does
+not support xlink with external reference to an svg file. I include this file in the base template at
 the bottom of the page. Using "include" in the file name we know it is a
 template snippet. In this file I have one svg file which contains all the symbols.
-The symbol contains the svg code copied from each svg icon from the *svg-icons*
+The symbol contains the svg code copied from each svg icon from the <b>svg-icons</b>
 directory.</p>
 
-<p>In the code snippet you'll notice the class *svg-sprite*. If you do not hide the svg, all the icons will be displayed. In your Sass or CSS file you set .svg-sprite { display: none; }.</p>
+<p>In the code snippet you'll notice the class <b>svg-sprite</b>.
+If you do not hide the svg, all the icons will be displayed. In your Sass or CSS file you set .svg-sprite { display: none; }.</p>
 
 <pre rel="SVG icon sprite">
 <code>
@@ -95,7 +96,7 @@ directory.</p>
 </code></pre>
 
 <p>Instead of typing this every time I need an icon, I created a template tag called
-*icon.py*. In the djangoproject documentation you can find more information about <a href="https://docs.djangoproject.com/en/1.10/howto/custom-template-tags/#writing-custom-template-tags">custom template tags</a>.</p>
+<b>icon.py</b>. In the djangoproject documentation you can find more information about <a href="https://docs.djangoproject.com/en/1.10/howto/custom-template-tags/#writing-custom-template-tags">custom template tags</a>.</p>
 
 <pre rel="icon.py">
 <code class="python">
@@ -116,7 +117,7 @@ def svg_icon(icon_name, extra_class=''):
     return mark_safe(svg_tag)
 </code></pre>
 
-<p>This custom tag has 2 variables, the *icon_name* and *extra_class*. If you need a specific styling for the icon you can set an extra class. To use the custom template tag in your template you have to load the template tag in your Django template and you are ready to go:</p>
+<p>This custom tag has 2 variables, the <b>icon_name</b> and <b>extra_class</b>. If you need a specific styling for the icon you can set an extra class. To use the custom template tag in your template you have to load the template tag in your Django template and you are ready to go:</p>
 
 <pre rel="Django HTML">
 <code class="django">
