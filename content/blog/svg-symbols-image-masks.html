@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <title>SVG icon symbols or image masks? - MvT</title>
+    <meta name="section" content="blog" />
+    <link rel="prev" href="/blog/frontend-frameworks.html" />
+    <meta name="description" content="The pros and cons of svg symbol and image masks." />
+</head>
+<body>
+    <h1>SVG icon symbols or image masks?</h1>
+    <p>May 8, 2022</p>
+    <p>
+        I've wrote a blog post how to create a svg symbol sprite and how to use
+        it in a <a href="/blog/svg-icons-django-template.html">django project</a>.
+        I implemented the svg sprite inline at the bottom of the html document.
+        This was due to the fact that at that time we still needed to support IE11.
+        Which doesn't support xlink with external reference.
+    </p>
+    <p>Since we are (I think) past the need of support of IE11 you could start
+    using en external svg sprite and use xlink with external reference to load svg symbol icon.</p>
+    <p>The nice thing about svg symbols is that you can manipulate its dimensions and use 2 colors in your svg.</p>
+    <p>The fill color and the currentColor:</p>
+    <pre rel="SVG"><code>&lt;symbol id="chevron-left"&gt;
+  &lt;path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z" /&gt;
+  &lt;path fill="currentColor" d="M349.3 353.5l-94.1-94.1 94.1-94.1-47.1-47-141.1 141.1 141.1 141.1z"/&gt;
+&lt;/symbol&gt;
+    </code></pre>
+    <pre rel="CSS"><code>.chevron-left {
+    width: 32px;
+    height: 32px;
+    fill: var(--fill-svg);
+    color: var(--c-svg); /* currentColor */
+    transition: fill 0.15s;
+}</code></pre>
+    <h2>Disadvantages of using SVG Symbols</h2>
+    <h4>Performance issue</h4>
+    <p>
+        There is one thing you need to be aware of when using svg symbols in general.
+        Symbols are not cached. And every call to a svg symbol is a request.
+    </p>
+    <h4>Firefox CSP error</h4>
+    <p>Unfortunately when you have a Content Security Policy added to your web application you will
+    have Firefox CSP issues...</p>
+</body>
+</html>
