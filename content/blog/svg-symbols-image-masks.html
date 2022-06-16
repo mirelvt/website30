@@ -2,22 +2,23 @@
 <head>
     <title>SVG icon symbols or image masks? - MvT</title>
     <meta name="section" content="blog" />
-    <link rel="prev" href="/blog/frontend-frameworks.html" />
+    <link rel="prev" href="/blog/index.html" />
+    <link rel="next" href="/blog/frontend-frameworks.html" />
     <meta name="description" content="The pros and cons of svg symbol and image masks." />
 </head>
 <body>
     <h1>SVG icon symbols or image masks?</h1>
     <p>May 8, 2022</p>
     <p>
-        I've wrote a blog post how to create a svg symbol sprite and how to use
+        I've wrote a blog post how to create an SVG symbol sprite and how to use
         it in a <a href="/blog/svg-icons-django-template.html">django project</a>.
-        I implemented the svg sprite inline at the bottom of the html document.
+        I implemented the SVG sprite inline at the bottom of the html document.
         This was due to the fact that at that time we still needed to support IE11.
         Which doesn't support xlink with external reference.
     </p>
-    <p>Since we are (I think) past the need of support of IE11 you could start
-    using en external svg sprite and use xlink with external reference to load svg symbol icon.</p>
-    <p>The nice thing about svg symbols is that you can manipulate its dimensions and use 2 colors in your svg.</p>
+    <p>Since we are (I think) past the need of support of IE11, you could start
+    using an external SVG sprite and use xlink with external reference to load SVG symbol icon.</p>
+    <p>The nice thing about SVG symbols is that you can manipulate its dimensions and use 2 colors in your SVG.</p>
     <p>The fill color and the currentColor:</p>
     <pre rel="SVG"><code>&lt;symbol id="chevron-left"&gt;
   &lt;path d="M33.8 2h444.3c17.6 0 31.8 14.3 31.8 31.8v444.3c0 17.6-14.3 31.8-31.8 31.8H33.8C16.2 509.9 2 495.6 2 478.1V33.8C1.9 16.2 16.2 2 33.8 2z" /&gt;
@@ -34,11 +35,72 @@
     <h2>Disadvantages of using SVG Symbols</h2>
     <h4>Performance issue</h4>
     <p>
-        There is one thing you need to be aware of when using svg symbols in general.
-        Symbols are not cached. And every call to a svg symbol is a request.
+        There is one thing you need to be aware of when using SVG symbols in general.
+        Symbols are not cached. And every call to a SVG symbol is a request. If you
+        have a table overview with a lot of repeating SVG icons, it can really affect
+        the loading of your page.
     </p>
     <h4>Firefox CSP error</h4>
-    <p>Unfortunately when you have a Content Security Policy added to your web application you will
-    have Firefox CSP issues...</p>
+    <p>
+        SVG symbols using external reference can cause a Firefox CSP error, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1303364">see issue on bugzilla</a>.
+        SVGs loaded via xlink:href are not considered as images and are blocked if default-src directive
+        is set to 'none' in your CSP. To bypass this issue you can set default-src to 'self'.
+        Which means that all directives will implicitly be 'self'. For example, if
+        you have default-src 'self' applied in your CSP, but not specified the font-src directive, the font-src directives' policy will also be 'self'.
+    </p>
+    <h2>Image mask using SVG icons</h2>
+    <P>
+        With CSS mask-image property you can also use SVG icons in your project and
+        manipulate its color via CSS, using the background-color property. Therefore you can
+        only use one-color icons. The advantage is that it has no performance issues, because the CSS is cached.
+    </P>
+    <p>
+        A way to setup a CSS structure to easily use mask-images you could create a mixin for the mask-image when you use SASS:
+    </p>
+    <pre rel="SASS"><code>@mixin mask($img, $w:1.8rem, $h: auto) {
+    -webkit-mask-image: $img;
+    -webkit-mask-size: $w $h;
+    mask-image: $img;
+    mask-size: $w $h;
+}</code></pre>
+<p>In your CSS you can define some icons and setup a default icon layout:</p>
+    <pre rel="SASS"><code>:root {
+    --size-icon: 3.2rem;
+    --c-icon: #2d2d2d;
+}
+
+.icon-chevron-left {
+    @include mask($img: url(icon-chevron-left.svg), $w: var(--size-icon));
+}
+.icon-chevron-right {
+    @include mask($img: url(icon-chevron-right.svg), $w: var(--size-icon));
+}
+
+[class^="icon-"] {
+    display: block;
+    width: var(--siz-icon);
+    height: var(--size-icon);
+    background-color: var(--c-icon);
+}
+</code></pre>
+I use the display:block property on the icon class, because most of the time I use the &lt;span&gt;-tag to apply the icon.
+<p>I use CSS custom properties for the size + color to easily change them when desired:</p>
+    <pre rel="SASS"><code>.toc .icon-chevron-left {
+    --c-icon: blue;
+    --size-icon: 2.2rem;
+}
+</code></pre>
+
+<h4>Wrapping up</h4>
+<p>
+    You can use 4 svg icon techniques simultaneously in your project:
+    <ul>
+        <li>Inline SVG (the complete svg code of your icon in your template).</li>
+        <li>SVG image sprite with &lt;use&gt; and the sprite at the bottom of your template.</li>
+        <li>SVG image sprite with &lt;use&gt; and external reference.</li>
+        <li>CSS mask-image.</li>
+    </ul>
+</p>
+<p>I use the mask-image approach in combination with svg symbols in several projects and I find it very easy to use and to manage. I hope this blog post has some value for other front end developers.</p>
 </body>
 </html>
