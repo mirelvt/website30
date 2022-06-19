@@ -10,5 +10,4 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-35887478-1');
-
 })();

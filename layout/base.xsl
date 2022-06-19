@@ -19,6 +19,7 @@
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
     <html lang="en" class="no-js">
         <head>
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35887478-1"></script>
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -45,7 +46,6 @@
                     <link rel="stylesheet" href="{.}" />
                 </xsl:for-each>
             </xsl:if>
-            <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-35887478-1" />
         </head>
         <body>
             <main class="page-{$section}" >
